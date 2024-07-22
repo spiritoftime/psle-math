@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+*.egg-info
+*.manifest
+*.spec
+
+# Virtual environment directories
+venv/
+ENV/
+env/
+.venv/
+env.bak/
+venv.bak/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*.swn
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Python virtual environment
+.pyenv/
+firebase_key.json
+.env
