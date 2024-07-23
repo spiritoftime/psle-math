@@ -11,12 +11,12 @@ const getLectureProgress = (
 
 const LectureSideBar: React.FC<{ item: PageTree.Item }> = ({ item }) => {
   const [progress, setProgress] = useState(0);
-  // useEffect(() => {
-  //   const completedLectures = JSON.parse(
-  //     localStorage.getItem("completed-lectures") || "{}"
-  //   );
-  //   setProgress(getLectureProgress(title, completedLectures));
-  // }, [route]);
+  useEffect(() => {
+    const completedLectures = JSON.parse(
+      localStorage.getItem("completed-lectures") || "{}"
+    );
+    setProgress(getLectureProgress(item.name as string, completedLectures));
+  }, [item.name]);
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
