@@ -21,7 +21,7 @@ export default async function Page({
     <DocsPage toc={page.data.exports.toc} full={page.data.full}>
       <DocsBody>
         <h1 className="mb-1">{page.data.title}</h1>
-        <ProgressIndicator progress={50} title={page.data.title} />
+        <ProgressIndicator title={page.data.title} />
         <MDX />
       </DocsBody>
     </DocsPage>
