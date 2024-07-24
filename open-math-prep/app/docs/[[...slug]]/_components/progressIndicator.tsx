@@ -4,6 +4,7 @@ import styles from "./progressIndicator.module.css";
 import { useGetLectureStructure } from "../../../application/queries/useGetLectureStructure";
 import { LectureStructure } from "../../../domain/lectureNodes/lectureNodes";
 import Skeleton from "./skeleton";
+import { useIsClient } from "@/app/clientProvider";
 
 const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
   title,
@@ -23,16 +24,19 @@ const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
   );
 };
 const progressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
-  const { data }: { data: LectureStructure | undefined } =
-    useGetLectureStructure();
-  return (
-    <Suspense fallback={<Skeleton />}>
-      {title in data ? (
-        <ProgressIndicator title={title} progress={data[title].progress} />
-      ) : (
-        <></>
-      )}
-    </Suspense>
-  );
+  // const isClient = useIsClient();
+  // const { data }: { data: LectureStructure | undefined } =
+  //   useGetLectureStructure();
+
+  // return (
+  //   <Suspense fallback={<Skeleton />}>
+  //     {isClient && data && title in data ? (
+  //       <ProgressIndicator title={title} progress={data[title].progress} />
+  //     ) : (
+  //       <></>
+  //     )}
+  //   </Suspense>
+  // );
+  return <></>;
 };
 export default progressIndicatorWrapper;

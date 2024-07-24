@@ -3,7 +3,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import "katex/dist/katex.css";
-import ReactQueryProvider from "./reactQueryProvider";
+import ClientProvider from "./clientProvider";
 import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({
   subsets: ["latin"],
@@ -14,10 +14,10 @@ export default function Layout({ children }: { children: ReactNode }) {
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body>
         <RootProvider>
-          <ReactQueryProvider>
+          <ClientProvider>
             {children}
             <Toaster />
-          </ReactQueryProvider>
+          </ClientProvider>
         </RootProvider>
       </body>
     </html>

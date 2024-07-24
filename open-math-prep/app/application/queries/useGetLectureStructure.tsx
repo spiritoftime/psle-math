@@ -1,7 +1,7 @@
 "use client";
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import lectureNodeService from "@/infrastructure/lectureNodes";
-import { queryClient } from "@/app/reactQueryProvider";
+import { queryClient } from "@/app/clientProvider";
 queryClient.setQueryDefaults(["lectureNodes"], {
   refetchOnMount: false,
   refetchOnWindowFocus: false,

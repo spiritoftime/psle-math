@@ -4,7 +4,7 @@ import { dtoToLectureStructure } from "./transform";
 const updateLocalStorage = (lectureStructure: LectureStructure) => {
   if (lectureStructure) {
     const localStorageProgress: LectureStructure = JSON.parse(
-      localStorage.getItem("completed-lectures") || "{}"
+      window.localStorage.getItem("completed-lectures") || "{}"
     );
     const lectureSet = new Set(Object.keys(lectureStructure));
     for (const lec in localStorageProgress) {
@@ -17,7 +17,7 @@ const updateLocalStorage = (lectureStructure: LectureStructure) => {
       localStorageProgress[lec] = { ...lectureStructure[lec] };
     }
 
-    localStorage.setItem(
+    window.localStorage.setItem(
       "completed-lectures",
       JSON.stringify(localStorageProgress)
     );
@@ -25,6 +25,7 @@ const updateLocalStorage = (lectureStructure: LectureStructure) => {
 };
 async function getLectureStructure(api = lectureNodesApi) {
   const response = await api.getLectureNodes();
+  console.count(response);
   const LectureStructure = dtoToLectureStructure(response);
   updateLocalStorage(LectureStructure);
   return LectureStructure;
