@@ -1,6 +1,8 @@
 "use client";
 import { useGetLectureStructure } from "@/app/application/queries/useGetLectureStructure";
-import React from "react";
+import { LectureStructure } from "@/app/domain/lectureNodes";
+import React, { useEffect } from "react";
+let didInit = false;
 
 const getLectures = () => {
   const {
@@ -8,14 +10,11 @@ const getLectures = () => {
     isLoading,
     data: lectureStructure,
   } = useGetLectureStructure();
+  console.log(lectureStructure, isLoading);
   if (isError) {
     // add dialog to warn user and they should login to save progress
   }
-  if (!isLoading && lectureStructure) {
-    const localStorageProgress = JSON.parse(
-      localStorage.getItem("completed-lectures") || "{}"
-    );
-  }
+
   return <></>;
 };
 
