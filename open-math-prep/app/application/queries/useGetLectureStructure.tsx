@@ -1,5 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import lectureNodeService from "@/infrastructure/lectureNodes";
+import { queryClient } from "@/app/reactQueryProvider";
+queryClient.setQueryDefaults(["lectureNodes"], {
+  refetchOnMount: false,
+  refetchOnWindowFocus: false,
+  refetchOnReconnect: false,
+});
 
 export function getQueryKey() {
   return ["lectureNodes"];

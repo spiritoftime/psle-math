@@ -3,8 +3,19 @@ import { useGetLectureStructure } from "@/app/application/queries/useGetLectureS
 import React from "react";
 
 const getLectures = () => {
-  const lectureStructure = useGetLectureStructure();
-  console.log(lectureStructure);
+  const {
+    isError,
+    isLoading,
+    data: lectureStructure,
+  } = useGetLectureStructure();
+  if (isError) {
+    // add dialog to warn user and they should login to save progress
+  }
+  if (!isLoading && lectureStructure) {
+    const localStorageProgress = JSON.parse(
+      localStorage.getItem("completed-lectures") || "{}"
+    );
+  }
   return <></>;
 };
 
