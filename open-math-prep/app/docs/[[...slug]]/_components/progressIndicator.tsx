@@ -4,7 +4,6 @@ import styles from "./progressIndicator.module.css";
 import { useGetLectureStructure } from "../../../application/queries/useGetLectureStructure";
 import { LectureStructure } from "../../../domain/lectureNodes/lectureNodes";
 import Skeleton from "./skeleton";
-import { useIsClient } from "@/app/clientProvider";
 
 const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
   title,
@@ -23,20 +22,36 @@ const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
     </div>
   );
 };
-const progressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
-  // const isClient = useIsClient();
-  // const { data }: { data: LectureStructure | undefined } =
-  //   useGetLectureStructure();
+const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
+  const [lectureProgress, setLectureProgress] = React.useState<
+    LectureStructure | undefined
+  >();
+  const [isLoading, setIsLoading] = React.useState(true);
 
-  // return (
-  //   <Suspense fallback={<Skeleton />}>
-  //     {isClient && data && title in data ? (
-  //       <ProgressIndicator title={title} progress={data[title].progress} />
-  //     ) : (
-  //       <></>
-  //     )}
-  //   </Suspense>
-  // );
-  return <></>;
+  React.useEffect(() => {
+    setTimeout(() => {
+      const storedProgress = localStorage.getItem("completed-lectures");
+      if (storedProgress) {
+        setLectureProgress(JSON.parse(storedProgress));
+      }
+      setIsLoading(false); // Set loading to false after data is fetched
+    }, 1000);
+  }, [title]);
+
+  return (
+    <Suspense fallback={<Skeleton />}>
+      {isLoading ? (
+        <Skeleton /> // Show Skeleton while loading
+      ) : lectureProgress && title in lectureProgress ? (
+        <ProgressIndicator
+          title={title}
+          progress={lectureProgress[title].progress}
+        />
+      ) : (
+        <></>
+      )}
+    </Suspense>
+  );
 };
-export default progressIndicatorWrapper;
+
+export default ProgressIndicatorWrapper;

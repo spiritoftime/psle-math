@@ -2,8 +2,13 @@ import { getPage, getPages } from "@/app/source";
 import type { Metadata } from "next";
 import { DocsPage, DocsBody } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
-import ProgressIndicator from "./_components/progressIndicator";
-
+import dynamic from "next/dynamic";
+const DynamicProgressIndicator = dynamic(
+  () => import("./_components/progressIndicator"),
+  {
+    ssr: false,
+  }
+);
 export default async function Page({
   params,
 }: {
@@ -21,7 +26,7 @@ export default async function Page({
     <DocsPage toc={page.data.exports.toc} full={page.data.full}>
       <DocsBody>
         <h1 className="mb-1">{page.data.title}</h1>
-        <ProgressIndicator title={page.data.title} />
+        <DynamicProgressIndicator title={page.data.title} />
         <MDX />
       </DocsBody>
     </DocsPage>
