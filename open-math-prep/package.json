@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.51.11",
+    "firebase": "^10.12.4",
     "fumadocs-core": "12.5.5",
     "fumadocs-mdx": "8.2.34",
     "fumadocs-ui": "12.5.5",
@@ -21,6 +23,7 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.51.12",
     "@types/mdx": "^2.0.13",
     "@types/node": "20.14.11",
     "@types/react": "^18.3.3",

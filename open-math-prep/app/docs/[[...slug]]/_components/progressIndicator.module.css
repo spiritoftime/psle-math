@@ -3,12 +3,11 @@
   inherits: false;
   initial-value: 0;
 }
-.progress-container{
+.progress-container {
   --animation-duration: 1s;
   display: flex;
   align-items: center;
-  gap:0.25rem;
-
+  gap: 0.25rem;
 }
 @keyframes animate-progress {
   to {
@@ -34,7 +33,7 @@
 }
 .progress-value::before {
   font-size: 1rem;
-  color: aliceblue;
+  color: var(--tw-prose-headings);
   counter-reset: percentage var(--progress-value);
   content: counter(percentage) "%";
   animation: animate-progress var(--animation-duration) 1 forwards;
