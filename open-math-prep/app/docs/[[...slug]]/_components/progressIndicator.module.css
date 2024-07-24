@@ -3,7 +3,13 @@
   inherits: false;
   initial-value: 0;
 }
+.progress-container{
+  --animation-duration: 1s;
+  display: flex;
+  align-items: center;
+  gap:0.25rem;
 
+}
 @keyframes animate-progress {
   to {
     --progress-value: var(--progress);
@@ -11,27 +17,29 @@
 }
 
 .progress-bar {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-
-  /* to center the percentage value */
+  width: 100%;
+  height: 1rem;
+  border-radius: 0.5rem;
   display: flex;
-  justify-content: center;
+  gap: 0.5rem;
+  /* to center the percentage value */
   align-items: center;
-  background: radial-gradient(closest-side, #5585b5 79%, transparent 50% 100%),
-    conic-gradient(#ff613f calc(var(--progress-value) * 1%), lightblue 0);
-  animation: animate-progress 2s 1 forwards;
-}
+  background: linear-gradient(
+    to right,
+    #48c78e calc(var(--progress-value) * 1%),
+    lightblue calc(var(--progress-value) * 1%)
+  ); /* Filled part */
 
-.progress-bar::before {
-  font-size: 0.7rem;
+  animation: animate-progress var(--animation-duration) 1 forwards;
+}
+.progress-value::before {
+  font-size: 1rem;
   color: aliceblue;
   counter-reset: percentage var(--progress-value);
   content: counter(percentage) "%";
-  animation: animate-progress 2s 1 forwards;
+  animation: animate-progress var(--animation-duration) 1 forwards;
 }
-/* select direct child - cannot apply global to module.css */
+
 .progress-bar > progress {
   visibility: hidden;
   width: 0;

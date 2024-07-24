@@ -7,10 +7,17 @@ const ProgressIndicator: React.FC<{ progress: number; title: string }> = ({
 }) => {
   return (
     <div
-      className={styles["progress-bar"]}
       style={{ "--progress": `${progress}` } as React.CSSProperties}
-    >
-      <progress id={title} max="100" value={progress}></progress>
+      className={styles["progress-container"]}
+      >
+      <div
+        style={{ "--wtf": `${progress}` } as React.CSSProperties}
+        className={styles["progress-value"]}
+      ></div>
+
+      <div className={styles["progress-bar"]}>
+        <progress id={title} max="100" value={progress}></progress>
+      </div>
     </div>
   );
 };
