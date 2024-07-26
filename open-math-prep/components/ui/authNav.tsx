@@ -5,17 +5,12 @@ import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { itemVariants } from "@/app/layout.client";
 
-const authNav = async () => {
+const authNav = ({ signedIn }: { signedIn: boolean }) => {
   const supabase = createClient();
-
-  const { data, error } = await supabase.auth.getUser();
-  console.log(data);
   return (
     <>
-      {!data?.user ? (
-        <Link key={"Logout"} href={`/logout`} className={cn(itemVariants())}>
-          {"Logout"}
-        </Link>
+      {signedIn ? (
+        <AuthButton title="logout" />
       ) : (
         <Link key={"Login"} href={`/login`} className={cn(itemVariants())}>
           {"Login"}

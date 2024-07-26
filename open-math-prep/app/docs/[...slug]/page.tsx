@@ -1,10 +1,10 @@
 import { getPage, getPages } from "@/app/source";
 import type { Metadata } from "next";
 import { DocsPage, DocsBody } from "fumadocs-ui/page";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import dynamic from "next/dynamic";
 import { createClient } from "@/utils/supabase/server";
-import LoginButton from "@/components/ui/authButton";
+import AuthButton from "@/components/ui/authButton";
 
 const DynamicProgressIndicator = dynamic(
   () => import("./_components/progressIndicator"),
@@ -32,8 +32,7 @@ export default async function Page({
         <DocsBody>
           {!data?.user && (
             <div className="flex">
-              <LoginButton
-                redirectPath="/login"
+              <AuthButton
                 title={"Login to track progress and get email on tips!"}
               />
             </div>

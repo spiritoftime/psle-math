@@ -6,7 +6,6 @@ import { useParams } from "next/navigation";
 import { type ReactNode } from "react";
 import { cn } from "@/utils/cn";
 import { modes } from "@/utils/modes";
-import { createClient } from "@/utils/supabase/server";
 import AuthNav from "@/components/ui/authNav";
 
 export const itemVariants = cva(
@@ -25,7 +24,11 @@ export function Body({
   );
 }
 
-export function NavChildren(): React.ReactElement {
+export function NavChildren({
+  signedIn,
+}: {
+  signedIn: boolean;
+}): React.ReactElement {
   return (
     <div className="rounded-md border bg-fd-muted/80 p-1 text-sm text-fd-muted-foreground max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2">
       {modes.map((m) => (
@@ -37,7 +40,7 @@ export function NavChildren(): React.ReactElement {
           {m.name}
         </Link>
       ))}
-      <AuthNav />
+      <AuthNav  signedIn={signedIn} />
     </div>
   );
 }
