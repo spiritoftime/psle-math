@@ -28,7 +28,7 @@ export const baseOptions: HomeLayoutProps = {
       </div>
     ),
     transparentMode: "top",
-    children: <ServerNavChildren />,
+    children: <NavChildren />,
   },
 };
 // docs layout configuration

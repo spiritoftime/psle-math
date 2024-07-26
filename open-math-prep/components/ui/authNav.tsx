@@ -1,16 +1,18 @@
-import { createClient } from "@/utils/supabase/client";
+"use client";
 import React from "react";
 import AuthButton from "./authButton";
 import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { itemVariants } from "@/app/layout.client";
+import { useGetUser } from "@/app/application/queries/useGetUser";
 
-const authNav = ({ signedIn }: { signedIn: boolean }) => {
-  const supabase = createClient();
+const AuthNav = () => {
+  const { data: user } = useGetUser();
+  console.log(user);
   return (
     <>
-      {signedIn ? (
-        <AuthButton title="logout" />
+      {user ? (
+        <AuthButton title="Logout" />
       ) : (
         <Link key={"Login"} href={`/login`} className={cn(itemVariants())}>
           {"Login"}
@@ -20,4 +22,4 @@ const authNav = ({ signedIn }: { signedIn: boolean }) => {
   );
 };
 
-export default authNav;
+export { AuthNav };
