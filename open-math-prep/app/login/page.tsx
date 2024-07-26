@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
+import AuthButton from "@/components/ui/authButton";
 
 export default function Login({
   searchParams,
@@ -55,6 +56,7 @@ export default function Login({
 
   return (
     <main className="min-h-screen flex flex-col items-center">
+      <AuthButton title="Login With Google" />
       <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
         <Link
           href="/"

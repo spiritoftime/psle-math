@@ -6,7 +6,6 @@ import Image from "next/image";
 import { NavChildren } from "./layout.client";
 import { RootToggle } from "fumadocs-ui/components/layout/root-toggle";
 import { modes } from "@/utils/modes";
-import ServerNavChildren from "@/components/ui/serverNavChildren";
 
 export const baseOptions: HomeLayoutProps = {
   githubUrl: "https://github.com/spiritoftime/psle-math",

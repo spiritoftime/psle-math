@@ -1,8 +1,11 @@
 import { HomeLayout } from "fumadocs-ui/home-layout";
 import Link from "next/link";
 import { baseOptions } from "./layout.config";
+import Test from "@/components/ui/test";
 
 export default function HomePage() {
+
+
   return (
     <HomeLayout {...baseOptions}>
       <main className="flex h-screen flex-col justify-center text-center">
@@ -17,6 +20,7 @@ export default function HomePage() {
           </Link>{" "}
           and see the documentation.
         </p>
+        <Test />
       </main>
     </HomeLayout>
   );

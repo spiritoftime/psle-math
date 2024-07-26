@@ -4,6 +4,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
+import { headers } from "next/headers";
+import { Provider } from "@supabase/supabase-js";
 
 export async function login(formData: FormData) {
   const supabase = createClient();
@@ -48,4 +50,26 @@ export async function signup(formData: FormData) {
 export async function logout() {
   const supabase = createClient();
   await supabase.auth.signOut();
+}
+export async function LogInWithProvider(provider: Provider) {
+  const origin =
+    process.env.NODE_ENV === "development"
+      ? process.env.LOCAL_URL
+      : process.env.PROD_URL;
+  console.log(origin, "origin");
+  const supabase = createClient();
+  const { error, data } = await supabase.auth.signInWithOAuth({
+    provider,
+    options: {
+      redirectTo: `${origin}/auth/callback`,
+      ...(provider === "google" && {
+        queryParams: {
+          access_type: "offline",
+          prompt: "consent",
+        },
+      }),
+    },
+  });
+  console.log(error, "error");
+  console.log(data, "data");
 }

@@ -1,7 +1,6 @@
 "use client";
 import React, { Suspense } from "react";
 import styles from "./progressIndicator.module.css";
-import { useGetLectureStructure } from "../../../application/queries/useGetLectureStructure";
 import { LectureStructure } from "../../../domain/lectureNodes/lectureNodes";
 import Skeleton from "./skeleton";
 

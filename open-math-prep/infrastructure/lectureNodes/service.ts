@@ -25,7 +25,7 @@ const updateLocalStorage = (lectureStructure: LectureStructure) => {
 };
 async function getLectureStructure(api = lectureNodesApi) {
   const response = await api.getLectureNodes();
-  console.count(response);
+  // console.count(response);
   const LectureStructure = dtoToLectureStructure(response);
   updateLocalStorage(LectureStructure);
   return LectureStructure;
