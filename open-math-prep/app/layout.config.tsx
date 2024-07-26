@@ -3,10 +3,15 @@ import { type HomeLayoutProps } from "fumadocs-ui/home-layout";
 import { pageTree } from "@/app/source";
 import Logo from "@/public/hat.png";
 import Image from "next/image";
+import { NavChildren } from "./layout.client";
+import { RootToggle } from "fumadocs-ui/components/layout/root-toggle";
+import { modes } from "@/utils/modes";
 
-// shared configuration
 export const baseOptions: HomeLayoutProps = {
+  githubUrl: "https://github.com/spiritoftime/psle-math",
   nav: {
+    children: <NavChildren />,
+
     title: (
       <div className="flex gap-1 items-center">
         <Image
@@ -23,18 +28,43 @@ export const baseOptions: HomeLayoutProps = {
         </span>
       </div>
     ),
+    transparentMode: "top",
   },
-  links: [
-    {
-      text: "Documentation",
-      url: "/docs",
-      active: "nested-url",
-    },
-  ],
+  // links: [
+  //   {
+  //     text: "Lectures",
+  //     url: "/lectures",
+  //     // active: "nested-url",
+  //   },
+  //   {
+  //     text: "Practice Questions",
+  //     url: "/questions",
+  //   },
+  // ],
 };
-
 // docs layout configuration
 export const docsOptions: DocsLayoutProps = {
   ...baseOptions,
   tree: pageTree,
+  sidebar: {
+    defaultOpenLevel: 0,
+    banner: (
+      <RootToggle
+        options={modes.map((mode) => ({
+          url: `/${mode.param}`,
+          icon: (
+            <mode.icon
+              className="size-9 shrink-0 rounded-md bg-gradient-to-t from-fd-background/80 p-1.5"
+              style={{
+                backgroundColor: `hsl(var(--${mode.param}-color)/.3)`,
+                color: `hsl(var(--${mode.param}-color))`,
+              }}
+            />
+          ),
+          title: mode.name,
+          description: mode.description,
+        }))}
+      />
+    ),
+  },
 };

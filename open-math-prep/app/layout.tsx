@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import "katex/dist/katex.css";
 import ClientProvider from "./clientProvider";
 import { Toaster } from "@/components/ui/toaster";
+import { Body } from "./layout.client";
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -12,14 +13,21 @@ const inter = Inter({
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body>
-        <RootProvider>
+      <Body>
+        <RootProvider
+          search={{
+            links: [
+              ["Home", "/"],
+              ["Lectures", "/lectures"],
+            ],
+          }}
+        >
           <ClientProvider>
             {children}
             <Toaster />
           </ClientProvider>
         </RootProvider>
-      </body>
+      </Body>
     </html>
   );
 }
