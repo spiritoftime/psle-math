@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { DocsPage, DocsBody } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
+import { createClient } from "@/utils/supabase/server";
+import LoginButton from "@/components/ui/authButton";
+
 const DynamicProgressIndicator = dynamic(
   () => import("./_components/progressIndicator"),
   {
@@ -20,19 +23,33 @@ export default async function Page({
   }
 
   const MDX = page.data.exports.default;
-  return (
-    <DocsPage toc={page.data.exports.toc} full={page.data.full}>
-      <DocsBody>
-        <h1 className="mb-1">{page.data.title}</h1>
+  const supabase = createClient();
 
-        {params.slug?.includes("lectures") ? (
-          <DynamicProgressIndicator title={page.data.title} />
-        ) : (
-          <></>
-        )}
-        <MDX />
-      </DocsBody>
-    </DocsPage>
+  const { data, error } = await supabase.auth.getUser();
+  return (
+    <>
+      <DocsPage toc={page.data.exports.toc} full={page.data.full}>
+        <DocsBody>
+          {!data?.user && (
+            <div className="flex">
+              <LoginButton
+                redirectPath="/login"
+                title={"Login to track progress and get email on tips!"}
+              />
+            </div>
+          )}
+
+          <h1 className="mb-1">{page.data.title}</h1>
+
+          {params.slug?.includes("lectures") ? (
+            <DynamicProgressIndicator title={page.data.title} />
+          ) : (
+            <></>
+          )}
+          <MDX />
+        </DocsBody>
+      </DocsPage>
+    </>
   );
 }
 

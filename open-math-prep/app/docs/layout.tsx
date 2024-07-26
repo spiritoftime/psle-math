@@ -19,9 +19,11 @@ export default function Layout({
   };
 }) {
   return (
-    <DocsLayout {...docsOptions}>
-      {<DynamicGetLectures />}
-      {children}
-    </DocsLayout>
+    <>
+      <DocsLayout {...docsOptions}>
+        {<DynamicGetLectures />}
+        {children}
+      </DocsLayout>
+    </>
   );
 }

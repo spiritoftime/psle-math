@@ -10,8 +10,6 @@ import { modes } from "@/utils/modes";
 export const baseOptions: HomeLayoutProps = {
   githubUrl: "https://github.com/spiritoftime/psle-math",
   nav: {
-    children: <NavChildren />,
-
     title: (
       <div className="flex gap-1 items-center">
         <Image
@@ -29,6 +27,7 @@ export const baseOptions: HomeLayoutProps = {
       </div>
     ),
     transparentMode: "top",
+    children: <NavChildren />,
   },
 };
 // docs layout configuration
