@@ -18,7 +18,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           search={{
             links: [
               ["Home", "/"],
-              ["Lectures", "/lectures"],
+              ["Lectures", "/docs/lectures"],
+              ["Questions", "/docs/questions"],
+
             ],
           }}
         >

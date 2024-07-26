@@ -51,7 +51,7 @@ export const docsOptions: DocsLayoutProps = {
     banner: (
       <RootToggle
         options={modes.map((mode) => ({
-          url: `/${mode.param}`,
+          url: `/docs/${mode.param}`,
           icon: (
             <mode.icon
               className="size-9 shrink-0 rounded-md bg-gradient-to-t from-fd-background/80 p-1.5"

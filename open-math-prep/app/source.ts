@@ -5,8 +5,8 @@ import { createElement } from 'react';
 import { icons } from 'lucide-react';
 
 export const { getPage, getPages, pageTree } = loader({
-  baseUrl: '/lectures',
-  rootDir: 'docs',  icon(icon) {
+  baseUrl: '/docs',
+  rootDir: '',  icon(icon) {
     if (icon && icon in icons)
       return createElement(icons[icon as keyof typeof icons]);
   },

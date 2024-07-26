@@ -15,7 +15,6 @@ export default async function Page({
   params: { slug?: string[] };
 }) {
   const page = getPage(params.slug);
-
   if (page == null) {
     notFound();
   }

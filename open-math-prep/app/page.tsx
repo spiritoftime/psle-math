@@ -10,10 +10,10 @@ export default function HomePage() {
         <p className="text-muted-foreground">
           You can open{" "}
           <Link
-            href="/lectures"
+            href="/docs/lectures"
             className="text-foreground font-semibold underline"
           >
-            /lectures
+            /docs/lectures
           </Link>{" "}
           and see the documentation.
         </p>
