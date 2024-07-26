@@ -30,17 +30,6 @@ export const baseOptions: HomeLayoutProps = {
     ),
     transparentMode: "top",
   },
-  // links: [
-  //   {
-  //     text: "Lectures",
-  //     url: "/lectures",
-  //     // active: "nested-url",
-  //   },
-  //   {
-  //     text: "Practice Questions",
-  //     url: "/questions",
-  //   },
-  // ],
 };
 // docs layout configuration
 export const docsOptions: DocsLayoutProps = {

@@ -16,13 +16,11 @@ export default function Layout({
   params: {
     tag: string;
     item: string;
-    slug: string;
   };
 }) {
-  console.log(params, "params");
   return (
     <DocsLayout {...docsOptions}>
-      {/* {params.slug[0] === "lectures" ? <DynamicGetLectures /> : <></>} */}
+      {<DynamicGetLectures />}
       {children}
     </DocsLayout>
   );
