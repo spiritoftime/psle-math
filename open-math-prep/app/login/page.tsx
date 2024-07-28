@@ -36,6 +36,7 @@ export default function Login({
     const origin = headers().get("origin");
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+    const username = formData.get("username") as string;
     const supabase = createClient();
 
     const { error } = await supabase.auth.signUp({
@@ -43,6 +44,9 @@ export default function Login({
       password,
       options: {
         emailRedirectTo: `${origin}/auth/callback`,
+        data: {
+          nickname: username,
+        },
       },
     });
 
@@ -81,8 +85,14 @@ export default function Login({
 
         <form className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
           <label className="text-md" htmlFor="email">
-            Email
+            Username
           </label>
+          <input
+            className="rounded-md px-4 py-2 bg-inherit border mb-6"
+            name="username"
+            placeholder="username"
+            required
+          />
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             name="email"

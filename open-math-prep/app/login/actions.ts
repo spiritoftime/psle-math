@@ -4,7 +4,6 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
-import { headers } from "next/headers";
 import { Provider } from "@supabase/supabase-js";
 
 export async function login(formData: FormData) {
@@ -35,6 +34,11 @@ export async function signup(formData: FormData) {
   const data = {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
+    options:{
+      data:{
+        nickname: formData.get("username") as string,
+      }
+    }
   };
 
   const { error } = await supabase.auth.signUp(data);
@@ -56,7 +60,6 @@ export async function LogInWithProvider(provider: Provider) {
     process.env.NODE_ENV === "development"
       ? process.env.LOCAL_URL
       : process.env.PROD_URL;
-  console.log(origin, "origin");
   const supabase = createClient();
   const { error, data } = await supabase.auth.signInWithOAuth({
     provider,
@@ -70,6 +73,5 @@ export async function LogInWithProvider(provider: Provider) {
       }),
     },
   });
-  console.log(error, "error");
-  console.log(data, "data");
+  if (data && data.url) redirect(data.url);
 }
