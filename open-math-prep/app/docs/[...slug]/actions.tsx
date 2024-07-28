@@ -7,5 +7,4 @@ export async function markCompletedLecture(filterBy: string[]=[]) {
   const { data, error } = await supabase.auth.getUser();
   if (!data || !data.user) return;
   const lectureProgresses = await getLectureProgresses(filterBy);
-  console.log(lectureProgresses, "lectures");
 }
