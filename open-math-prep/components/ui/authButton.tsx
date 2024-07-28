@@ -9,7 +9,6 @@ const AuthButton: React.FC<{
   title: string;
 }> = ({ title }) => {
   const queryClient = useQueryClient();
-
   const router = useRouter();
   const isValidProvider = (value: string): value is Provider => {
     return [
@@ -37,11 +36,9 @@ const AuthButton: React.FC<{
             }
           : title.startsWith("Login With")
           ? async () => {
-              console.log("hi");
               const provider = title.replace("Login With ", "");
               if (isValidProvider(provider)) {
                 await LogInWithProvider(provider);
-                console.log("hola");
               }
             }
           : () => {

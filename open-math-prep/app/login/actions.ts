@@ -34,11 +34,11 @@ export async function signup(formData: FormData) {
   const data = {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
-    options:{
-      data:{
+    options: {
+      data: {
         nickname: formData.get("username") as string,
-      }
-    }
+      },
+    },
   };
 
   const { error } = await supabase.auth.signUp(data);
@@ -74,4 +74,11 @@ export async function LogInWithProvider(provider: Provider) {
     },
   });
   if (data && data.url) redirect(data.url);
+}
+
+export async function getUser() {
+  const supabase = createClient();
+
+  const { data, error } = await supabase.auth.getUser();
+  return data;
 }
