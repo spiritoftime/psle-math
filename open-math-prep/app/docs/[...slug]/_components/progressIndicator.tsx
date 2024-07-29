@@ -4,6 +4,7 @@ import styles from "./progressIndicator.module.css";
 import { ProgressIndicatorSkeleton } from "./progressIndicatorSkeleton";
 import { useGetUser } from "@/app/application/queries/useGetUser";
 import { useToast } from "@/components/ui/use-toast";
+import { useBaseFetch } from "@/utils/utils";
 
 const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
   title,
@@ -35,16 +36,9 @@ const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
   useEffect(() => {
     const fetchLectureProgress = async () => {
       if (user) {
-        const url =
-          process.env.NODE_ENV === "development"
-            ? process.env.NEXT_PUBLIC_LOCAL_URL
-            : process.env.NEXT_PUBLIC_PROD_URL;
-        const fullUrl = `${url}/api/lectureProgress?title=${title}`;
-        console.log(fullUrl, "fullUrl");
-        const response = await fetch(fullUrl, {
+        const response = await useBaseFetch(`lectureProgress?title=${title}`, {
           method: "GET",
         });
-
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
