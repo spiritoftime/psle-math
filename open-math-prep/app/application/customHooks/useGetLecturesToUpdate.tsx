@@ -32,6 +32,7 @@ export function useGetLecturesToUpdate(title: string): LectureNode[] {
   dfs(lectureNode?.parent, lectureStructure, lecturesToUpdate);
   return lecturesToUpdate;
 }
+
 export function markCompletedLectureNonLoggedIn(
   lecturesToUpdate: LectureNode[]
 ) {

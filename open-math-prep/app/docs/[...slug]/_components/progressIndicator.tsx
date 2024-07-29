@@ -1,8 +1,10 @@
 "use client";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import styles from "./progressIndicator.module.css";
-import { LectureStructure } from "../../../domain/lectureNodes/lectureNodes";
-import Skeleton from "./skeleton";
+import { ProgressIndicatorSkeleton } from "./progressIndicatorSkeleton";
+import { useGetUser } from "@/app/application/queries/useGetUser";
+import { getLectureProgressesFromSupabase } from "@/infrastructure/lectureProgress/api";
+import { useToast } from "@/components/ui/use-toast";
 
 const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
   title,
@@ -22,30 +24,40 @@ const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
   );
 };
 const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
-  const [lectureProgress, setLectureProgress] = React.useState<
-    LectureStructure | undefined
-  >();
   const [isLoading, setIsLoading] = React.useState(true);
+  const [progress, setProgress] = useState(0);
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      const storedProgress = localStorage.getItem("completed-lectures");
-      if (storedProgress) {
-        setLectureProgress(JSON.parse(storedProgress));
+  const { data: user } = useGetUser();
+  const { toast } = useToast();
+  const lectureStructure = JSON.parse(
+    localStorage.getItem("completed-lectures") || "{}"
+  );
+  useEffect(() => {
+    const fetchLectureProgress = async () => {
+      if (user) {
+        const { data, error } = await getLectureProgressesFromSupabase([title]);
+        if (error) {
+          toast({
+            title: "Error fetching lecture progress",
+            description: "Please try again later.",
+          });
+        }
+        if (data) setProgress(data[0].progress);
+      } else {
+        if (title in lectureStructure)
+          setProgress(lectureStructure[title].progress);
       }
-      setIsLoading(false); // Set loading to false after data is fetched
-    }, 1000);
-  }, [title]);
+      setIsLoading(false);
+    };
+    fetchLectureProgress();
+  }, [title, user, toast]);
 
   return (
-    <Suspense fallback={<Skeleton />}>
+    <Suspense fallback={<ProgressIndicatorSkeleton />}>
       {isLoading ? (
-        <Skeleton /> // Show Skeleton while loading
-      ) : lectureProgress && title in lectureProgress ? (
-        <ProgressIndicator
-          title={title}
-          progress={lectureProgress[title].progress}
-        />
+        <ProgressIndicatorSkeleton /> 
+      ) : title in lectureStructure ? (
+        <ProgressIndicator title={title} progress={progress} />
       ) : (
         <></>
       )}

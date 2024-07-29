@@ -9,4 +9,4 @@ const ProgressIndicatorSkeleton: React.FC = () => {
   );
 };
 
-export default ProgressIndicatorSkeleton;
+export { ProgressIndicatorSkeleton};
