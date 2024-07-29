@@ -20,9 +20,9 @@ const LectureSideBar: React.FC<{ item: PageTree.Item }> = ({ item }) => {
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-      {item.name !== "Introduction" && (
+      {/* {item.name !== "Introduction" && (
         <ProgressIndicator title={item.url} progress={progress} />
-      )}
+      )} */}
       {item.name}
     </div>
   );

@@ -13,7 +13,7 @@ export async function getLectureProgresses(filterBy: string[]) {
       ? await supabase
           .from("lectureprogress")
           .select("*")
-          .filter("name", "in", supabaseFilter)
+          .filter("title", "in", supabaseFilter)
       : await supabase.from("lectureprogress").select("*");
   return { data, error };
 }

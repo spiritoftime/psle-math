@@ -1,4 +1,6 @@
 export interface LectureProgress {
-  name: string;
+  title: string;
   progress: number;
+  parent: string;
+  children: string[];
 }
