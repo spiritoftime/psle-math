@@ -1,7 +1,7 @@
 "use client";
 import { queryClient } from "@/app/clientProvider";
 import { useQuery } from "@tanstack/react-query";
-import burgerService from "@/infrastructure/burger";
+import { burgerService } from "@/infrastructure/burger";
 
 queryClient.setQueryDefaults(["lectureNodes"], {
   refetchOnMount: false,

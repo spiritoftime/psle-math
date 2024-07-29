@@ -1,5 +1,5 @@
 import { LectureStructure } from "@/app/domain/lectureNodes";
-import lectureNodesApi from "./api";
+import { lectureNodesApi } from "./api";
 import { dtoToLectureStructure } from "./transform";
 const updateLocalStorage = (lectureStructure: LectureStructure) => {
   if (lectureStructure) {
@@ -25,9 +25,11 @@ const updateLocalStorage = (lectureStructure: LectureStructure) => {
 };
 async function getLectureStructure(api = lectureNodesApi) {
   const response = await api.getLectureNodes();
-  // console.count(response);
   const LectureStructure = dtoToLectureStructure(response);
   updateLocalStorage(LectureStructure);
   return LectureStructure;
 }
-export default { getLectureStructure };
+export const lectureNodeService = {
+  getLectureStructure,
+  updateLocalStorage,
+};

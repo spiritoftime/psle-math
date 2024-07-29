@@ -4,4 +4,4 @@ const getUser = async () => {
   const { data, error } = await supabase.auth.getUser();
   return data.user;
 };
-export default getUser;
+export { getUser };

@@ -1,6 +1,6 @@
 "use client";
 
-import getUser from "@/infrastructure/auth/api";
+import { getUser } from "@/infrastructure/auth/api";
 import { useQuery } from "@tanstack/react-query";
 import { queryClient } from "@/app/clientProvider";
 

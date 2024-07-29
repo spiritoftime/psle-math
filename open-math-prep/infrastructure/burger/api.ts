@@ -5,4 +5,7 @@ async function getBurgers() {
   const { data, error } = await supabase.from("burgers").select("*");
   return { data, error };
 }
-export default { getBurgers };
+export const burgersApi = {
+  getBurgers,
+  
+};
