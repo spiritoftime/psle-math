@@ -3,7 +3,6 @@ import React, { Suspense, useEffect, useState } from "react";
 import styles from "./progressIndicator.module.css";
 import { ProgressIndicatorSkeleton } from "./progressIndicatorSkeleton";
 import { useGetUser } from "@/app/application/queries/useGetUser";
-import { getLectureProgressesFromSupabase } from "@/infrastructure/lectureProgress/api";
 import { useToast } from "@/components/ui/use-toast";
 
 const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
@@ -28,6 +27,7 @@ const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
   const [progress, setProgress] = useState(0);
 
   const { data: user } = useGetUser();
+
   const { toast } = useToast();
   const lectureStructure = JSON.parse(
     localStorage.getItem("completed-lectures") || "{}"
@@ -35,14 +35,28 @@ const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
   useEffect(() => {
     const fetchLectureProgress = async () => {
       if (user) {
-        const { data, error } = await getLectureProgressesFromSupabase([title]);
+        const url =
+          process.env.NODE_ENV === "development"
+            ? process.env.NEXT_PUBLIC_LOCAL_URL
+            : process.env.NEXT_PUBLIC_PROD_URL;
+        const fullUrl = `${url}/api/lectureProgress?title=${title}`;
+        console.log(fullUrl, "fullUrl");
+        const response = await fetch(fullUrl, {
+          method: "GET",
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const { data, error } = await response.json();
         if (error) {
           toast({
             title: "Error fetching lecture progress",
             description: "Please try again later.",
           });
         }
-        if (data) setProgress(data[0].progress);
+        if (data && data.length > 0) setProgress(data[0].progress);
       } else {
         if (title in lectureStructure)
           setProgress(lectureStructure[title].progress);
@@ -55,7 +69,7 @@ const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
   return (
     <Suspense fallback={<ProgressIndicatorSkeleton />}>
       {isLoading ? (
-        <ProgressIndicatorSkeleton /> 
+        <ProgressIndicatorSkeleton />
       ) : title in lectureStructure ? (
         <ProgressIndicator title={title} progress={progress} />
       ) : (
