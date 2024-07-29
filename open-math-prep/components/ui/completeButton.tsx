@@ -1,15 +1,19 @@
 "use client";
+import { useGetLecturesToUpdate } from "@/app/application/customHooks/useGetLecturesToUpdate";
 import { markCompletedLecture } from "@/app/docs/[...slug]/actions";
 import React from "react";
 
 const CompleteButton: React.FC<{
   title: string;
-}> = ({ title }) => {
+  pageTitle: string;
+}> = ({ title, pageTitle }) => {
   return (
     <button
       onClick={async () => {
         // check logged in or not
         // recurse through lectureStructure to get lectures to mutate
+        const lecturesToUpdate = useGetLecturesToUpdate(pageTitle);
+        console.log(lecturesToUpdate, "lecturesToUpdate");
         // if logged in use below
         await markCompletedLecture([
           // "Algebra",

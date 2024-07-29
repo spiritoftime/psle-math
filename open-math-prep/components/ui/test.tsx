@@ -4,7 +4,7 @@ import React from "react";
 
 const Test = () => {
   const { error, isFetching, data } = useGetBurgers();
-  console.log(data);
+  // console.log(data);
   return <div>Test</div>;
 };
 

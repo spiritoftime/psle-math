@@ -1,5 +1,5 @@
 export interface LectureNodeDto {
-  name: string;
+  title: string;
   parent?: string;
   children?: string[];
   progress: number;

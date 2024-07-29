@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 
 import { AuthNav } from "@/components/ui/authNav";
+import CompleteButton from "@/components/ui/completeButton";
 
 const DynamicProgressIndicator = dynamic(
   () => import("./_components/progressIndicator"),
@@ -28,10 +29,8 @@ export default async function Page({
       <DocsPage toc={page.data.exports.toc} full={page.data.full}>
         <DocsBody>
           <div className="flex">
-
-          <AuthNav/>
+            <AuthNav />
           </div>
-
 
           <h1 className="mb-1">{page.data.title}</h1>
 
@@ -42,6 +41,9 @@ export default async function Page({
           )}
           <MDX />
         </DocsBody>
+        <div className="flex mt-4 justify-end">
+          <CompleteButton pageTitle={page.data.title} title="Mark as completed" />
+        </div>
       </DocsPage>
     </>
   );
