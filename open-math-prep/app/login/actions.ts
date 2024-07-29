@@ -73,7 +73,10 @@ export async function LogInWithProvider(provider: Provider) {
       }),
     },
   });
-  if (data && data.url) redirect(data.url);
+  if (data && data.url) {
+    console.log(data.url, "data url");
+    redirect(data.url);
+  }
 }
 
 export async function getUser() {

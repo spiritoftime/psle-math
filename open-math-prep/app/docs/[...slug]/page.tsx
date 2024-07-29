@@ -41,8 +41,11 @@ export default async function Page({
           )}
           <MDX />
         </DocsBody>
-        <div className="flex mt-4 justify-end">
-          <CompleteButton pageTitle={page.data.title} title="Mark as completed" />
+        <div className="flex justify-end mt-4">
+          <CompleteButton
+            pageTitle={page.data.title}
+            title="Mark as completed"
+          />
         </div>
       </DocsPage>
     </>

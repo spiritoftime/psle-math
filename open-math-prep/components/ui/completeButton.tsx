@@ -7,6 +7,7 @@ import { useGetUser } from "@/app/application/queries/useGetUser";
 import { markCompletedLectureLoggedIn } from "@/app/docs/[...slug]/actions";
 import React from "react";
 import { useToast } from "./use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 
 const CompleteButton: React.FC<{
   title: string;
@@ -14,6 +15,7 @@ const CompleteButton: React.FC<{
 }> = ({ title, pageTitle }) => {
   const { data: user } = useGetUser();
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   return (
     <button
@@ -35,6 +37,7 @@ const CompleteButton: React.FC<{
               description: "Please try again later.",
             });
           }
+          queryClient.invalidateQueries({ queryKey: ["getLecture"] });
         } else {
           // if not logged in mutate localStorage
           markCompletedLectureNonLoggedIn(lecturesToUpdate);

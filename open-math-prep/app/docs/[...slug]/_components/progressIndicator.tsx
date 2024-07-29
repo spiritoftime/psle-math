@@ -5,6 +5,7 @@ import { ProgressIndicatorSkeleton } from "./progressIndicatorSkeleton";
 import { useGetUser } from "@/app/application/queries/useGetUser";
 import { useToast } from "@/components/ui/use-toast";
 import { useBaseFetch } from "@/utils/utils";
+import { useGetLecture } from "@/app/application/queries/useGetLecture";
 
 const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
   title,
@@ -24,53 +25,35 @@ const ProgressIndicator: React.FC<{ title: string; progress: number }> = ({
   );
 };
 const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [progress, setProgress] = useState(0);
-
-  const { data: user } = useGetUser();
-
   const { toast } = useToast();
+  const { data: user } = useGetUser();
+  const { data: lectureData, error, isLoading } = useGetLecture(title);
+
+  // return <></>;
+  console.log(lectureData, error, isLoading);
+  if (isLoading) {
+    return <ProgressIndicatorSkeleton />;
+  }
+  // if (error && !isLoading) {
+  //   toast({
+  //     title: "Failed to fetch lecture progress",
+  //     description: "Please try again later",
+  //   });
+  // }
   const lectureStructure = JSON.parse(
     localStorage.getItem("completed-lectures") || "{}"
   );
-  useEffect(() => {
-    const fetchLectureProgress = async () => {
-      if (user) {
-        const response = await useBaseFetch(`lectureProgress?title=${title}`, {
-          method: "GET",
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
 
-        const { data, error } = await response.json();
-        if (error) {
-          toast({
-            title: "Error fetching lecture progress",
-            description: "Please try again later.",
-          });
-        }
-        if (data && data.length > 0) setProgress(data[0].progress);
-      } else {
-        if (title in lectureStructure)
-          setProgress(lectureStructure[title].progress);
-      }
-      setIsLoading(false);
-    };
-    fetchLectureProgress();
-  }, [title, user, toast]);
+  const progress =
+    user && lectureData?.[0]?.progress !== undefined
+      ? lectureData[0].progress
+      : lectureStructure[title]?.progress;
 
-  return (
-    <Suspense fallback={<ProgressIndicatorSkeleton />}>
-      {isLoading ? (
-        <ProgressIndicatorSkeleton />
-      ) : title in lectureStructure ? (
-        <ProgressIndicator title={title} progress={progress} />
-      ) : (
-        <></>
-      )}
-    </Suspense>
-  );
+  if (progress === undefined) {
+    return <></>;
+  }
+
+  return <ProgressIndicator title={title} progress={progress} />;
 };
 
 export default ProgressIndicatorWrapper;

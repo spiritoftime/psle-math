@@ -1,13 +1,17 @@
-// "use client";
+"use client";
 
-// import { useQuery } from "@tanstack/react-query";
+import { useBaseFetch } from "@/utils/utils";
+import { useQuery } from "@tanstack/react-query";
 
-// export function getQueryKey() {
-//   return ["getLecture"];
-// }
-// export function useGetUser() {
-//   return useQuery({
-//     queryKey: getQueryKey(),
-//     queryFn: () => getUser(),
-//   });
-// }
+export function getQueryKey() {
+  return ["getLecture"];
+}
+export function useGetLecture(title: string) {
+  return useQuery({
+    queryKey: getQueryKey(),
+    queryFn: () =>
+      useBaseFetch(`lectureProgress?title=${title}`, {
+        method: "GET",
+      }),
+  });
+}

@@ -1,5 +1,5 @@
 "use client";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { lectureNodeService } from "@/infrastructure/lectureNodes";
 import { queryClient } from "@/app/clientProvider";
 queryClient.setQueryDefaults(["lectureNodes"], {
@@ -12,7 +12,7 @@ export function getQueryKey() {
   return ["lectureNodes"];
 }
 export function useGetLectureStructure() {
-  return useSuspenseQuery({
+  return useQuery({
     queryKey: getQueryKey(),
     queryFn: () => lectureNodeService.getLectureStructure(),
   });
