@@ -21,7 +21,7 @@ const dfs = (
   dfs(lectureNode?.parent, lectureStructure, lecturesToUpdate);
 };
 
-export function useGetLecturesToUpdate(title: string):LectureNode[] {
+export function useGetLecturesToUpdate(title: string): LectureNode[] {
   const lecturesToUpdate: LectureNode[] = [];
   const lectureStructure: LectureStructure = JSON.parse(
     localStorage.getItem("completed-lectures") || "{}"
@@ -31,4 +31,18 @@ export function useGetLecturesToUpdate(title: string):LectureNode[] {
   lecturesToUpdate.push(lectureNode);
   dfs(lectureNode?.parent, lectureStructure, lecturesToUpdate);
   return lecturesToUpdate;
+}
+export function markCompletedLectureNonLoggedIn(
+  lecturesToUpdate: LectureNode[]
+) {
+  const completedLectures = JSON.parse(
+    localStorage.getItem("completed-lectures") || "{}"
+  );
+  for (const lecture of lecturesToUpdate) {
+    completedLectures[lecture.title] = {
+      ...completedLectures[lecture.title],
+      progress: lecture.progress,
+    };
+  }
+  localStorage.setItem("completed-lectures", JSON.stringify(completedLectures));
 }

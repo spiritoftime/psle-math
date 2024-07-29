@@ -9,6 +9,7 @@ export async function markCompletedLecture(lectureNodes: LectureNode[]) {
   const lectureProgresses = await getLectureProgresses(filterBy);
   const lectureNodesToInsert = [];
   const lectureNodesToUpdate = [];
+
   for (const lectureNode of lectureNodes) {
     const lectureProgress =
       lectureProgresses.data?.find((lp) => lp.title === lectureNode.title) ??
@@ -19,15 +20,27 @@ export async function markCompletedLecture(lectureNodes: LectureNode[]) {
       lectureNodesToInsert.push(lectureNode);
     }
   }
+
+  let insertError = null;
+  let updateError = null;
+
   if (lectureNodesToInsert.length > 0) {
     const { error } = await supabase
       .from("lectureprogress")
       .insert(lectureNodesToInsert);
+    insertError = error;
   }
+
   if (lectureNodesToUpdate.length > 0) {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("lectureprogress")
-      .upsert(lectureNodesToUpdate)
-      .select();
+      .upsert(lectureNodesToUpdate);
+    updateError = error;
   }
+
+  if (insertError || updateError) {
+    return { insertError, updateError };
+  }
+
+  return null; // No errors occurred
 }
