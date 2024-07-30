@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 
 import { AuthNav } from "@/components/ui/authNav";
-import CompleteButton from "@/components/ui/completeButton";
+import CompleteLectureButton from "./_components/completeLectureButton";
 import { Suspense } from "react";
 import { ProgressIndicatorSkeleton } from "./_components/progressIndicatorSkeleton";
 
@@ -36,7 +36,8 @@ export default async function Page({
 
           <h1 className="mb-1">{page.data.title}</h1>
 
-          {params.slug?.includes("lectures") ? (
+          {params.slug?.includes("lectures") &&
+          page.data.title !== "Introduction" ? (
             <Suspense fallback={<ProgressIndicatorSkeleton />}>
               <DynamicProgressIndicator title={page.data.title} />
             </Suspense>
@@ -46,7 +47,7 @@ export default async function Page({
           <MDX />
         </DocsBody>
         <div className="flex justify-end mt-4">
-          <CompleteButton
+          <CompleteLectureButton
             pageTitle={page.data.title}
             title="Mark as completed"
           />

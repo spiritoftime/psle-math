@@ -62,8 +62,7 @@ const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
       : !user
       ? lectureStructure[title]?.progress ?? 0
       : 0;
-  console.log(progress);
-  console.log(lectureStructure[title]?.progress);
+
   return <ProgressIndicator key={progress} title={title} progress={progress} />;
 };
 

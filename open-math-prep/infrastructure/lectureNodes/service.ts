@@ -13,14 +13,16 @@ const updateLocalStorage = (lectureStructure: LectureStructure) => {
       }
     }
     for (const lec in lectureStructure) {
-      if (lec in localStorageProgress) return;
-      localStorageProgress[lec] = { ...lectureStructure[lec] };
+      if (!(lec in localStorageProgress)) {
+        localStorageProgress[lec] = { ...lectureStructure[lec] };
+      }
     }
 
     window.localStorage.setItem(
       "completed-lectures",
       JSON.stringify(localStorageProgress)
     );
+    window.dispatchEvent(new Event("lecturesUpdated"));
   }
 };
 async function getLectureStructure(api = lectureNodesApi) {

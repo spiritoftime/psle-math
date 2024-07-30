@@ -21,7 +21,7 @@ const dfs = (
   dfs(lectureNode?.parent, lectureStructure, lecturesToUpdate);
 };
 
-export function useGetLecturesToUpdate(title: string): LectureNode[] {
+export function GetLecturesToUpdate(title: string): LectureNode[] {
   const lecturesToUpdate: LectureNode[] = [];
   const lectureStructure: LectureStructure = JSON.parse(
     localStorage.getItem("completed-lectures") || "{}"

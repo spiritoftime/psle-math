@@ -1,15 +1,15 @@
 "use client";
 import {
   markCompletedLectureNonLoggedIn,
-  useGetLecturesToUpdate,
-} from "@/app/application/customHooks/useGetLecturesToUpdate";
+  GetLecturesToUpdate,
+} from "@/app/docs/[...slug]/_usecases/completeLectureButtonUseCase";
 import { useGetUser } from "@/app/application/queries/useGetUser";
 import { markCompletedLectureLoggedIn } from "@/app/docs/[...slug]/actions";
 import React from "react";
-import { useToast } from "./use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
 
-const CompleteButton: React.FC<{
+const CompleteLectureButton: React.FC<{
   title: string;
   pageTitle: string;
 }> = ({ title, pageTitle }) => {
@@ -21,7 +21,7 @@ const CompleteButton: React.FC<{
     <button
       onClick={async () => {
         // recurse through lectureStructure to calculate progress & get lectures to mutate
-        const lecturesToUpdate = useGetLecturesToUpdate(pageTitle);
+        const lecturesToUpdate = GetLecturesToUpdate(pageTitle);
         // if logged in use below
         if (user) {
           const error = await markCompletedLectureLoggedIn(lecturesToUpdate);
@@ -53,4 +53,4 @@ const CompleteButton: React.FC<{
   );
 };
 
-export default CompleteButton;
+export default CompleteLectureButton;
