@@ -32,7 +32,10 @@ const AuthButton: React.FC<{
         title === "Logout"
           ? async () => {
               await logout();
-              queryClient.invalidateQueries({ queryKey: ["getUser"] });
+              queryClient.invalidateQueries({
+                queryKey: ["getUser"],
+              });
+              queryClient.invalidateQueries({ queryKey: ["getLecture"] });
             }
           : title.startsWith("Login With")
           ? async () => {

@@ -1,4 +1,4 @@
-"use server";
+"server only";
 import { createClient } from "@/utils/supabase/server";
 import { buildSupabaseFilter } from "@/utils/utils";
 

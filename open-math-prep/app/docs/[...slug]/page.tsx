@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 
 import { AuthNav } from "@/components/ui/authNav";
 import CompleteButton from "@/components/ui/completeButton";
+import { Suspense } from "react";
+import { ProgressIndicatorSkeleton } from "./_components/progressIndicatorSkeleton";
 
 const DynamicProgressIndicator = dynamic(
   () => import("./_components/progressIndicator"),
@@ -35,7 +37,9 @@ export default async function Page({
           <h1 className="mb-1">{page.data.title}</h1>
 
           {params.slug?.includes("lectures") ? (
-            <DynamicProgressIndicator title={page.data.title} />
+            <Suspense fallback={<ProgressIndicatorSkeleton />}>
+              <DynamicProgressIndicator title={page.data.title} />
+            </Suspense>
           ) : (
             <></>
           )}

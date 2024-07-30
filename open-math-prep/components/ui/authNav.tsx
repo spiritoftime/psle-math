@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 
 const AuthNav = () => {
   const { data: user } = useGetUser();
-  console.log(user, "user");
   const pathname = usePathname();
   return (
     <>

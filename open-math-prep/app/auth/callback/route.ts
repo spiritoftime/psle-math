@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
 
 export async function GET(request: Request) {
-  console.log(request.url, "request.url");
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
   // if "next" is in param, use it as the redirect URL
@@ -19,10 +18,8 @@ export async function GET(request: Request) {
         // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
         return NextResponse.redirect(`http://127.0.0.1:3000${next}`);
       } else if (forwardedHost) {
-        console.log("second");
         return NextResponse.redirect(`https://${forwardedHost}${next}`);
       } else {
-        console.log("third");
         return NextResponse.redirect(`${origin}${next}`);
       }
     }
