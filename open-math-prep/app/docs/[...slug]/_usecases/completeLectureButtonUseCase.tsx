@@ -27,6 +27,7 @@ export function GetLecturesToUpdate(title: string): LectureNode[] {
     localStorage.getItem("completed-lectures") || "{}"
   );
   const lectureNode = lectureStructure[title];
+  if (!lectureNode) return [];
   lectureNode.progress = 100;
   lecturesToUpdate.push(lectureNode);
   dfs(lectureNode?.parent, lectureStructure, lecturesToUpdate);
@@ -36,7 +37,7 @@ export function GetLecturesToUpdate(title: string): LectureNode[] {
 export function markCompletedLectureNonLoggedIn(
   lecturesToUpdate: LectureNode[]
 ) {
-  const completedLectures = JSON.parse(
+  const completedLectures:LectureStructure = JSON.parse(
     localStorage.getItem("completed-lectures") || "{}"
   );
   for (const lecture of lecturesToUpdate) {
