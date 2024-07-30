@@ -4,10 +4,10 @@ import { DocsPage, DocsBody } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 
-import { AuthNav } from "@/components/ui/authNav";
 import CompleteLectureButton from "./_components/completeLectureButton";
 import { Suspense } from "react";
 import { ProgressIndicatorSkeleton } from "./_components/progressIndicatorSkeleton";
+import ButtonSkeleton from "./_components/buttonSkeleton";
 
 const DynamicProgressIndicator = dynamic(
   () => import("./_components/progressIndicator"),
@@ -15,6 +15,9 @@ const DynamicProgressIndicator = dynamic(
     ssr: false,
   }
 );
+const DynamicAuthNav = dynamic(() => import("@/components/ui/authNav"), {
+  ssr: false,
+});
 export default async function Page({
   params,
 }: {
@@ -31,26 +34,27 @@ export default async function Page({
       <DocsPage toc={page.data.exports.toc} full={page.data.full}>
         <DocsBody>
           <div className="flex">
-            <AuthNav />
+            <DynamicAuthNav />
           </div>
 
           <h1 className="mb-1">{page.data.title}</h1>
 
           {params.slug?.includes("lectures") &&
-          page.data.title !== "Introduction" ? (
-            <Suspense fallback={<ProgressIndicatorSkeleton />}>
-              <DynamicProgressIndicator title={page.data.title} />
-            </Suspense>
-          ) : (
-            <></>
-          )}
+            page.data.title !== "Introduction" && (
+              <Suspense fallback={<ProgressIndicatorSkeleton />}>
+                <DynamicProgressIndicator title={page.data.title} />
+              </Suspense>
+            )}
           <MDX />
         </DocsBody>
         <div className="flex justify-end mt-4">
-          <CompleteLectureButton
-            pageTitle={page.data.title}
-            title="Mark as completed"
-          />
+          {params.slug?.includes("lectures") &&
+            page.data.title !== "Introduction" && (
+              <CompleteLectureButton
+                pageTitle={page.data.title}
+                title="Mark as completed"
+              />
+            )}
         </div>
       </DocsPage>
     </>

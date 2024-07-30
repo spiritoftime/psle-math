@@ -1,28 +1,36 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import AuthButton from "./authButton";
 import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { itemVariants } from "@/app/layout.client";
 import { useGetUser } from "@/app/application/queries/useGetUser";
 import { usePathname } from "next/navigation";
+import ButtonSkeleton from "@/app/docs/[...slug]/_components/buttonSkeleton";
 
-const AuthNav = () => {
+const AuthNavContent = () => {
   const { data: user } = useGetUser();
   const pathname = usePathname();
+
+  if (user) {
+    return <AuthButton title="Logout" />;
+  } else if (pathname === "/") {
+    return (
+      <Link key={"Login"} href={`/login`} className={cn(itemVariants())}>
+        {"Login"}
+      </Link>
+    );
+  } else {
+    return <AuthButton title="Login to get tips on PSLE!" />;
+  }
+};
+
+const AuthNav = () => {
   return (
-    <>
-      {user ? (
-        <AuthButton title="Logout" />
-      ) : pathname === "/" ? (
-        <Link key={"Login"} href={`/login`} className={cn(itemVariants())}>
-          {"Login"}
-        </Link>
-      ) : (
-        <AuthButton title="Login to get tips on PSLE!" />
-      )}
-    </>
+    <Suspense fallback={<ButtonSkeleton />}>
+      <AuthNavContent />
+    </Suspense>
   );
 };
 
-export { AuthNav };
+export default AuthNav;

@@ -5,3 +5,4 @@ const getUser = async () => {
   return data.user;
 };
 export { getUser };
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
