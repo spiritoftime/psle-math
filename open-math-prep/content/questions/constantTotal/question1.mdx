@@ -1,0 +1,66 @@
+---
+title: Constant Total Questions
+description: Walkthrough of Question 1 of the Constant Total segment.
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+
+import { SingaporeModel, moneyModelData } from "@/components/ui/model";
+
+<Callout title="Question 1">
+  Ali and Billy have money in the ratio of 5 : 4. After Ali gave Billy $20,they
+  have an equal amount of money. How much money does Billy have in the end?
+</Callout>
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+
+<div className="steps">
+  <div className="step">
+    <h3> Make the total for Ali and Billy to be the same </h3>
+    <div>
+      | Before        | After         |
+      | ------------- | ------------- |
+      | A : B : Total | A : B : Total |
+      | 5 : 4 : 9     | 1 : 1 : 2     |
+      | 10 : 8 : 18   | 9 : 9 : 18    |
+    </div>
+  </div>
+
+  <div className="step">
+    <h3> Find the difference between Ali's starting amount and ending amount</h3>
+
+    ```math
+    10u - 9u = 1u
+    ```
+
+  </div>
+<div className="step">
+  <h3>Find the value of 1u</h3>
+  ```math
+
+1u = \$20
+
+````
+</div>
+
+<div className="step">
+  <h3>Find Billy's amount in the end (9u)</h3>
+  ```math
+  9u = 9 \times 20 = \$180
+````
+
+</div>
+</div>
+
+<SingaporeModel
+  title="Singapore Model Method: Money Ratio Problem (Constant Total Concept)"
+  models={moneyModelData}
+/>
+
+</Accordion>
+</Accordions>
