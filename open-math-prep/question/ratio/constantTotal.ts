@@ -1,4 +1,4 @@
-import { ModelDataItem } from "../components/singaporeModel";
+import { ModelDataItem } from "../../components/question/singaporeModel";
 
 export const constantTotalQuestion1Data: ModelDataItem[] = [
   {

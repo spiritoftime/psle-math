@@ -1,8 +1,8 @@
-import { constantTotalQuestion1Data } from "../question/constantTotal/question";
-import { moreThanLessThanQuestion1 } from "../question/moreThanLessThan/question";
-import { SingaporeModel } from "../question/components/singaporeModel";
+import { constantTotalQuestion1Data } from "@/question/ratio/constantTotal";
+import { moreThanLessThanQuestion1Data } from "../../question/fractions/moreThanLessThan";
+import { SingaporeModel } from "../question/singaporeModel";
 
-const MoneyRatioProblem: React.FC = () => {
+export const MoneyRatioProblem: React.FC = () => {
   return (
     <div>
       <SingaporeModel
@@ -25,11 +25,11 @@ const MoneyRatioProblem: React.FC = () => {
 
 // export default MoneyRatioProblem;
 
-const MarblesProblem: React.FC = () => {
+export const MarblesProblem: React.FC = () => {
   return (
     <SingaporeModel
       title="Singapore Model Method: Marble Problem"
-      models={moreThanLessThanQuestion1}
+      models={moreThanLessThanQuestion1Data}
     />
   );
 };

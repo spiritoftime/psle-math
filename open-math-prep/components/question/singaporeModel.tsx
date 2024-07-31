@@ -42,9 +42,7 @@ export const SingaporeModel: React.FC<SingaporeModelProps> = ({
                 <Tooltip key={barIndex}>
                   <TooltipTrigger asChild>
                     <div className="flex items-center cursor-help">
-                      <span className="w-24 text-sm ">
-                        {bar.label}
-                      </span>
+                      <span className="w-24 text-sm ">{bar.label}</span>
                       <div className="flex w-full h-8 mr-2">
                         {bar.segments.map((segment, segmentIndex) => (
                           <div
@@ -63,7 +61,7 @@ export const SingaporeModel: React.FC<SingaporeModelProps> = ({
               ))}
             </div>
             {model.annotation && (
-              <p className="mt-2 text-sm ">{model.annotation}</p>
+              <p className="mt-2 text-sm mx-auto text-center italic">{model.annotation}</p>
             )}
           </div>
         ))}
