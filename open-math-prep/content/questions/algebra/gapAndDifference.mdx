@@ -1,0 +1,50 @@
+---
+title: Gap And Difference
+description: Practice Questions for the Gap And Difference of Algebra segment
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+### Question 1
+
+<Callout title="Question">
+  Ali and John went on a trip together with the same amount of money. Ali spent
+  8 dollars everyday and John spent 5 dollars every day. Ali had 12 dollars in
+  the end while John had 24 dollars in the end. How much did each person have at
+  first?
+</Callout>
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: Each person had $52 at first</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Let d be the number of days spent on the trip</h3>
+        Let x be the initial amount of money each person had. <br></br> For Ali:
+        $x - 8d = 12$ <br></br> For John: $x - 5d = 24$
+      </div>
+      <div className="step">
+        <h3>Equate the two expressions</h3>
+        $x - 8d = 12$ <br></br> $x - 5d = 24$ <br></br> Subtracting these equations:
+        $-3d = -12$
+      </div>
+      <div className="step">
+        <h3>Solve for d</h3>
+        $d = 4$ The trip lasted 4 days.
+      </div>
+      <div className="step">
+        <h3>Substitute d back into either equation</h3>
+        Using Ali's equation: $x - 8(4) = 12$ <br></br> $x - 32 = 12$ <br></br> $x
+        = 44 $
+      </div>
+      <div className="step">
+        <h3>Verify the solution</h3>
+        For Ali: $44 - 8(4) = 12$ <br></br> For John: $44 - 5(4) = 24$ <br></br>
+        The difference between their final amounts is indeed $32 - 20 = 12$, as
+        stated in the question.
+      </div>
+    </div>
+  </Accordion>
+</Accordions>

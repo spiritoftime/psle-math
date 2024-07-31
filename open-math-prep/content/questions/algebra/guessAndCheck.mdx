@@ -8,6 +8,11 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import { Callout } from "fumadocs-ui/components/callout";
 
+<p className="italic">Not so reliant on luck anymore eh?</p>
+## Setting Up Equations with One Variable
+
+### Question 1
+
 <Callout title="Question">
   <h4 className="my-0">Tom packed 5 balls into each bag and found that he had 8 balls left over. If he packed 7 balls into each bag, he would need another 4 more balls.  </h4>
 
@@ -41,5 +46,115 @@ import { Callout } from "fumadocs-ui/components/callout";
         or $7x- 4 = 7(6) - 4 = 38$
       </div>
     </div>
+  </Accordion>
+</Accordions>
+
+## Setting Up Equations with One Variable and Adjustments
+
+### Question 1
+
+<Callout title="Question">
+  Miss Lee bought some pencils for her class of 8 students. Each girl received 5
+  pencils and each boy received 2 pencils. She bought a total of 22 pencils. How
+  many boys were there in the class?
+</Callout>
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: 6 boys</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Let g be the number of girls</h3>
+        Since there are 8 students in total, the number of boys will be $8 - g$.
+      </div>
+      <div className="step">
+        <h3>Set up the equation</h3>
+        Total pencils = (Pencils per girl × Number of girls) + (Pencils per boy ×
+        Number of boys) $22 = 5g + 2(8 - g)$
+      </div>
+      <div className="step">
+        <h3>Simplify the equation</h3>
+        $22 = 5g + 16 - 2g$<br></br> $22 = 3g + 16$
+      </div>
+      <div className="step">
+        <h3>Solve for g</h3>
+        $6 = 3g$<br></br> $g = 2$
+      </div>
+      <div className="step">
+        <h3>Calculate the number of boys</h3>
+        Number of boys = $8 - g = 8 - 2 = 6$
+      </div>
+      <div className="step">
+        <h3>Verify the solution</h3>2 girls × 5 pencils each = 10<br></br> pencils
+        6 boys × 2 pencils each = 12 pencils <br></br>Total pencils = $10 + 12 =
+        22$, which matches the given information.
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+## Double Ifs
+
+<Callout type="warn" title="Note">
+  As you will see in the solutions there's quite a bit of simultaneous equations
+  and variables needed. Might wanna see ratio
+</Callout>
+### Question 1
+
+<Callout title="Question">
+  <h4 className="my-0">
+    A farmer has some chickens and ducks. If he sells 2 chickens and 3 ducks
+    every day, there will be 50 chickens left when all the ducks have been sold.
+    If he sells 3 chickens and 2 ducks every day, there will be 25 chickens left
+    when all the ducks have been sold.
+  </h4>
+  <br></br> <p className="my-0">a: How many ducks are there?</p> <br></br> <p className="my-0">b: How many chickens are there?</p>
+</Callout>
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: a: 30 ducks, b: 70 chickens</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Define variables</h3>
+        Let x be the number of days in the first scenario,  
+        Let y be the number of days in the second scenario,        <br></br>
+        Let c be the initial number of chickens,        <br></br>
+        Let d be the initial number of ducks,
+      </div>
+      <div className="step">
+        <h3>Set up equations for both scenarios</h3>
+        Scenario 1: $c - 2x = 50$ and $d - 3x = 0$        <br></br>
+        Scenario 2: $c - 3y = 25$ and $d - 2y = 0$
+      </div>
+      <div className="step">
+        <h3>Solve for x and y in terms of d</h3>
+        From scenario 1: $x = d/3$<br></br>
+        From scenario 2: $y = d/2$
+      </div>
+      <div className="step">
+        <h3>Substitute these into the chicken equations</h3>
+        Scenario 1: $c - 2(d/3) = 50$<br></br>
+        Scenario 2: $c - 3(d/2) = 25$
+      </div>
+      <div className="step">
+        <h3>Equate these expressions</h3>
+        $c - 2d/3 = c - 3d/2 + 25$<br></br>
+        $-2d/3 = -3d/2 + 25$<br></br>
+        $5d/6 = 25$<br></br>
+        $d = 30$
+      </div>
+      <div className="step">
+        <h3>Solve for c</h3>
+        Substitute $d = 30$ into either equation:<br></br>
+        $c - 2(30/3) = 50$<br></br>
+        $c - 20 = 50$<br></br>
+        $c = 70$
+      </div>
+      <div className="step">
+        <h3>Final answer</h3>
+        a: There are 30 ducks<br></br>
+        b: There are 70 chickens
+      </div>
+    </div>
+
   </Accordion>
 </Accordions>
