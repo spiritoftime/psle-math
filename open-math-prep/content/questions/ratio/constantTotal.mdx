@@ -1,20 +1,23 @@
 ---
 title: Constant Total Questions
-description: Walkthrough of Question 1 of the Constant Total segment.
+description: Practice Questions for the Constant Total segment.
 ---
-
-import { Callout } from "fumadocs-ui/components/callout";
-
-import { SingaporeModel, moneyModelData } from "@/components/ui/model";
-
-<Callout title="Question 1">
-  Ali and Billy have money in the ratio of 5 : 4. After Ali gave Billy $20,they
-  have an equal amount of money. How much money does Billy have in the end?
-</Callout>
 
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 
 import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+import { constantTotalQuestion1Data } from "@/components/question/constantTotal/question";
+
+import { SingaporeModel } from "@/components/question/components/singaporeModel";
+
+#### Question 1
+
+<Callout title="Question">
+  Ali and Billy have money in the ratio of 5 : 4. After Ali gave Billy $20,they
+  have an equal amount of money. How much money does Billy have in the end?
+</Callout>
 
 <Accordions>
   <Accordion title="Answer Walkthrough">
@@ -58,8 +61,8 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 </div>
 
 <SingaporeModel
-  title="Singapore Model Method: Money Ratio Problem (Constant Total Concept)"
-  models={moneyModelData}
+  title="Constant Total Concept Model Method"
+  models={constantTotalQuestion1Data}
 />
 
 </Accordion>

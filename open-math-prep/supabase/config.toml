@@ -129,7 +129,7 @@ max_frequency = "1s"
 enabled = true
 client_id = "env(GOOGLE_CLIENT_ID)"
 secret = "env(GOOGLE_CLIENT_SECRET)"
-redirect_uri = "http://http://127.0.0.1:54321/auth/v1/callback"
+redirect_uri = "http://127.0.0.1:54321/auth/v1/callback"
 
 [auth.sms]
 # Allow/disallow new user signups via SMS to your project.

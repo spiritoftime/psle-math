@@ -1,0 +1,70 @@
+---
+title: More Than Less Than Questions
+description: Practice Questions for the More Than Less Than segment.
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+import { moreThanLessThanQuestion1Data } from "@/components/question/moreThanLessThan/question";
+
+import { SingaporeModel } from "@/components/question/components/singaporeModel";
+
+#### Question 1
+
+<Callout title="Question">
+  James had 120 more marbles than Dan. After James lost 1/5 of his marbles and
+  Dan lost 3/4 of his marbles, James had 184 more marbles than Dan. How many
+  marbles did Dan have at first?
+</Callout>
+
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+
+<div className="steps">
+      <div className="step">
+        <h3>Initially</h3>
+        Let D be the number of marbles Dan has at first. Since James had 120 more marbles than Dan, James had $D + 120$ marbles.
+      </div>
+ <div className="step">
+    <h3>After Losing Marbles</h3>
+    James lost $\frac{1}{5}$ of his marbles, so he had $\frac{4}{5}$ of his initial marbles left: $\frac{4}{5} \times (D + 120)$.
+
+    Dan lost $\frac{3}{4}$ of his marbles, so he had $\frac{1}{4}$ of his initial marbles left: $\frac{1}{4} \times D$.
+
+    After losing marbles, James had 184 more marbles than Dan: $\frac{4}{5} \times (D + 120) = \frac{1}{4} \times D + 184$.
+
+  </div>
+<SingaporeModel
+  title="More Than Less Than Concept Model Method"
+  models={moreThanLessThanQuestion1Data}
+/>
+  <div className="step">
+    <h3>Solving the Problem</h3>
+    $\frac{4}{5} \times (D + 120) = \frac{1}{4} \times D + 184$
+
+    To solve this, we first clear the fractions by multiplying through by 20:
+
+    $16(D + 120) = 5D + 3680$
+
+    Expand and simplify:
+
+    $16D + 1920 = 5D + 3680$
+
+    Isolate $D$:
+
+    $16D - 5D = 3680 - 1920$
+
+    $11D = 1760$
+
+    $D = 160$
+
+    Dan had 160 marbles initially.
+
+  </div>
+</div>
+
+</Accordion>
+</Accordions>
