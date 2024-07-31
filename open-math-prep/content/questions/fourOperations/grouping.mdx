@@ -1,0 +1,36 @@
+---
+title: Grouping
+description: Practice Questions for the Grouping segment.
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+### Question 1
+
+<Callout title="Question">
+  Mark bought an equal number of shorts and shirts for 100 dollars. A shirt cost 8 dollars and each pair of shorts cost 12 dollars. How much did he spend on the shirts?
+</Callout>
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+  <p className="ml-11">Ans: $40</p>
+  <div className="steps">
+    <div className="step">
+      <h3>Step 1: Group 1 shirt and 1 pair of shorts</h3>
+      <p>$8 + 12 = 20$</p>
+      <p>Each group (1 shirt + 1 pair of shorts) costs <span className="text-blue-500">$20</span></p>
+    </div><div className="step">
+  <h3>Step 2: Find the number of groups</h3>
+  <p>$100 \div 20 = 5$</p>
+  <p>Mark bought <span className="text-green-500">5 groups</span> of shirt and shorts</p>
+</div>
+
+<div className="step">
+  <h3>Step 3: Find the amount spent on the shirts</h3>
+  <p>$5 \times 8 = 40$</p>
+  <p>Mark spent <span className="text-red-500">$40 on shirts</span> <span className="text-purple-500">(Answer)</span></p>
+</div></div>
+  </Accordion>
+</Accordions>

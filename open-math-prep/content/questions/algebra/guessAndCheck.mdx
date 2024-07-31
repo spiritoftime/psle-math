@@ -1,0 +1,45 @@
+---
+title: Guess And Check
+description: Practice Questions for the Guess And Check of Algebra segment
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+<Callout title="Question">
+  <h4 className="my-0">Tom packed 5 balls into each bag and found that he had 8 balls left over. If he packed 7 balls into each bag, he would need another 4 more balls.  </h4>
+
+  <br></br> <p className="my-0">a: How many bags did he have?</p> <br></br> <p className="my-0">b: How many balls did he have altogether? ?</p>
+</Callout>
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: a: 6 bags, b: 38 balls</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Let x be the number of bags</h3>
+        When Tom packs 5 balls into each bag, he has 8 balls left over. This means:
+        $5x + 8 =$ Total number of balls
+      </div>
+      <div className="step">
+        <h3>Consider the scenario with 7 balls per bag</h3>
+        In this case, he would need 4 more balls. This means: $7x - 4 =$ Total number
+        of balls
+      </div>
+      <div className="step">
+        <h3>Equate the two expressions</h3>
+        $5x + 8 = 7x - 4$
+      </div>
+      <div className="step">
+        <h3>Solve for x</h3>
+        $2x = 12$ $x = 6$
+      </div>
+      <div className="step">
+        <h3>Find the total number of balls</h3>
+        When $x = 6$, the total number of balls is: $5x + 8 = 5(6) + 8 = 38$ <br></br>{" "}
+        or $7x- 4 = 7(6) - 4 = 38$
+      </div>
+    </div>
+  </Accordion>
+</Accordions>

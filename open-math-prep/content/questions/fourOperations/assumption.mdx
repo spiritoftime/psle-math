@@ -1,0 +1,73 @@
+---
+title: Assumption
+description: Practice Questions for the Assumption segment.
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+#### Question 1
+
+<Callout title="Question">
+  Miss Lee bought some pencils for her class of 8 students. Each girl received 5
+  pencils and each boy received 2 pencils. She bought a total of 22 pencils. How
+  many boys were there in the class?
+</Callout>
+
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: 6 boys</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Step 1: Start with an assumption</h3>
+        <p>Suppose there are <span className="text-blue-500">8 girls</span></p>
+      </div>
+      <div className="step">
+        <h3>Step 2: Find the total number of pencils</h3>
+        <p>$8 \times 5 = 40$</p>
+      </div>
+
+      <div className="step">
+        <h3>Step 3: Change your assumption</h3>
+        <p>
+          Suppose there are <span className="text-green-500">7 girls, 1 boy</span>
+        </p>
+      </div>
+
+      <div className="step">
+        <h3>Step 4: Find the total number of pencils</h3>
+        <p>$7 \times 5 + 1 \times 2 = 37$</p>
+      </div>
+
+      <div className="step">
+        <h3>Step 5: Spot the pattern</h3>
+        <p>
+          $40 - 37 = 3$ (When the boys increase by 1, the total pencils decrease by 3)
+        </p>
+      </div>
+
+      <div className="step">
+        <h3>Step 6: Find the total difference</h3>
+        <p>$40 - 22 = 18$</p>
+      </div>
+
+      <div className="step">
+        <h3>Step 7: Find the number of boys</h3>
+        <p>
+          $18 \div 3 = 6$ boys <span className="text-red-500">(Answer)</span>
+        </p>
+      </div>
+
+      <div className="step">
+        <h3 className="text-red-500">Remember To Check your answer!</h3>
+        <p>Number of girls = $8 - 6 = 2$</p>
+        <p>
+          Total pencils = $2 \times 5 + 6 \times 2 = 22$ <span className="text-green-500">(Correct)</span>
+        </p>
+      </div>
+    </div>
+
+  </Accordion>
+</Accordions>

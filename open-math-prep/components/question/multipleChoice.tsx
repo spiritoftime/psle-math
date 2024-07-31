@@ -31,8 +31,8 @@ const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProps> = ({
   const isCorrect = selectedAnswer === questionData.answer;
 
   return (
-    <div className="max-w-md  text-foreground">
-      <p className="text-xl font-bold my-0">{questionData.question}</p>
+    <div className="text-foreground">
+      <p className="font-bold my-0">{questionData.question}</p>
       <ul className="space-y-2">
         {questionData.options.map((option, index) => (
           <li className="list-none" key={index}>
