@@ -1,0 +1,59 @@
+---
+title: Part Whole And Comparison
+description: Practice Questions for the Part Whole And Comparison segment.
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+import {
+  ComparisonModelQuestion1Data,
+  partWholeQuestion1Data,
+} from "@/question/fourOperations/partWholeComparisonModel";
+
+import { SingaporeModel } from "@/components/question/singaporeModel";
+
+### Comparison Model
+
+#### Question 1
+
+<Callout title="Question">
+  there were 825ml of milk in Jug A. There were 750ml more milk in Jug B than in
+  Jug A. How much milk were there altogether in Jug A and Jug B?
+</Callout>
+
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: 2400ml</p>
+
+<SingaporeModel
+  title="Comparison Model Method"
+  models={ComparisonModelQuestion1Data}
+/>
+
+</Accordion>
+</Accordions>
+
+### Part Whole Model
+
+#### Question 1
+
+<Callout title="Question">
+  There were 2500 people at a concert. there were 1529 adults and the rest were
+  children.529 children were boys. how many girls were there?
+</Callout>
+
+<Accordions>
+    <p className="ml-11">Ans: 442</p>
+
+  <Accordion title="Answer Walkthrough">
+  
+<SingaporeModel
+  title="Part Whole Model Method"
+  models={partWholeQuestion1Data}
+/>
+
+</Accordion>
+</Accordions>

@@ -1,4 +1,4 @@
-import { ModelDataItem } from "../../components/question/singaporeModel";
+import { ModelDataItem } from "@/components/question/singaporeModel";
 
 export const moreThanLessThanQuestion1Data: ModelDataItem[] = [
   {

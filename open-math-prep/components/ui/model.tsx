@@ -1,6 +1,6 @@
 import { constantTotalQuestion1Data } from "@/question/ratio/constantTotal";
 import { moreThanLessThanQuestion1Data } from "../../question/fractions/moreThanLessThan";
-import { SingaporeModel } from "../question/singaporeModel";
+import { SingaporeModel } from "../../question/components/singaporeModel";
 
 export const MoneyRatioProblem: React.FC = () => {
   return (
