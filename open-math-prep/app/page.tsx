@@ -2,7 +2,7 @@ import { HomeLayout } from "fumadocs-ui/home-layout";
 import Link from "next/link";
 import { baseOptions } from "./layout.config";
 import Test from "@/components/ui/test";
-import { MarblesProblem } from "@/components/ui/model";
+import RemainderBranch from "@/components/question/remainderBranch";
 // import MarblesProblem from "@/components/ui/model";
 
 export default function HomePage() {
@@ -22,6 +22,7 @@ export default function HomePage() {
         </p>
         <Test />
         {/* <MarblesProblem /> */}
+        <RemainderBranch/>
       </main>
     </HomeLayout>
   );
