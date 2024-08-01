@@ -1,0 +1,80 @@
+---
+title: Remainder Method
+description: Practice Questions for the Remainder Method segment.
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+import {
+  remainderMethodQuestion1BranchData,
+  remainderMethodQuestion2BranchData,
+} from "@/question/fractions/remainderMethod";
+
+import { BranchDiagram } from "@/components/question/remainderBranch";
+
+#### Question 1
+
+<Callout title="Question">
+  John spent 3/5 of his money on books and 1/3 of the remainder on a wallet. If
+  John had $16 left, how much did he have at first?
+</Callout>
+
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: $60</p>
+    <div className="steps">
+    <div className="step">
+  <h3>Using the Remainder Method</h3>
+  <BranchDiagram data={remainderMethodQuestion1BranchData} />
+</div>
+<div className="step">
+    <h3>Calculating the Fraction of Money Left</h3>
+    - After buying books: 1 - 3/5 = 2/5 of the money remained
+    - After buying the wallet: 2/3 of 2/5 remained
+    - Fraction of money left = 2/3 × 2/5 = 4/15
+  </div>
+  <div className="step">
+    <h3>Calculating the Fraction of Money Left</h3>
+    - 4 units = 16 dollars
+    - 1 unit = 16 ÷ 4 = 4
+    - 15 units = 4 × 15 = 60
+  </div>
+
+  <div className="step">
+    <h3>Conclusion</h3>
+    John had $60 at first.
+  </div>
+</div>
+</Accordion>
+</Accordions>
+
+#### Question 2
+
+<Callout title="Question">
+  In a library, 5/8 of the books are English books. 1/2 of the English books are
+  fiction books. The rest of the English books are non-fiction books. What
+  fraction of the books are non-English books?
+</Callout>
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: 3/8</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Calculating the Fraction of Non-English Books</h3>
+        <BranchDiagram data={remainderMethodQuestion2BranchData} />
+
+        - Fraction of English
+        books = 5/8
+        - Fraction of non-English books = 1 - 5/8 = 3/8
+      </div>
+      <div className="step">
+        <h3>Conclusion</h3>
+        The fraction of books that are non-English is 3/8.
+      </div>
+    </div>
+
+  </Accordion>
+</Accordions>

@@ -9,11 +9,27 @@ import {
   exampleData2,
   exampleData,
 } from "../components/question/remainderBranch";
+// const customStyles = {
+//   border: "2px dashed #ff0000",
+//   padding: 20,
+//   borderRadius: 12,
+//   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+//   fontSize: "10px",
+//   fontWeight: "normal",
+// };
 
+// const customOptions = {
+//   nodeSpacing: 300,
+//   levelSpacing: 500,
+//   nodeColor: "#e0ffe0",
+//   edgeColor: "#ff00ff",
+//   textColor: "#0000ff",
+//   style: customStyles,
+// };
 export default function HomePage() {
   return (
     <HomeLayout {...baseOptions}>
-      <main className="flex flex-col justify-center h-screen text-center">
+      <main className="flex flex-col justify-center min-h-screen text-center">
         <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
         <p className="text-muted-foreground">
           You can open{" "}
@@ -27,15 +43,7 @@ export default function HomePage() {
         </p>
         <Test />
         {/* <MarblesProblem /> */}
-        <BranchDiagram
-          data={exampleData2}
-          options={{
-            nodeSpacing: 100,
-            levelSpacing: 200,
-            textColor: "#000000",
-            edgeColor: "#888888",
-          }}
-        />
+        <BranchDiagram data={exampleData2} />
       </main>
     </HomeLayout>
   );

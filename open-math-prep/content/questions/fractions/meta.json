@@ -1,5 +1,4 @@
 {
-    "title": "Fractions",
-    "pages": ["basic","moreThanLessThan"]
-  }
-  
+  "title": "Fractions",
+  "pages": ["basic", "moreThanLessThan", "remainderMethod"]
+}

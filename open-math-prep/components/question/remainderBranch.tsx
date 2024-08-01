@@ -18,14 +18,14 @@ import "@xyflow/react/dist/style.css";
 import "katex/dist/katex.min.css";
 import { InlineMath } from "react-katex";
 
-type BranchData = {
+export type BranchData = {
   id: string;
   label: string;
   calculation?: string;
   children?: BranchData[];
 };
 
-type BranchDiagramProps = {
+export type BranchDiagramProps = {
   data: BranchData;
   options?: {
     nodeSpacing?: number;
@@ -33,14 +33,29 @@ type BranchDiagramProps = {
     nodeColor?: string;
     edgeColor?: string;
     textColor?: string;
+    style?: React.CSSProperties;
   };
 };
+const nodeHeight = 40;
 const defaultOptions = {
-  nodeSpacing: 250,
-  levelSpacing: 450,
+  nodeSpacing: 100,
+  levelSpacing: 200,
   nodeColor: "#ffffff",
-  edgeColor: "#888",
-  textColor: "#333333",
+  textColor: "#000000",
+  edgeColor: "#888888",
+  style: {
+    border: "1px solid #ccc",
+    padding: 10,
+    borderRadius: 8,
+    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+    width: 80,
+    height: nodeHeight,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "8px",
+    fontWeight: "bold",
+  },
 };
 
 const CustomEdge = ({
@@ -93,26 +108,35 @@ const createNodesAndEdges = (
   options: typeof defaultOptions,
   x = 0,
   y = 0,
-  level = 0
+  level = 0,
+  memoizedCalculation: Map<
+    string,
+    { height: number; nodes: Node[]; edges: Edge[] }
+  > = new Map()
 ): { nodes: Node[]; edges: Edge[]; height: number } => {
+  // Check if this subtree has already been processed
+  if (memoizedCalculation.has(data.id)) {
+    const cachedResult = memoizedCalculation.get(data.id)!;
+    // Adjust positions based on the new x and y
+    const adjustedNodes = cachedResult.nodes.map((node) => ({
+      ...node,
+      position: {
+        x: node.position.x - cachedResult.nodes[0].position.x + x,
+        y: node.position.y - cachedResult.nodes[0].position.y + y,
+      },
+    }));
+    return { ...cachedResult, nodes: adjustedNodes };
+  }
+
+  const mergedStyles = { ...defaultOptions.style, ...options.style };
   const nodes: Node[] = [
     {
       id: data.id,
       position: { x, y },
       data: { label: data.label },
       style: {
+        ...mergedStyles,
         background: options.nodeColor,
-        border: "1px solid #ccc",
-        padding: 10,
-        borderRadius: 8,
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-        width: 80,
-        height: 40,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontSize: "8px",
-        fontWeight: "bold",
         color: options.textColor,
       },
       sourcePosition: Position.Right,
@@ -120,7 +144,7 @@ const createNodesAndEdges = (
     },
   ];
   const edges: Edge[] = [];
-  let totalHeight = 40; // Height of the current node
+  let totalHeight = nodeHeight; // Height of the current node
 
   if (data.children) {
     const childResults = data.children.map((child) =>
@@ -128,8 +152,9 @@ const createNodesAndEdges = (
         child,
         options,
         x + options.levelSpacing,
-        0, // We'll adjust this later
-        level + 1
+        0,
+        level + 1,
+        memoizedCalculation
       )
     );
 
@@ -168,8 +193,11 @@ const createNodesAndEdges = (
     nodes[0].position.y = y;
   }
 
-  return { nodes, edges, height: totalHeight };
+  const result = { nodes, edges, height: totalHeight };
+  memoizedCalculation.set(data.id, result);
+  return result;
 };
+
 export const BranchDiagram: React.FC<BranchDiagramProps> = ({
   data,
   options = {},
@@ -177,6 +205,7 @@ export const BranchDiagram: React.FC<BranchDiagramProps> = ({
   const mergedOptions = {
     ...defaultOptions,
     ...options,
+    style: { ...defaultOptions.style, ...options.style },
   } as typeof defaultOptions;
   const { nodes, edges } = useMemo(
     () => createNodesAndEdges(data, mergedOptions),
@@ -188,24 +217,19 @@ export const BranchDiagram: React.FC<BranchDiagramProps> = ({
   };
 
   return (
-    <div style={{ width: "100%", height: "400px", background: "#1a1a1a" }}>
+    <div className="w-full h-[400px] mx-auto">
       <ReactFlowProvider>
         <ReactFlow
+          colorMode="dark"
           nodes={nodes}
           edges={edges}
           edgeTypes={edgeTypes}
           fitView
           minZoom={0.1}
           maxZoom={1.5}
-          defaultViewport={{ x: 0, y: 0, zoom: 0.7 }} // Decreased default zoom
-          attributionPosition="bottom-left"
+          attributionPosition="top-right"
         >
-          <Background
-            color="#444"
-            variant={BackgroundVariant.Dots}
-            gap={12}
-            size={1}
-          />
+          <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
           <Controls />
         </ReactFlow>
       </ReactFlowProvider>
