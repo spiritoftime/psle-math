@@ -2,8 +2,13 @@ import { HomeLayout } from "fumadocs-ui/home-layout";
 import Link from "next/link";
 import { baseOptions } from "./layout.config";
 import Test from "@/components/ui/test";
-import RemainderBranch from "@/components/question/remainderBranch";
 // import MarblesProblem from "@/components/ui/model";
+import dynamic from "next/dynamic";
+import {
+  BranchDiagram,
+  exampleData2,
+  exampleData,
+} from "../components/question/remainderBranch";
 
 export default function HomePage() {
   return (
@@ -22,7 +27,15 @@ export default function HomePage() {
         </p>
         <Test />
         {/* <MarblesProblem /> */}
-        <RemainderBranch/>
+        <BranchDiagram
+          data={exampleData2}
+          options={{
+            nodeSpacing: 100,
+            levelSpacing: 200,
+            textColor: "#000000",
+            edgeColor: "#888888",
+          }}
+        />
       </main>
     </HomeLayout>
   );
