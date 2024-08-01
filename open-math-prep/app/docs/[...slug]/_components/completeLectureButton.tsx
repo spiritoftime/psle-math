@@ -8,6 +8,7 @@ import { markCompletedLectureLoggedIn } from "@/app/docs/[...slug]/actions";
 import React from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
+import { LECTURE_QUERY_KEY } from "@/app/application/queries/useGetLecture";
 
 const CompleteLectureButton: React.FC<{
   title: string;
@@ -32,7 +33,7 @@ const CompleteLectureButton: React.FC<{
             });
           }
 
-          queryClient.invalidateQueries({ queryKey: ["getLecture"] });
+          queryClient.invalidateQueries({ queryKey: [LECTURE_QUERY_KEY] });
         } else {
           // if not logged in mutate localStorage
           markCompletedLectureNonLoggedIn(lecturesToUpdate);

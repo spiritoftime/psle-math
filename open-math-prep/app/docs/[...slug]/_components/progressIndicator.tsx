@@ -36,7 +36,9 @@ const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
 
   useEffect(() => {
     const handleLecturesUpdate = () => {
-      const updatedLectureStructure = JSON.parse(localStorage.getItem("completed-lectures") || "{}");
+      const updatedLectureStructure = JSON.parse(
+        localStorage.getItem("completed-lectures") || "{}"
+      );
       setLectureStructure(updatedLectureStructure);
     };
 
@@ -63,7 +65,13 @@ const ProgressIndicatorWrapper: React.FC<{ title: string }> = ({ title }) => {
       ? lectureStructure[title]?.progress ?? 0
       : 0;
 
-  return <ProgressIndicator key={progress} title={title} progress={progress} />;
+  return (
+    <ProgressIndicator
+      key={`${title}${progress}`}
+      title={title}
+      progress={progress}
+    />
+  );
 };
 
 export default ProgressIndicatorWrapper;

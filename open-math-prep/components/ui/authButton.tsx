@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { LogInWithProvider, logout } from "@/app/login/actions";
 import { useQueryClient } from "@tanstack/react-query";
 import { Provider } from "@supabase/supabase-js";
+import { LECTURE_QUERY_KEY } from "@/app/application/queries/useGetLecture";
 
 const AuthButton: React.FC<{
   title: string;
@@ -35,7 +36,7 @@ const AuthButton: React.FC<{
               queryClient.invalidateQueries({
                 queryKey: ["getUser"],
               });
-              queryClient.invalidateQueries({ queryKey: ["getLecture"] });
+              queryClient.invalidateQueries({ queryKey: [LECTURE_QUERY_KEY] });
             }
           : title.startsWith("Login With")
           ? async () => {

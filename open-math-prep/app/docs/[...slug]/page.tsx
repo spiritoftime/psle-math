@@ -7,7 +7,6 @@ import dynamic from "next/dynamic";
 import CompleteLectureButton from "./_components/completeLectureButton";
 import { Suspense } from "react";
 import { ProgressIndicatorSkeleton } from "./_components/progressIndicatorSkeleton";
-import ButtonSkeleton from "./_components/buttonSkeleton";
 
 const DynamicProgressIndicator = dynamic(
   () => import("./_components/progressIndicator"),
@@ -42,7 +41,10 @@ export default async function Page({
           {params.slug?.includes("lectures") &&
             page.data.title !== "Introduction" && (
               <Suspense fallback={<ProgressIndicatorSkeleton />}>
-                <DynamicProgressIndicator title={page.data.title} />
+                <DynamicProgressIndicator
+                  key={page.data.title}
+                  title={page.data.title}
+                />
               </Suspense>
             )}
           <MDX />
