@@ -24,19 +24,14 @@ const CompleteLectureButton: React.FC<{
         const lecturesToUpdate = GetLecturesToUpdate(pageTitle);
         // if logged in use below
         if (user) {
-          const error = await markCompletedLectureLoggedIn(lecturesToUpdate);
-          if (error?.insertError) {
-            toast({
-              title: "Error inserting lecture progress",
-              description: "Please try again later.",
-            });
-          }
-          if (error?.updateError) {
+          const result = await markCompletedLectureLoggedIn(lecturesToUpdate);
+          if (result?.error) {
             toast({
               title: "Error updating lecture progress",
-              description: "Please try again later.",
+              description: `Please try again later. ${result.error}`,
             });
           }
+
           queryClient.invalidateQueries({ queryKey: ["getLecture"] });
         } else {
           // if not logged in mutate localStorage

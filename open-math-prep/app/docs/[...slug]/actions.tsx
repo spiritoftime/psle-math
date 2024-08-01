@@ -2,44 +2,51 @@
 import { LectureNode } from "@/app/domain/lectureNodes";
 import { getLectureProgressesFromSupabase } from "@/infrastructure/lectureProgress/api";
 import { createClient } from "@/utils/supabase/server";
-export async function markCompletedLectureLoggedIn(lectureNodes: LectureNode[]) {
+export async function markCompletedLectureLoggedIn(
+  lectureNodes: LectureNode[]
+) {
   const supabase = createClient();
-  const filterBy = lectureNodes.map((lectureNode) => lectureNode.title);
-  const lectureProgresses = await getLectureProgressesFromSupabase(filterBy);
-  const lectureNodesToInsert = [];
-  const lectureNodesToUpdate = [];
 
-  for (const lectureNode of lectureNodes) {
-    const lectureProgress =
-      lectureProgresses.data?.find((lp) => lp.title === lectureNode.title) ??
-      null;
-    if (lectureProgress) {
-      lectureNodesToUpdate.push({ ...lectureNode, id: lectureProgress.id });
+  try {
+    const filterBy = lectureNodes.map((lectureNode) => lectureNode.title);
+    const { data: lectureProgresses, error: fetchError } =
+      await getLectureProgressesFromSupabase(filterBy);
+
+    if (fetchError) throw new Error(`Fetch error: ${fetchError.message}`);
+
+    const lectureNodesToInsert = [];
+    const lectureNodesToUpdate = [];
+
+    for (const lectureNode of lectureNodes) {
+      const lectureProgress =
+        lectureProgresses?.find((lp) => lp.title === lectureNode.title) ?? null;
+      if (lectureProgress) {
+        lectureNodesToUpdate.push({ ...lectureNode, id: lectureProgress.id });
+      } else {
+        lectureNodesToInsert.push(lectureNode);
+      }
+    }
+
+    if (lectureNodesToInsert.length > 0) {
+      const { error: insertError } = await supabase
+        .from("lectureprogress")
+        .insert(lectureNodesToInsert);
+      if (insertError) throw new Error(`Insert error: ${insertError.message}`);
+    }
+
+    if (lectureNodesToUpdate.length > 0) {
+      const { error: updateError } = await supabase
+        .from("lectureprogress")
+        .upsert(lectureNodesToUpdate);
+      if (updateError) throw new Error(`Update error: ${updateError.message}`);
+    }
+
+    return null;
+  } catch (error) {
+    if (error instanceof Error) {
+      return { error: error.message };
     } else {
-      lectureNodesToInsert.push(lectureNode);
+      return { error: "An unknown error occurred" };
     }
   }
-
-  let insertError = null;
-  let updateError = null;
-
-  if (lectureNodesToInsert.length > 0) {
-    const { error } = await supabase
-      .from("lectureprogress")
-      .insert(lectureNodesToInsert);
-    insertError = error;
-  }
-
-  if (lectureNodesToUpdate.length > 0) {
-    const { error } = await supabase
-      .from("lectureprogress")
-      .upsert(lectureNodesToUpdate);
-    updateError = error;
-  }
-
-  if (insertError || updateError) {
-    return { insertError, updateError };
-  }
-
-  return null;
 }
