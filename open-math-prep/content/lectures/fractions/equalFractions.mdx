@@ -8,6 +8,8 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 import { EqualPartPieChartComponent } from "@/components/question/equalPartPieChart";
 import { FileQuestion } from "lucide-react";
 
+Equal Fractions is one of the most important concepts. It is required to understand concepts like constant difference, repeated identity and constant total.
+
 ### Scenario
 
 Lets say you are a perfectionist. You have a chocolate cake that is sliced into 2 parts, and a strawberry cake that is sliced into 3 parts. On every bite, you want to eat
@@ -38,9 +40,35 @@ Cut the cakes up until they have equal slices!
   <EqualPartPieChartComponent title={"Strawberry Cake"} slices={6} />
 </div>
 
-Now, you can take 1 slice at a time, and finish both cakes in 6 bites
+Now, you can take 1 slice at a time, and finish both cakes in 6 bites!
+
+The key to identifying a equal fraction concept is to identify what may be the same across multiple ratios and fractions.
+
+
+<Callout type="warn" title="Note">
+  Constant Total, repeated identity and constant difference questions require basic understanding of ratios.
+</Callout>
 
 <Cards>
   <Card icon={<FileQuestion />} title="Practice Time!" description="Try some questions on equal fractions" href="/docs/questions/fractions/equalFractions" />
 
+<Card
+  icon={<FileQuestion />}
+  title="Practice Time!"
+  description="Try some questions on constant difference"
+  href="/docs/questions/ratio/constantDifference"
+/>
+
+<Card
+  icon={<FileQuestion />}
+  title="Practice Time!"
+  description="Try some questions on constant total"
+  href="/docs/questions/ratio/constantTotal"
+/>
+<Card
+  icon={<FileQuestion />}
+  title="Practice Time!"
+  description="Try some questions on Repeated Identity"
+  href="/docs/questions/ratio/repeatedIdentity"
+/>
 </Cards>
