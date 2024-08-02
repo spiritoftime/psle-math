@@ -1,0 +1,51 @@
+---
+title: Repeated Identity
+description: Practice Questions for the Repeated Identity segment.
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { EqualPartPieChartComponent } from "@/components/question/equalPartPieChart";
+
+### Question 1
+
+<Callout title="Question">
+  The number of adults to the number of children in a room is 5 : 6. There are
+  twice as many boys as girls in the room. If there are 10 more adults than
+  boys, how many people are there inside the room?
+</Callout>
+<Accordions>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: 110</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Initial Ratios (Make something the same)</h3>
+        The repeated identity is **children**.
+        <div className="flex flex-wrap space-between">
+          <EqualPartPieChartComponent
+            title={"Children in 1st ratio"}
+            slices={6}
+          />
+          <EqualPartPieChartComponent
+            title={"Children in 2nd ratio"}
+            slices={3}
+          />
+        </div>
+        Adults : Children = $5 : 6$
+        <br /> Boys : Girls : Children = $2 : 1 : 3 = 4 : 2 : 6$ (Make the
+        children the same)
+      </div>
+      <div className="step">
+        <h3>Difference between Adults and Boys</h3>
+        <p>$5u - 4u = 1u$</p>
+        $1u = 10$
+      </div>
+      <div className="step">
+        <h3>Calculating Total People</h3>
+        $11u = 110$ (Ans)
+      </div>
+    </div>
+    Therefore, there are 110 people inside the room.
+  </Accordion>
+</Accordions>
