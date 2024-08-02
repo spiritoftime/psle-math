@@ -21,7 +21,7 @@ const AuthNavContent = () => {
       </Link>
     );
   } else {
-    return <AuthButton title="Login to get tips on PSLE!" />;
+    return <AuthButton title="Login" />;
   }
 };
 

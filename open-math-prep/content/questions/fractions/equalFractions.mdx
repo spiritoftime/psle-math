@@ -1,0 +1,79 @@
+---
+title: Equal Fractions
+description: A bit of extra description on Equal Fractions
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import { EqualPartPieChartComponent } from "@/components/question/equalPartPieChart";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+### Question 1
+
+<Callout title="Question">
+  There are 836 students in a school. 7/10 of the boys and 7/8 of the girls take
+  bus to school. The number of boys who do not take bus is twice the number of
+  girls who do not take bus. How many girls do not take bus?
+</Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: 57</p>
+<div className="steps">
+  <div className="step">
+    <h3>Find the fractions of boys and girls who do not take bus</h3>
+    Boys: $1 - \frac{7}
+    {10} = \frac{3}
+    {10}$<br />
+    Girls: $1 - \frac{7}
+    {8} = \frac{1}
+    {8}$
+  </div>
+  <div className="step">
+    <h3>Compare the boys and girls who do not take bus</h3>
+    <div className="flex flex-wrap space-between">
+  <EqualPartPieChartComponent title={"Boys"} slices={3} />
+  <EqualPartPieChartComponent title={"Girls"} slices={1} />
+</div>
+    $\frac{3}
+    {10}$ of boys = $2 \times \frac{1}
+    {8}$ of girls<br />
+    $\frac{3}
+    {10}$ of boys = $\frac{1}
+    {4}$ of girls
+  </div>
+  <div className="step">
+    <h3>Make the numerators the same</h3>
+   Make numerator for  girls 3: $\frac{1}
+    {4} = \frac{3}
+    {12}$
+  </div>
+  <div className="step">
+    <h3>Compare the denominators</h3>
+    Boys : Girls = $10 : 12 = 5 : 6$
+  </div>
+  <div className="step">
+    <h3>
+      Find the total number of units and equate it to the total boys and girls
+    </h3>
+    $5u + 6u = 11u$ <br />
+    $11u = 836$
+  </div>
+  <div className="step">
+    <h3>Find 1 unit</h3>
+    $1u = 76$
+  </div>
+  <div className="step">
+    <h3>Find the total number of girls</h3>
+    $6u = 456$ (Total girls)
+  </div>
+  <div className="step">
+    <h3>Find the girls who do not take bus</h3>
+    $\frac{1}
+    {8} \times 456 = 57$ girls (Answer)
+  </div>
+</div>
+  </Accordion>
+</Accordions>

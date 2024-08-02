@@ -1,0 +1,46 @@
+---
+title: Equal Fractions
+description: Lecture on Equal Fractions!
+---
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+import { EqualPartPieChartComponent } from "@/components/question/equalPartPieChart";
+import { FileQuestion } from "lucide-react";
+
+### Scenario
+
+Lets say you are a perfectionist. You have a chocolate cake that is sliced into 2 parts, and a strawberry cake that is sliced into 3 parts. On every bite, you want to eat
+an equal amount of chocolate cake and strawberry cake! How do you do that??
+
+<div className="flex flex-wrap space-between">
+  <EqualPartPieChartComponent title={"Chocolate Cake"} slices={2} />
+  <EqualPartPieChartComponent title={"Strawberry Cake"} slices={3} />
+</div>
+
+If you take 1 slice per bite, you end up with 1 slice of strawberry cake leftover.
+
+### Solution
+
+Cut the cakes up until they have equal slices!
+
+<div className="steps">
+
+<div className="step">
+<h3>Find the lowest common multiple of 2 and 3</h3>
+
+<p>2 x 3 = 6</p>
+</div>
+</div>
+
+<div className="flex flex-wrap space-between">
+  <EqualPartPieChartComponent title={"Chocolate Cake"} slices={6} />
+  <EqualPartPieChartComponent title={"Strawberry Cake"} slices={6} />
+</div>
+
+Now, you can take 1 slice at a time, and finish both cakes in 6 bites
+
+<Cards>
+  <Card icon={<FileQuestion />} title="Practice Time!" description="Try some questions on equal fractions" href="/docs/questions/fractions/equalFractions" />
+
+</Cards>
