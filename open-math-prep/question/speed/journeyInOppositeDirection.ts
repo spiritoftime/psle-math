@@ -3,7 +3,7 @@ import { SpeedQuestion } from "./journeyByParts";
 export const journeyInOppositeDirectionQuestion1Data: SpeedQuestion = {
   questionData: {
     question:
-      "At 11 PM, Tom drove from Town P to Town Q at a speed of 45 km/h while Jerry drove from Town Q to Town P at a speed of 60 km/h. Town P is 210 km from Town Q. What time will they meet?",
+      "At 11 AM, Tom drove from Town P to Town Q at a speed of 45 km/h while Jerry drove from Town Q to Town P at a speed of 60 km/h. Town P is 210 km from Town Q. What time will they meet?",
     options: ["2 hours", "5 hours", "6 hours", "7 hours"],
     answer: "2 hours",
   },

@@ -23,5 +23,39 @@ import { JourneyDiagram } from "@/components/question/speedJourney";
   <Accordion title="Answer Walkthrough">
     <p className="ml-11">Ans: {commonDistanceOrTimeQuestion1Data.questionData.answer}</p>
         <JourneyDiagram scenarios={commonDistanceOrTimeQuestion1Data.journeyDiagram.scenarios}/>
+        <div className="steps">
+  <div className="step">
+    <h3>Speed Ratio</h3>
+    Speed(Richard) : Speed(Sandra) = $16 : 24 = 2 : 3$
+  </div>
+  
+  <div className="step">
+    <h3>Time Ratio</h3>
+    Since the distance is the same for both:<br />
+    Time(Richard) : Time(Sandra) = $3 : 2$<br />
+    (Note: Time ratio is inverse of speed ratio)
+  </div>
+  
+  <div className="step">
+    <h3>Define Time Unit</h3>
+    Let 1 Unit (U) of time = $45 \text{ minutes} = \frac{3}{4} \text{ hours}$
+  </div>
+  
+  <div className="step">
+    <h3>Calculate Richard's Time</h3>
+    Time taken by Richard = $3\text{U} = 3 \times \frac{3}{4} \text{ hours} = \frac{9}{4} \text{ hours} = 2\frac{1}{4} \text{ hours}$
+  </div>
+  
+  <div className="step">
+    <h3>Calculate Sandra's Time</h3>
+    Time taken by Sandra = $2\text{U} = 2 \times \frac{3}{4} \text{ hours} = \frac{6}{4} \text{ hours} = 1\frac{1}{2} \text{ hours}$
+  </div>
+  
+  <div className="step">
+    <h3>Time Difference</h3>
+    Difference in time = Richard's time - Sandra's time<br />
+    $= 2\frac{1}{4} \text{ hours} - 1\frac{1}{2} \text{ hours} = \frac{9}{4} \text{ hours} - \frac{6}{4} \text{ hours} = \frac{3}{4} \text{ hours} = 45 \text{ minutes}$
+  </div>
+</div>
   </Accordion>
 </Accordions>

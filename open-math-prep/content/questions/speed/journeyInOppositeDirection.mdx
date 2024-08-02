@@ -23,5 +23,27 @@ import { JourneyDiagram } from "@/components/question/speedJourney";
   <Accordion title="Answer Walkthrough">
     <p className="ml-11">Ans: {journeyInOppositeDirectionQuestion1Data.questionData.answer}</p>
         <JourneyDiagram scenarios={journeyInOppositeDirectionQuestion1Data.journeyDiagram.scenarios}/>
+        <div className="steps">
+  <div className="step">
+    <h3>Distance Covered in 1 Hour</h3>
+    Tom's speed: $45 \text{ km/h}$<br />
+    Jerry's speed: $60 \text{ km/h}$<br />
+    Combined distance in 1 hour: $45 \text{ km} + 60 \text{ km} = 105 \text{ km}$
+  </div>
+  
+  <div className="step">
+    <h3>Time Taken to Meet</h3>
+    Total distance between Tom and Jerry: $210 \text{ km}$<br />
+    Combined speed: $105 \text{ km/h}$<br />
+    Time to meet: $\frac{\text{Total distance}}{\text{Combined speed}} = \frac{210 \text{ km}}{105 \text{ km/h}} = 2 \text{ hours}$
+  </div>
+  
+  <div className="step">
+    <h3>Time of Meeting</h3>
+    Starting time: $1:00 \text{ PM}$<br />
+    Time taken to meet: $2 \text{ hours}$<br />
+    Meeting time: $11:00 \text{ AM} + 2 \text{ hours} = 1:00 \text{ PM}$
+  </div>
+</div>
   </Accordion>
 </Accordions>
