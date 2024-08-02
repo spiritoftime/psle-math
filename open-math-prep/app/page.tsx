@@ -9,6 +9,8 @@ import {
   exampleData2,
   exampleData,
 } from "../components/question/remainderBranch";
+import { JourneyDiagram,  } from "@/components/question/speedJourney";
+import { journeyByPartQuestion1Data } from "@/question/speed/journeyByParts";
 // const customStyles = {
 //   border: "2px dashed #ff0000",
 //   padding: 20,
@@ -42,8 +44,9 @@ export default function HomePage() {
           and see the documentation.
         </p>
         <Test />
+        <JourneyDiagram scenarios={journeyByPartQuestion1Data.journeyDiagram.scenarios}/>
         {/* <MarblesProblem /> */}
-        <BranchDiagram data={exampleData2} />
+        {/* <BranchDiagram data={exampleData2} /> */}
       </main>
     </HomeLayout>
   );

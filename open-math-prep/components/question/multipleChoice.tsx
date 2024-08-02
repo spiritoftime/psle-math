@@ -9,7 +9,6 @@ export type QuestionType = {
 
 export type MultipleChoiceQuestionProps = {
   questionData: QuestionType;
-  correctAnswer: string;
 };
 
 const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProps> = ({

@@ -1,4 +1,4 @@
 {
   "title": "Speed",
-  "pages": ["basic"]
+  "pages": ["basic","journeyByParts","journeyInOppositeDirection","commonDistanceOrTime"]
 }

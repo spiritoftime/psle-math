@@ -1,0 +1,27 @@
+---
+title: Common Distance Or Time
+description: A bit of extra description on Common Distance Or Time
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+
+import { commonDistanceOrTimeQuestion1Data } from "@/question/speed/commonDistanceOrTime";
+import { MultipleChoiceQuestion } from "@/components/question/multipleChoice";
+
+import { JourneyDiagram } from "@/components/question/speedJourney";
+
+#### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={commonDistanceOrTimeQuestion1Data.questionData} />
+  </Accordion>
+
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {commonDistanceOrTimeQuestion1Data.questionData.answer}</p>
+        <JourneyDiagram scenarios={commonDistanceOrTimeQuestion1Data.journeyDiagram.scenarios}/>
+  </Accordion>
+</Accordions>
