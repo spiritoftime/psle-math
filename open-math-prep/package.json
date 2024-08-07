@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev ",
+    "dev": "next dev --hostname 127.0.0.1",
     "start": "next start",
     "test": "vitest run"
   },
@@ -39,6 +39,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.46.0",
     "@tanstack/eslint-plugin-query": "^5.51.12",
     "@testing-library/react": "^16.0.0",
     "@types/mdx": "^2.0.13",
