@@ -32,6 +32,7 @@ AS $function$BEGIN
 END;$function$
 ;
 
+
 CREATE TRIGGER prevent_user_id_update_trigger BEFORE UPDATE ON public.lectureprogress FOR EACH ROW EXECUTE FUNCTION prevent_user_id_update();
 
 CREATE TRIGGER set_user_id_trigger BEFORE INSERT ON public.lectureprogress FOR EACH ROW EXECUTE FUNCTION set_user_id();
