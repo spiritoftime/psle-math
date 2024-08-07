@@ -26,6 +26,7 @@ const AuthNavContent = () => {
 };
 
 const AuthNav = () => {
+
   return (
     <Suspense fallback={<ButtonSkeleton />}>
       <AuthNavContent />

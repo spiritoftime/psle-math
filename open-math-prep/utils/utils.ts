@@ -10,5 +10,3 @@ export const useBaseFetch = async (path: string, options = {}) => {
   const { data, error } = await res.json();
   return { ...data, error };
 };
-
-

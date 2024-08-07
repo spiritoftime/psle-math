@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev  --hostname 127.0.0.1",
+    "dev": "next dev ",
     "start": "next start",
     "test": "vitest"
   },
@@ -34,6 +34,7 @@
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
     "server-only": "^0.0.1",
+    "sharp": "^0.33.4",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -3,7 +3,6 @@ import { cookies } from "next/headers";
 
 export const createClient = () => {
   const cookieStore = cookies();
-
   return createServerClient(
     process.env.NODE_ENV === "production"
       ? process.env.NEXT_PUBLIC_SUPABASE_URL!
@@ -28,6 +27,6 @@ export const createClient = () => {
           }
         },
       },
-    },
+    }
   );
 };
