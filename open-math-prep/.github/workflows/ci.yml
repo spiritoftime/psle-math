@@ -2,7 +2,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   deploy-supabase:
     runs-on: ubuntu-latest
