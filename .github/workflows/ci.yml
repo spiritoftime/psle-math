@@ -3,14 +3,17 @@ on:
   push:
     branches:
       - main
+env:
+  WORKING_DIRECTORY: ./open-math-prep
 jobs:
   deploy-supabase:
     runs-on: ubuntu-latest
     env:
-      ACT: ${{ secrets.ACT }}
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
       PROJECT_ID: ${{ secrets.PROJECT_ID }}
       SUPABASE_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+      GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
 
     steps:
       - uses: actions/checkout@v3
@@ -19,7 +22,10 @@ jobs:
         with:
           version: latest
 
-      - run: |
+      - name: Init Supabase
+
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+        run: |
           supabase link --project-ref $PROJECT_ID
           supabase db start
   openmath-prep:
@@ -42,10 +48,16 @@ jobs:
       NEXT_PUBLIC_PROD_URL: ${{ secrets.NEXT_PUBLIC_PROD_URL }}
       LOCAL_URL: ${{ secrets.LOCAL_URL }}
       PROD_URL: ${{ secrets.PROD_URL }}
+
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install dependencies
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
         run: npm install
       - name: Run unit tests
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
         run: npm run test
