@@ -1,0 +1,51 @@
+name: Continuous Integration
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy-supabase:
+    runs-on: ubuntu-latest
+    env:
+      ACT: ${{ secrets.ACT }}
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - run: |
+          supabase link --project-ref $PROJECT_ID
+          supabase db start
+  openmath-prep:
+    needs: deploy-supabase
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_FIREBASE_DATABASE_URL: ${{ secrets.NEXT_PUBLIC_FIREBASE_DATABASE_URL }}
+      NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
+      NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+      NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
+      NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}
+      NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+      NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
+      NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+      NEXT_PUBLIC_SUPABASE_URL_LOCAL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL_LOCAL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY_LOCAL: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY_LOCAL }}
+      NEXT_PUBLIC_LOCAL_URL: ${{ secrets.NEXT_PUBLIC_LOCAL_URL }}
+      NEXT_PUBLIC_PROD_URL: ${{ secrets.NEXT_PUBLIC_PROD_URL }}
+      LOCAL_URL: ${{ secrets.LOCAL_URL }}
+      PROD_URL: ${{ secrets.PROD_URL }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Run unit tests
+        run: npm run test

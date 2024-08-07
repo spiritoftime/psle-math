@@ -105,4 +105,5 @@ describe("updateLocalStorage", () => {
 
     expect(dispatchEventSpy).toHaveBeenCalledWith(new Event("lecturesUpdated"));
   });
+
 });

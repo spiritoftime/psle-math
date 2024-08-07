@@ -1,4 +1,5 @@
-FROM node:18-alpine AS dev
+FROM node:18-alpine AS base 
+FROM base AS dev
 WORKDIR /app
 
 # Install dependencies
