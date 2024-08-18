@@ -3,16 +3,40 @@ title: Geometry
 description: A bit of extra description on Geometry
 ---
 
-import test from "@/public/questions/geometry/question1.jpg";
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import question from "@/public/questions/geometry/question1.jpg";
+import q1s1 from "@/public/questions/geometry/question1Step1.jpg";
+import q1s2 from "@/public/questions/geometry/question1Step2.jpg";
 import Image from "next/image";
 import StepByStep from "@/components/question/stepByStep";
+import QuestionWithImage from "@/components/question/QuestionWithImage";
+
+### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={question}
+      subquestions={["Find angle AFE (2m)."]}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
 
 <StepByStep
-  images={[test]}
+  images={[q1s1, q1s2]}
   annotations={[
     {
-      mathEquation: String.raw` \frac{\text{m}}{\text{s}^2}`,
-      suffixText: "(hola)",
+      prefixText: "Angle ACD = ",
+      mathEquation: "59^\\circ",
+      suffixText: " (alternate angles/ Z angles)"
     },
+    {
+      prefixText: "angle AFE = ",
+      mathEquation: "59^\\circ + 59^\\circ = 118^\\circ",
+      suffixText: " (exterior angle)"
+    }
   ]}
 />
+  </Accordion>
+</Accordions>

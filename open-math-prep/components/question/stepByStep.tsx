@@ -7,13 +7,13 @@ import { InlineMath } from "react-katex";
 
 type Annotation = {
   prefixText?: string;
-  mathEquation: string;
+  mathEquation?: string;
   suffixText?: string;
 };
 
 type StepByStepProps = {
   images: StaticImageData[];
-  annotations: Annotation[];
+  annotations?: Annotation[];
 };
 const StepByStep: React.FC<StepByStepProps> = ({ images, annotations }) => {
   const [step, setStep] = useState(0);
@@ -27,29 +27,32 @@ const StepByStep: React.FC<StepByStepProps> = ({ images, annotations }) => {
         className="mx-auto"
         aria-label="Image for solution step"
       />
-      <div className="mt-4 p-4 bg-background text-muted-foreground rounded">
-        <h3 className="font-bold mb-2">Step {step + 1}</h3>
-        {annotations[step]?.prefixText}
-        <InlineMath>{annotations[step].mathEquation}</InlineMath>
-        {annotations[step]?.suffixText}
-
-      </div>
-      <div className="flex justify-between mt-4">
-        <Button
-          onClick={() => setStep((prev) => Math.max(0, prev - 1))}
-          disabled={step === 0}
-        >
-          Previous
-        </Button>
-        <Button
-          onClick={() =>
-            setStep((prev) => Math.min(images.length - 1, prev + 1))
-          }
-          disabled={step === images.length - 1}
-        >
-          Next
-        </Button>
-      </div>
+      {annotations && (
+        <div className="mt-4 p-4 bg-background text-muted-foreground rounded">
+          <h3 className="font-bold mb-2">Step {step + 1}</h3>
+          {annotations[step]?.prefixText}
+          <InlineMath>{annotations[step].mathEquation}</InlineMath>
+          {annotations[step]?.suffixText}
+        </div>
+      )}
+      {annotations && (
+        <div className="flex justify-between mt-4">
+          <Button
+            onClick={() => setStep((prev) => Math.max(0, prev - 1))}
+            disabled={step === 0}
+          >
+            Previous
+          </Button>
+          <Button
+            onClick={() =>
+              setStep((prev) => Math.min(images.length - 1, prev + 1))
+            }
+            disabled={step === images.length - 1}
+          >
+            Next
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
