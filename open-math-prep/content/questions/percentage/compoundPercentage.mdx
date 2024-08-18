@@ -1,0 +1,174 @@
+---
+title: Compound Percentage
+description: A bit of extra description on Compound Percentage
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+import {
+  compoundPercentageQuestion1Data,
+  compoundPercentageQuestion2Data,
+  compoundPercentageQuestion3Data,
+  compoundPercentageQuestion4Data,
+} from "@/question/percentage/compoundPercentage";
+import { MultipleChoiceQuestion } from "@/components/question/multipleChoice";
+
+### Compound Percentage Questions
+
+#### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={compoundPercentageQuestion1Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {compoundPercentageQuestion1Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Initial Water Content</h3>
+        <p>Total juice: $500 \text{mL}$</p>
+        <p>Water percentage: $80\%$</p>
+        <p>
+          Initial water volume: $500 \text{mL} \times 80\% = 400 \text{mL}$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Water Loss During Evaporation</h3>
+        <p>Water loss percentage: $50\%$</p>
+        <p>
+          Water volume lost: $400 \text{mL} \times 50\% = 200 \text{mL}$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Final Juice Volume</h3>
+        <p>
+          Remaining water: $400 \text{mL} - 200 \text{mL} = 200 \text{mL}$
+        </p>
+        <p>
+          Non-water content: $500 \text{mL} - 400 \text{mL} = 100 \text{mL}$
+        </p>
+        <p>
+          Final juice volume: $200 \text{mL} + 100 \text{mL} = 300 \text{mL}$
+        </p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 2
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={compoundPercentageQuestion2Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {compoundPercentageQuestion2Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Initial Cotton Content</h3>
+        <p>Total fabric weight: $400 \text{grams}$</p>
+        <p>Cotton percentage: $70\%$</p>
+        <p>
+          Initial cotton weight: $400 \text{grams} \times 70\% = 280 \text
+          {grams}$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Cotton Loss After Washing</h3>
+        <p>Cotton loss percentage: $30\%$</p>
+        <p>
+          Cotton weight lost: $280 \text{grams} \times 30\% = 84 \text{grams}$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Final Fabric Weight</h3>
+        <p>
+          Remaining cotton: $280 \text{grams} - 84 \text{grams} = 196 \text
+          {grams}$
+        </p>
+        <p>
+          Non-cotton content: $400 \text{grams} - 280 \text{grams} = 120 \text
+          {grams}$
+        </p>
+        <p>
+          Final fabric weight: $196 \text{grams} + 120 \text{grams} = 316 \text
+          {grams}$
+        </p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 3
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={compoundPercentageQuestion3Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {compoundPercentageQuestion3Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Initial Almond Content</h3>
+        <p>Total mixed nuts: $250 \text{grams}$</p>
+        <p>Almond percentage: $40\%$</p>
+        <p>
+          Initial almond weight: $250 \text{grams} \times 40\% = 100 \text
+          {grams}$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Almond Loss During Storage</h3>
+        <p>Almond loss percentage: $25\%$</p>
+        <p>
+          Almond weight lost: $100 \text{grams} \times 25\% = 25 \text{grams}$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Final Almond Weight</h3>
+        <p>
+          Remaining almonds: $100 \text{grams} - 25 \text{grams} = 75 \text
+          {grams}$
+        </p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 4
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={compoundPercentageQuestion4Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {compoundPercentageQuestion4Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Initial Alcohol Content</h3>
+        <p>Total solution: $1 \text{liter}$</p>
+        <p>Alcohol percentage: $90\%$</p>
+        <p>
+          Initial alcohol volume: $1 \text{liter} \times 90\% = 0.9 \text
+          {liters}$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Alcohol Conversion During Reaction</h3>
+        <p>Alcohol conversion percentage: $40\%$</p>
+        <p>
+          Alcohol volume converted: $0.9 \text{liters} \times 40\% = 0.36 \text
+          {liters}$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Final Alcohol Volume</h3>
+        <p>
+          Remaining alcohol: $0.9 \text{liters} - 0.36 \text{liters} = 0.54
+          \text{liters}$
+        </p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>

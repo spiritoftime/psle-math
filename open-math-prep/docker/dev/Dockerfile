@@ -1,4 +1,4 @@
-FROM node:18-alpine AS base 
+FROM node:20-alpine AS base 
 FROM base AS dev
 WORKDIR /app
 
@@ -13,6 +13,7 @@ RUN \
 
 # Copy the rest of the application code
 COPY . .
+
 
 # Expose the port Next.js is running on
 EXPOSE 3000
