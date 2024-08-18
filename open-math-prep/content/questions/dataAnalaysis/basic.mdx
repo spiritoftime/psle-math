@@ -1,0 +1,213 @@
+---
+title: Basics
+description: Practice Questions for the basics of Data Analysis segment
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+import {
+  findingAverageQuestion1Data,
+  findingAverageQuestion2Data,
+  averageRelationshipsQuestion1Data,
+  averageRelationshipsQuestion2Data,
+  multiStepAveragesQuestion1Data,
+  multiStepAveragesQuestion2Data,
+} from "@/question/dataAnalysis/basic";
+import { MultipleChoiceQuestion } from "@/components/question/multipleChoice";
+
+
+### 1. Finding the Average
+
+#### Question 1
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={findingAverageQuestion1Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {findingAverageQuestion1Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Understand the Given Information</h3>
+        <p>Total value: 72</p>
+        <p>Number of data points: 8</p>
+      </div>
+      <div className="step">
+        <h3>Apply the Average Formula</h3>
+        <p>Average = Total value ÷ Number of data points</p>
+        <p>Average = 72 ÷ 8 = 9</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>The average of the set is 9.</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 2
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={findingAverageQuestion2Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {findingAverageQuestion2Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Understand the Given Information</h3>
+        <p>Average: 15</p>
+        <p>Number of data points: 5</p>
+      </div>
+      <div className="step">
+        <h3>Apply the Total Value Formula</h3>
+        <p>Total value = Average × Number of data points</p>
+        <p>Total value = 15 × 5 = 75</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>The total value of the five numbers is 75.</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+### 2. Average Relationships
+
+#### Question 1
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={averageRelationshipsQuestion1Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {averageRelationshipsQuestion1Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Understand the Given Information</h3>
+        <p>Initial average score: 82</p>
+        <p>Initial number of students: 4</p>
+        <p>New student's score: 90</p>
+        <p>New number of students: 5</p>
+      </div>
+      <div className="step">
+        <h3>Calculate the Total Score Before New Student</h3>
+        <p>Total score = Initial average × Number of students</p>
+        <p>Total score = 82 × 4 = 328</p>
+      </div>
+      <div className="step">
+        <h3>Calculate New Total Score</h3>
+        <p>New total score = Initial total + New student's score</p>
+        <p>New total score = 328 + 90 = 418</p>
+      </div>
+      <div className="step">
+        <h3>Calculate New Average</h3>
+        <p>New average = New total score ÷ New number of students</p>
+        <p>New average = 418 ÷ 5 = 83.6</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>The new average score is 83 (rounded to the nearest whole number).</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 2
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={averageRelationshipsQuestion2Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {averageRelationshipsQuestion2Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Understand the Given Information</h3>
+        <p>Number of data points: 10</p>
+        <p>Increase in total value: 30</p>
+      </div>
+      <div className="step">
+        <h3>Calculate Change in Average</h3>
+        <p>Change in average = Increase in total value ÷ Number of data points</p>
+        <p>Change in average = 30 ÷ 10 = 3</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>The average increases by 3.</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+### 3. Multi-Step Averages
+
+#### Question 1
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={multiStepAveragesQuestion1Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {multiStepAveragesQuestion1Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Understand the Given Information</h3>
+        <p>Class 1: 12 students, average score 75</p>
+        <p>Class 2: 18 students, average score 80</p>
+      </div>
+      <div className="step">
+        <h3>Calculate Total Score for Each Class</h3>
+        <p>Class 1 total: 12 × 75 = 900</p>
+        <p>Class 2 total: 18 × 80 = 1440</p>
+      </div>
+      <div className="step">
+        <h3>Calculate Combined Total</h3>
+        <p>Combined total = 900 + 1440 = 2340</p>
+      </div>
+      <div className="step">
+        <h3>Calculate Total Number of Students</h3>
+        <p>Total students = 12 + 18 = 30</p>
+      </div>
+      <div className="step">
+        <h3>Calculate Combined Average</h3>
+        <p>Combined average = Combined total ÷ Total students</p>
+        <p>Combined average = 2340 ÷ 30 = 78</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>The combined average score is 78.</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 2
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={multiStepAveragesQuestion2Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {multiStepAveragesQuestion2Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Understand the Given Information</h3>
+        <p>First 4 games average: 15 points</p>
+        <p>5th game score: 25 points</p>
+      </div>
+      <div className="step">
+        <h3>Calculate Total Points for First 4 Games</h3>
+        <p>Total points = 15 × 4 = 60 points</p>
+      </div>
+      <div className="step">
+        <h3>Add 5th Game Score</h3>
+        <p>New total = 60 + 25 = 85 points</p>
+      </div>
+      <div className="step">
+        <h3>Calculate New Average</h3>
+        <p>New average = New total ÷ Number of games</p>
+        <p>New average = 85 ÷ 5 = 17 points</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>The new average score is 17 points per game.</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
