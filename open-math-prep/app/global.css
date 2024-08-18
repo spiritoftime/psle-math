@@ -4,6 +4,7 @@
 table {
   width: fit-content;
 }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -73,6 +74,8 @@ table {
 
 @layer base {
   * {
+    white-space: pre-line;
+
     @apply border-border;
   }
   body {

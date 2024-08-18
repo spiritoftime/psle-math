@@ -1,0 +1,194 @@
+---
+title: Simultaneous Equations
+description: Practice Questions for the Simultaneous Equations of Algebra segment
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Callout } from "fumadocs-ui/components/callout";
+import {
+  simultaneousEquationsQuestion1Data,
+  simultaneousEquationsQuestion2Data,
+  simultaneousEquationsQuestion3Data,
+  simultaneousEquationsQuestion4Data,
+} from "@/question/algebra/simultaneousEquations";
+import { MultipleChoiceQuestion } from "@/components/question/multipleChoice";
+
+### Simultaneous Equations Questions
+
+#### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={simultaneousEquationsQuestion1Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {simultaneousEquationsQuestion1Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Given Equations</h3>
+        <p>Equation 1: $2x + 3y = 12$</p>
+        <p>Equation 2: $4x - y = 5$</p>
+      </div>
+      <div className="step">
+        <h3>Elimination Method</h3>
+        <p>Multiply Equation 1 by 2: $4x + 6y = 24$</p>
+        <p>Add this to Equation 2: $4x - y = 5$</p>
+        <p>Result: $8x + 5y = 29$</p>
+      </div>
+      <div className="step">
+        <h3>Solve for y</h3>
+        <p>Subtract Equation 2 from the result: $4x + 6y = 24$</p>
+        <p>$7y = 19$</p>
+        <p>
+          $y = \frac{19}
+          {7} \approx 2.71$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Solve for x</h3>
+        <p>Substitute $y = 2$ into Equation 1:</p>
+        <p>$2x + 3(2) = 12$</p>
+        <p>$2x + 6 = 12$</p>
+        <p>$2x = 6$</p>
+        <p>$x = 3$</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>$x = 3$, $y = 2$</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 2
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={simultaneousEquationsQuestion2Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {simultaneousEquationsQuestion2Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Given Equations</h3>
+        <p>Equation 1: $5x - 2y = 7$</p>
+        <p>Equation 2: $3x + y = 9$</p>
+      </div>
+      <div className="step">
+        <h3>Elimination Method</h3>
+        <p>Multiply Equation 2 by 2: $6x + 2y = 18$</p>
+        <p>Add this to Equation 1: $5x - 2y = 7$</p>
+        <p>Result: $11x = 25$</p>
+      </div>
+      <div className="step">
+        <h3>Solve for x</h3>
+        <p>
+          $x = \frac{25}
+          {11} \approx 2.27$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Solve for y</h3>
+        <p>Substitute $x = 2$ into Equation 2:</p>
+        <p>$3(2) + y = 9$</p>
+        <p>$6 + y = 9$</p>
+        <p>$y = 3$</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>$x = 2$, $y = 3$</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 3
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={simultaneousEquationsQuestion3Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {simultaneousEquationsQuestion3Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Given Equations</h3>
+        <p>Equation 1: $x + 2y = 7$</p>
+        <p>Equation 2: $3x - y = 4$</p>
+      </div>
+      <div className="step">
+        <h3>Substitution Method</h3>
+        <p>From Equation 1: $x = 7 - 2y$</p>
+        <p>Substitute this into Equation 2:</p>
+        <p>$3(7 - 2y) - y = 4$</p>
+      </div>
+      <div className="step">
+        <h3>Solve for y</h3>
+        <p>$21 - 6y - y = 4$</p>
+        <p>$21 - 7y = 4$</p>
+        <p>$-7y = -17$</p>
+        <p>
+          $y = \frac{17}
+          {7} \approx 2.43$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Solve for x</h3>
+        <p>Substitute $y = 2$ into Equation 1:</p>
+        <p>$x + 2(2) = 7$</p>
+        <p>$x + 4 = 7$</p>
+        <p>$x = 3$</p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>$x = 3$, $y = 2$</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
+
+#### Question 4
+
+<Accordions>
+  <Accordion title="Question">
+    <MultipleChoiceQuestion questionData={simultaneousEquationsQuestion4Data} />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+    <p className="ml-11">Ans: {simultaneousEquationsQuestion4Data.answer}</p>
+    <div className="steps">
+      <div className="step">
+        <h3>Given Equations</h3>
+        <p>Equation 1: $6x + 4y = 8$</p>
+        <p>Equation 2: $2x - 5y = 3$</p>
+      </div>
+      <div className="step">
+        <h3>Elimination Method</h3>
+        <p>Multiply Equation 2 by 3: $6x - 15y = 9$</p>
+        <p>Subtract this from Equation 1: $6x + 4y = 8$</p>
+        <p>Result: $19y = -1$</p>
+      </div>
+      <div className="step">
+        <h3>Solve for y</h3>
+        <p>
+          $y = -\frac{1}
+          {19} \approx -0.05$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Solve for x</h3>
+        <p>Substitute $y = 0$ into Equation 1:</p>
+        <p>$6x + 4(0) = 8$</p>
+        <p>$6x = 8$</p>
+        <p>
+          $x = \frac{4}
+          {3} \approx 1.33$
+        </p>
+      </div>
+      <div className="step">
+        <h3>Final Answer</h3>
+        <p>$x = 2$, $y = 0$</p>
+      </div>
+    </div>
+  </Accordion>
+</Accordions>
