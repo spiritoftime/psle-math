@@ -14,14 +14,20 @@ type Annotation = {
 type StepByStepProps = {
   images: StaticImageData[];
   annotations?: Annotation[];
+  imgOptions?: { width: number; height: number };
 };
-const StepByStep: React.FC<StepByStepProps> = ({ images, annotations }) => {
+const StepByStep: React.FC<StepByStepProps> = ({
+  images,
+  annotations,
+  imgOptions,
+}) => {
   const [step, setStep] = useState(0);
 
   return (
     <div className="w-full max-w-3xl mx-auto p-4 bg-muted-foreground text-background rounded-lg shadow-md">
       <Image
-        width={600}
+        width={imgOptions?.width ?? undefined}
+        height={imgOptions?.height ?? undefined}
         alt="Image for solution step"
         src={images[step]}
         className="mx-auto"
