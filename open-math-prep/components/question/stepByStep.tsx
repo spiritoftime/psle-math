@@ -37,7 +37,7 @@ const StepByStep: React.FC<StepByStepProps> = ({
         <div className="mt-4 p-4 bg-background text-muted-foreground rounded">
           <h3 className="font-bold mb-2">Step {step + 1}</h3>
           {annotations[step]?.prefixText}
-          <InlineMath>{annotations[step].mathEquation}</InlineMath>
+          {annotations[step].mathEquation &&<InlineMath>{annotations[step]?.mathEquation}</InlineMath>}
           {annotations[step]?.suffixText}
         </div>
       )}

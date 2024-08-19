@@ -1,0 +1,95 @@
+---
+title: Bar Chart
+description: A bit of extra description on Bar Chart
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import q1 from "@/public/questions/dataAnalysis/barChart/question1.jpg";
+import q2 from "@/public/questions/dataAnalysis/barChart/question2.jpg";
+import q3 from "@/public/questions/cubeCuboid/volumeArea/question3.jpg";
+import q4 from "@/public/questions/cubeCuboid/volumeArea/question4.jpg";
+import Image from "next/image";
+import StepByStep from "@/components/question/stepByStep";
+import QuestionWithImage from "@/components/question/questionWithImage";
+import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
+
+## Bar Chart
+
+### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q1}
+      subquestions={[
+"The graph shows the number of tickets sold for a basketball match from Monday to Friday.",
+"(a) What was the total number of tickets sold from Monday to Wednesday?",
+"(b) The usual price of a ticket was $70. On Friday, tickets were sold at a 5% discount. How much money was collected from the sale of tickets on Friday?"
+]}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<StepByStep
+  images={[q1,q1,q1]}
+  annotations={[
+    {
+      prefixText: "Part a - Each interval is 4. Total tickets sold = ",
+      mathEquation: "44 + 96 + 80 = 220",
+    },
+        {
+      prefixText: "Part B: Tickets sold at Friday =  112. Sales without discount =",
+      mathEquation: "112 * 70 = 7840",
+    },
+            {
+      prefixText: " Sales with discount = ",
+      mathEquation: "7840 * 0.95 = 7448",
+    },
+
+]}
+/>
+
+  </Accordion>
+</Accordions>
+
+### Question 2
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q2}
+      subquestions={[
+"The bar graph shows the number of cars sold from June to September.",
+"1. In which month was the number of cars sold half as many as the number of cars sold in September?",
+"(1) June",
+"(2) July",
+"(3) August",
+"(4) September",
+"2. Which one of the following statements is true?",
+"(1) The number of cars sold in June was 8500.",
+"(2) The number of cars sold in July is 3/2 the number of cars sold in June.",
+"(3) The increase in the number of cars sold from August to September was 9000.",
+"(4) The total number of cars sold in June and August is the same as the number of cars sold in July."
+]}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<StepByStep
+  images={[q2,q2]}
+  annotations={[
+    {
+      prefixText: "September has 6000 sold. Answer is August, where 3000 were sold.",
+
+    },
+        {
+      prefixText: "(1) June had 9000 sold, not 8500. (2) 9000 x 1.5 = 13500, incorrect. (3) 6000-3000 = 3000, incorrect. (4) June + August = 12000, correct",
+
+    },
+
+]}
+/>
+
+  </Accordion>
+</Accordions>

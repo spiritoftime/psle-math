@@ -1,5 +1,5 @@
 {
     "title": "Data Analysis",
-    "pages": ["basic"]
+    "pages": ["basic","barChart","lineGraph","pieChart"]
   }
   
