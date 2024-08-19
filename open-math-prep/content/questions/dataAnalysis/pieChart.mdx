@@ -5,16 +5,15 @@ description: A bit of extra description on Pie Chart
 
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Callout } from "fumadocs-ui/components/callout";
-import q1 from "@/public/questions/cubeCuboid/volumeArea/question1.jpg";
-import q2 from "@/public/questions/cubeCuboid/volumeArea/question2.jpg";
-import q3 from "@/public/questions/cubeCuboid/volumeArea/question3.jpg";
-import q4 from "@/public/questions/cubeCuboid/volumeArea/question4.jpg";
+import q1 from "@/public/questions/dataAnalysis/pieChart/question1.jpg";
+import q2 from "@/public/questions/dataAnalysis/pieChart/question2.jpg";
+
 import Image from "next/image";
 import StepByStep from "@/components/question/stepByStep";
 import QuestionWithImage from "@/components/question/questionWithImage";
 import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
 
-## Volume And Area
+## Pie Chart
 
 ### Question 1
 
@@ -22,18 +21,22 @@ import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
   <Accordion title="Question">
     <QuestionWithImage
       image={q1}
-      subquestions={["A cuboid has a height of 8cm and a square base of edge of 5cm. What is its volume?"]}
+      subquestions={["The pie chart shows the CCAs taken up by a class of 40 students. How many students take up Rugby as a CCA?"]}
     />
   </Accordion>
   <Accordion title="Answer Walkthrough">
 
 <StepByStep
-  images={[q1]}
+  images={[q1,q1]}
   annotations={[
     {
-      prefixText: "Volume =",
-      mathEquation: "8cm * 5cm * 5cm = 200cm^3",
-      suffixText: " (Vol = L * b * h)"
+      prefixText: "Soccer + Badminton + Tennis + Swimming = ",
+      mathEquation: "10 + 10 + 8 + 5 = 33",
+      suffixText: " (A pie chart has 360 degrees. 90 degrees = 0.25 x 40 = 10.)"
+    },
+        {
+      prefixText: "Rugby = Total - Others = ",
+      mathEquation: "40 - 33 = 7",
     },
 
 ]}
@@ -49,93 +52,33 @@ import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
     <QuestionWithImage
       image={q2}
       subquestions={[
-" The diagram shows a rectangular container with a square base. Find the height of the water when 1600 cm³ of water is poured into the container."
+"The pie chart shows the type of books in a library.",
+"The number of Tamil books is 1/2 the number of Malay books and there are 400 more Chinese books than Malay books. How many books are there in the library altogether?"
 ]}
     />
   </Accordion>
   <Accordion title="Answer Walkthrough">
 
 <StepByStep
-  images={[q2,q2]}
+  images={[q2,q2,q2,q2]}
   annotations={[
     {
-      prefixText: "Area of square base =",
-      mathEquation: "10cm * 10cm = 100cm^2",
-      suffixText: ""
+      prefixText: "Degree of Malay books = ",
+      mathEquation: "90^\\circ / (1+2) * 2 = 60^\\circ",
     },
         {
-      prefixText: "Height = Volume / Area of base =",
-      mathEquation: "1600cm^3 / 100cm^2 = 16cm",
-      suffixText: ""
-    },
-
-]}
-/>
-
-  </Accordion>
-</Accordions>
-
-### Question 3
-
-<Accordions>
-  <Accordion title="Question">
-    <QuestionWithImage
-      image={q3}
-      subquestions={[
-"At first, a rectangular tank measuring 40 cm by 30 cm by 30 cm contained some water as shown below.",
-"After Melvin poured 2400 ml of water into the tank, the tank became 2/3-filled with water. How much water was there in the tank at first?"
-]}
-    />
-  </Accordion>
-  <Accordion title="Answer Walkthrough">
-
-<StepByStep
-  images={[q3,q3]}
-  annotations={[
-    {
-      prefixText: "Volume of 2/3 of tank: ",
-      mathEquation: "2/3 * 40 * 30 * 30 = 24000ml",
-    },
-        {
-      mathEquation: "24000ml - 2400ml = 21600ml",
-    },
-
-]}
-/>
-
-  </Accordion>
-</Accordions>
-
-### Question 4
-
-<Accordions>
-  <Accordion title="Question">
-    <QuestionWithImage
-      image={q4}
-      subquestions={[
-"A rectangular tank with a base area of 3500 cm² and a height of 80 cm was 1/4-filled with water at first. At 8 a.m., a tap was turned on and water was drained from the tank at the rate of 4 litres per minute. At 8.06 a.m., the tap was turned off.",
-"(a) How much water was drained from the tank?",
-"(b) After the tap was turned off, how much more water was needed to fill the tank completely?"
-]}
-    />
-  </Accordion>
-  <Accordion title="Answer Walkthrough">
-
-<StepByStep
-  images={[q4,q4,q4]}
-  annotations={[
-    {
-      prefixText: "Part a - Water drained in 6 minutes: ",
-      mathEquation: "4 * 6 = 24l",
-    },
-        {
-            prefixText: "Part b -Volume of 1/4 tank = ",
-      mathEquation: "(1/4 * 3500 * 80)/ 1000 = 70l ",
-      suffixText: " (Volume = l x b x h, each litre has 1000ml)"
+      prefixText: "Degree of Chinese books",
+      mathEquation: "1/3 * 360^\\circ = 120^\\circ",
+      suffixText: "(Pie Chart has 360 degrees)"
     },
             {
-            prefixText: "Water needed = ",
-      mathEquation: "70l - 24l = 46l",
+      prefixText: "120 books is: ",
+      mathEquation: "120^\\circ - 60^\\circ = 60^\\circ",
+    },
+                {
+      prefixText: "total books ",
+      mathEquation: "120 * 6 = 720",
+      suffixText: " (60 degrees * 6 = 360 degrees, which is the whole pie chart.)"
     },
 
 ]}
