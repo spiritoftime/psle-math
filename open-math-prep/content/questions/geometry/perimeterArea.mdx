@@ -1,0 +1,111 @@
+---
+title: Geometry - Perimeter and Area
+description: A bit of extra description on Geometry, Perimeter and Area
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import q1s1 from "@/public/questions/geometry/perimeterArea/question1Step1.jpg";
+import q2s1 from "@/public/questions/geometry/perimeterArea/question2Step1.jpg";
+import q2s2 from "@/public/questions/geometry/perimeterArea/question2Step2.jpg";
+import Image from "next/image";
+import StepByStep from "@/components/question/stepByStep";
+import QuestionWithImage from "@/components/question/questionWithImage";
+
+import q1 from "@/public/questions/geometry/perimeterArea/question1.jpg";
+import q2 from "@/public/questions/geometry/perimeterArea/question2.jpg";
+import q3 from "@/public/questions/geometry/perimeterArea/question3.jpg";
+
+## Perimeter And Area
+
+### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q1}
+      subquestions={["In the figure above, ABCH is a square and DEGH is a rectangle. Given that the area of the shaded triangle is 35 cm², find the length of DE."]}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<StepByStep
+  images={[q1s1, q1s1]}
+  annotations={[
+    {
+      prefixText: "Triangle AEB = ",
+      mathEquation: "80 cm2",
+      suffixText: " (Triangle area is 1/2 x base x height of rectangle, so half the rectangle's area.)"
+    },
+    {
+      prefixText: "Triangle AFE = ",
+      mathEquation: "80 cm2 - 48cm2 = 32cm2",
+    }
+  ]}
+/>
+  </Accordion>
+</Accordions>
+
+### Question 2
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q2}
+      subquestions={[
+"Figure 1 shows a rectangular tile.",
+"Figure 2 is formed using 5 such tiles. The perimeter of Figure 2 is 360 cm.",
+"(a) Find the perimeter of Figure 1.",
+"(b) The length of the rectangular tile was 3 times as long as its breadth. Find the area of the rectangular tile."
+]}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<StepByStep
+  images={[q2s1, q2s2]}
+  annotations={[
+    {
+      prefixText: "Part a - Perimeter of 1 rectangle ",
+      mathEquation: "360 cm / 6 * 2 = 120cm",
+      suffixText: " (Figure 2 is 6 length + 6 height.)"
+    },
+    {
+      prefixText: "",
+      mathEquation: "8u = 120, 1u = 15. Length = 45cm, Breadth = 15cm. Area = 45 * 15 = 675cm",
+      suffixText:""
+    }
+  ]}
+/>
+  </Accordion>
+</Accordions>
+
+### Question 3
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q3}
+      subquestions={[
+"A wire 210 cm long was cut into 2 pieces and bent to form a rectangle and a square. The length of the rectangle is 48.5 cm and its breadth is 38.5 cm. Find the length of one side of the square."
+]}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<StepByStep
+  images={[q3, q3]}
+  annotations={[
+    {
+      prefixText: "Perimeter of square = ",
+      mathEquation: "210cm - 38.5cm - 48.5cm - 48.5cm - 38.5cm = 36cm",
+    },
+    {
+      prefixText: "Length of one side =",
+      mathEquation: "36cm / 4 = 9cm",
+      suffixText:""
+    }
+  ]}
+/>
+  </Accordion>
+</Accordions>
