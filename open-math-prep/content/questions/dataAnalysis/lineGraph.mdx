@@ -5,14 +5,12 @@ description: A bit of extra description on Line Graph
 
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Callout } from "fumadocs-ui/components/callout";
-import q1 from "@/public/questions/cubeCuboid/volumeArea/question1.jpg";
-import q2 from "@/public/questions/cubeCuboid/volumeArea/question2.jpg";
-import q3 from "@/public/questions/cubeCuboid/volumeArea/question3.jpg";
-import q4 from "@/public/questions/cubeCuboid/volumeArea/question4.jpg";
+import q1 from "@/public/questions/dataAnalysis/lineGraph/question1.jpg";
+import q2 from "@/public/questions/dataAnalysis/lineGraph/question2.jpg";
+
 import Image from "next/image";
 import StepByStep from "@/components/question/stepByStep";
 import QuestionWithImage from "@/components/question/questionWithImage";
-import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
 
 ## Volume And Area
 
@@ -22,7 +20,10 @@ import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
   <Accordion title="Question">
     <QuestionWithImage
       image={q1}
-      subquestions={["A cuboid has a height of 8cm and a square base of edge of 5cm. What is its volume?"]}
+      subquestions={[
+"The line graph below shows the number of cars sold in the showroom from June to November.",
+"What was the percentage decrease in sale from June to July?"
+]}
     />
   </Accordion>
   <Accordion title="Answer Walkthrough">
@@ -31,9 +32,9 @@ import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
   images={[q1]}
   annotations={[
     {
-      prefixText: "Volume =",
-      mathEquation: "8cm * 5cm * 5cm = 200cm^3",
-      suffixText: " (Vol = L * b * h)"
+      prefixText: "June = 600, July = 450. ",
+      mathEquation: String.raw`\frac{600-450}{600} \times 100\% = 25\%`,
+      suffixText: " (The base is the previous month, which is June in this case.)"
     },
 
 ]}
@@ -48,94 +49,17 @@ import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
   <Accordion title="Question">
     <QuestionWithImage
       image={q2}
-      subquestions={[
-" The diagram shows a rectangular container with a square base. Find the height of the water when 1600 cm³ of water is poured into the container."
-]}
-    />
+      subquestions={["The line graph shows the number of wallets sold in a shop from Monday to Saturday. During which one-day interval was the increase in the number of wallets sold by the shop the greatest?"
+]}/>
   </Accordion>
   <Accordion title="Answer Walkthrough">
 
 <StepByStep
-  images={[q2,q2]}
+  images={[q2]}
   annotations={[
     {
-      prefixText: "Area of square base =",
-      mathEquation: "10cm * 10cm = 100cm^2",
-      suffixText: ""
-    },
-        {
-      prefixText: "Height = Volume / Area of base =",
-      mathEquation: "1600cm^3 / 100cm^2 = 16cm",
-      suffixText: ""
-    },
-
-]}
-/>
-
-  </Accordion>
-</Accordions>
-
-### Question 3
-
-<Accordions>
-  <Accordion title="Question">
-    <QuestionWithImage
-      image={q3}
-      subquestions={[
-"At first, a rectangular tank measuring 40 cm by 30 cm by 30 cm contained some water as shown below.",
-"After Melvin poured 2400 ml of water into the tank, the tank became 2/3-filled with water. How much water was there in the tank at first?"
-]}
-    />
-  </Accordion>
-  <Accordion title="Answer Walkthrough">
-
-<StepByStep
-  images={[q3,q3]}
-  annotations={[
-    {
-      prefixText: "Volume of 2/3 of tank: ",
-      mathEquation: "2/3 * 40 * 30 * 30 = 24000ml",
-    },
-        {
-      mathEquation: "24000ml - 2400ml = 21600ml",
-    },
-
-]}
-/>
-
-  </Accordion>
-</Accordions>
-
-### Question 4
-
-<Accordions>
-  <Accordion title="Question">
-    <QuestionWithImage
-      image={q4}
-      subquestions={[
-"A rectangular tank with a base area of 3500 cm² and a height of 80 cm was 1/4-filled with water at first. At 8 a.m., a tap was turned on and water was drained from the tank at the rate of 4 litres per minute. At 8.06 a.m., the tap was turned off.",
-"(a) How much water was drained from the tank?",
-"(b) After the tap was turned off, how much more water was needed to fill the tank completely?"
-]}
-    />
-  </Accordion>
-  <Accordion title="Answer Walkthrough">
-
-<StepByStep
-  images={[q4,q4,q4]}
-  annotations={[
-    {
-      prefixText: "Part a - Water drained in 6 minutes: ",
-      mathEquation: "4 * 6 = 24l",
-    },
-        {
-            prefixText: "Part b -Volume of 1/4 tank = ",
-      mathEquation: "(1/4 * 3500 * 80)/ 1000 = 70l ",
-      suffixText: " (Volume = l x b x h, each litre has 1000ml)"
-    },
-            {
-            prefixText: "Water needed = ",
-      mathEquation: "70l - 24l = 46l",
+      prefixText: "Thursday to Friday, jumped from ",
+      mathEquation: "45 - 70",
     },
 
 ]}
