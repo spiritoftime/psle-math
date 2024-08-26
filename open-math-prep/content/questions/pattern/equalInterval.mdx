@@ -1,0 +1,56 @@
+---
+title: Equal Intervals
+description: Questions On Equal Intervals
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import q1 from "@/public/questions/pattern/equalInterval/question1.jpg";
+
+import Image from "next/image";
+import StepByStep from "@/components/question/stepByStep";
+import QuestionWithImage from "@/components/question/questionWithImage";
+import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
+
+## Equal Intervals
+
+### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q1}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<div className="steps">
+  <div className="step">
+    <h3>Part (a): Complete the table for Figure 4</h3>
+    <p>Number of triangles: $4 \times 2 = 8$</p>
+    <p>Number of sticks: $22 + 7 = 29$</p>
+    <p>
+      The pattern increases by 2 triangles and 7 sticks for each new figure.
+    </p>
+  </div>
+  <div className="step">
+    <h3>Part (b): Find the Figure Number with 2507 sticks</h3>
+    <p>Number of sticks in Figure 1: $8$</p>
+    <p>Increase in sticks per figure: $7$</p>
+    <p>Equation: $8 + 7(n - 1) = 2507$, where $n$ is the Figure Number</p>
+    <p>Solving for $n$: $7n - 7 + 8 = 2507$</p>
+    <p>$7n = 2506$</p>
+    <p>
+      $n = \frac{2506}
+      {7} = 358$
+    </p>
+  </div>
+  <div className="step">
+    <h3>Final Answer</h3>
+    <p>(a) Figure 4: 8 triangles, 29 sticks</p>
+    <p>(b) Figure Number with 2507 sticks: 358</p>
+  </div>
+</div>
+
+  </Accordion>
+</Accordions>

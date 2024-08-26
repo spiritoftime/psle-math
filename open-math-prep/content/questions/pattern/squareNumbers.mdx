@@ -1,0 +1,46 @@
+---
+title: Square Numbers
+description: Questions On Square Numbers
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import q1 from "@/public/questions/pattern/squareNumbers/question1.jpg";
+
+import Image from "next/image";
+import StepByStep from "@/components/question/stepByStep";
+import QuestionWithImage from "@/components/question/questionWithImage";
+import q2s1 from "@/public/questions/cubeCuboid/volumeArea/question2Step1.jpg";
+
+## Square Numbers
+
+### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q1}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<div className="steps">
+  <div className="step">
+    <h3>Part A: Calculate Square of 8</h3>
+    <p>$8^2 = 64$</p>
+  </div>
+  <div className="step">
+    <h3>Part B: Calculate Squares and Shading</h3>
+    <p>Step 1: Calculate total number of squares</p>
+    <p>Total squares = $84^2 = 7056$</p>
+<p>Step 2: Calculate number of shaded squares</p>
+<p>Shaded squares = $84 \times (84-2) = 84 \times 82 = 6888$</p>
+
+<p>Step 3: Calculate number of unshaded squares</p>
+<p>Unshaded squares = Total squares - Shaded squares</p>
+<p>$7056 - 6888 = 168$</p>
+  </div>
+</div>
+
+  </Accordion>
+</Accordions>
