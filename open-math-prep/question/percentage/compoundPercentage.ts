@@ -27,3 +27,10 @@ export const compoundPercentageQuestion4Data: QuestionType = {
   options: ["0.36 liters", "0.45 liters", "0.54 liters", "0.60 liters"],
   answer: "0.54 liters",
 };
+
+export const compoundPercentageQuestion5Data: QuestionType = {
+  question:
+    "A 500 mL solution contains 20% salt. 60% of the salt is removed from the solution. What is the final volume of the solution?",
+  options: ["200 mL", "250 mL", "300 mL", "350 mL"],
+  answer: "300 mL",
+};
