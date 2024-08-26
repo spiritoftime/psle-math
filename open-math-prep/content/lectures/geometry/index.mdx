@@ -1,0 +1,48 @@
+---
+title: Geometry
+description: Lecture on Geometry
+---
+
+import Youtube from "@/components/ui/youtube";
+import { FileQuestion } from "lucide-react";
+import Image from "next/image";
+
+import { Callout } from "fumadocs-ui/components/callout";
+import angle_info from "@/public/lectures/geometry/angle.jpg";
+import triangle from "@/public/lectures/geometry/triangles.jpg";
+import rhombus_parallelogram from "@/public/lectures/geometry/rhombus_parallelogram.jpg";
+import square_rect_trapezium from "@/public/lectures/geometry/square_rect_trapezium.jpg";
+
+<Callout type="info" title="Note">
+  This refers to everything other than circles and its various shapes, like
+  quadrant
+</Callout>
+
+_Most of the Credits go to https://www.bluetreeeducation.com/primary-math-angles-psle/. They made a great infographic, so i yoinked it here._
+
+### Angle Properties You need to know
+
+1. Z-angles/ Opposite angles
+2. X-angles/ Vertically Opposite angles
+3. U-angles/ Interior angles
+4. F-angles/ Corresponding angles
+5. Angles in a straight line
+
+<Image src={angle_info} />
+### 4-sided shapes and properties
+
+<Image src={square_rect_trapezium}/>
+<Image src={rhombus_parallelogram}/>
+_credit: https://mathmonks.com/parallelogram/rhombus-vs-parallelogram_
+
+
+<Image src={triangle}/>
+<Cards>
+
+<Card
+  icon={<FileQuestion />}
+  title="Practice Time!"
+  description="Try some questions on Geometry"
+  href="/docs/questions/Geometry/basic"
+/>
+</Cards>
