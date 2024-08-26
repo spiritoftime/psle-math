@@ -2,3 +2,82 @@
 title: Square Without A Quadrant
 description: Questions On Square Without A Quadrant
 ---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import q1 from "@/public/questions/circle/squareNoQuadrant/question1.jpg";
+import q1s1 from "@/public/questions/circle/squareNoQuadrant/question1Step1.jpg";
+import q1s2 from "@/public/questions/circle/squareNoQuadrant/question1Step2.jpg";
+import q2 from "@/public/questions/circle/squareNoQuadrant/question2.jpg";
+import q2s1 from "@/public/questions/circle/squareNoQuadrant/question2Step1.jpg";
+
+import Image from "next/image";
+import StepByStep from "@/components/question/stepByStep";
+import QuestionWithImage from "@/components/question/questionWithImage";
+
+### Question 1
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q1}
+      subquestions={["Using the example as a reference, find the area and perimeter of the shaded parts given that the big square consists of 4 smaller squares of side 15 cm and bounded by 4 quarter arcs. Round off your answers to the nearest whole number."]}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<StepByStep
+  images={[q1s1,q1s2]}
+  annotations={[
+    {
+      prefixText: "One arc = ",
+      mathEquation: "15 * 15 - \\frac{1}{4} * 15 * 15 * \\frac{22}{7} = 48.2 cm^2",
+      suffixText: " (Square - Quadrant)"
+    },
+
+        {
+      prefixText: "Four arcs = ",
+      mathEquation: "48.2 cm^2 * 4 = 192.8 cm^2",
+
+},
+
+]}
+/>
+
+  </Accordion>
+</Accordions>
+
+### Question 2
+
+<Accordions>
+  <Accordion title="Question">
+    <QuestionWithImage
+      image={q2}
+      subquestions={[" The figure  shows four circles of radius 12 cm each. The centres are placed at the 4 corners of a square. Find the shaded area of the figure, rounding your answer to the nearest whole number."]}
+    />
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+
+<StepByStep
+  images={[q2s1, q2s1, q2s1]}
+  annotations={[
+    {
+      prefixText: "One arc = ",
+      mathEquation:
+        "6 * 6 - \\frac{1}{4} * 6 * 6 * \\frac{22}{7} = 7.71 { cm}^2",
+      suffixText: " (Square - Quadrant)",
+    },
+    {
+      prefixText: "Four arcs = ",
+      mathEquation: "7.71 { cm}^2 * 4 = 30.84 { cm}^2",
+    },
+    {
+      prefixText: "Four circles + four arcs = ",
+      mathEquation:
+        "30.84 { cm}^2 + 4 * 6 * 6 * \\frac{22}{7} = 483.4 { cm}^2",
+    },
+  ]}
+/>
+
+  </Accordion>
+</Accordions>
