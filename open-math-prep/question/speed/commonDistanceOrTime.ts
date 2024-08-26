@@ -31,6 +31,7 @@ export const commonDistanceOrTimeQuestion1Data: SpeedQuestion = {
         characters: [
           {
             name: "Richard",
+            customTooltip: "Richard travelled 12km",
             position: 12,
             speed: 16,
             direction: "right",

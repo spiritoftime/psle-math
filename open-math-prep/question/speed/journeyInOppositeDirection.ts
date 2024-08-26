@@ -37,6 +37,7 @@ export const journeyInOppositeDirectionQuestion1Data: SpeedQuestion = {
         totalDistance: 210,
         characters: [
           {
+            customTooltip: "Tom travelled 45km",
             name: "Tom",
             position: 45,
             speed: 45,
@@ -44,6 +45,7 @@ export const journeyInOppositeDirectionQuestion1Data: SpeedQuestion = {
             color: "bg-blue-500",
           },
           {
+            customTooltip: "Jerry travelled 60km",
             name: "Jerry",
             position: 150,
             speed: 60,
@@ -62,22 +64,22 @@ export const journeyInOppositeDirectionQuestion1Data: SpeedQuestion = {
         characters: [
           {
             name: "Tom",
-            position: 105,
+            position: 90,
             speed: 45,
             direction: "right",
             color: "bg-blue-500",
-            customTooltip: "Tom meets Jerry at the midpoint",
+            customTooltip: "Tom meets Jerry at 90km",
           },
           {
             name: "Jerry",
-            position: 105,
+            position: 90,
             speed: 60,
             direction: "left",
             color: "bg-green-500",
-            customTooltip: "Jerry meets Tom at the midpoint",
+            customTooltip: "Jerry meets Tom at 90km",
           },
         ],
-        annotation: "Tom and Jerry meet at the midpoint of their journey.",
+        annotation: "Tom and Jerry meet at 90km.",
         townA: "Town P",
         townB: "Town Q",
       },
