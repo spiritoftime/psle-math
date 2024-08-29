@@ -1,6 +1,4 @@
-export function buildSupabaseFilter(filterBy: string[]) {
-  return `(${filterBy.map((value) => `"${value}"`).join(",")})`;
-}
+
 export const useBaseFetch = async (path: string, options = {}) => {
   const url =
     process.env.NODE_ENV === "development"
