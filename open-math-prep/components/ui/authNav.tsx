@@ -6,7 +6,7 @@ import { cn } from "@/utils/cn";
 import { itemVariants } from "@/app/layout.client";
 import { useGetUser } from "@/app/application/queries/useGetUser";
 import { usePathname } from "next/navigation";
-import ButtonSkeleton from "@/app/docs/[...slug]/_components/buttonSkeleton";
+import ButtonSkeleton from "@/app/topic/[...slug]/_components/buttonSkeleton";
 
 const AuthNavContent = () => {
   const { data: user } = useGetUser();

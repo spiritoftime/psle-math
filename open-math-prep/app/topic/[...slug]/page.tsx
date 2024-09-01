@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import CompleteLectureButton from "./_components/completeLectureButton";
 import { Suspense } from "react";
 import { ProgressIndicatorSkeleton } from "./_components/progressIndicatorSkeleton";
+import { headers } from "next/headers";
 
 const DynamicProgressIndicator = dynamic(
   () => import("./_components/progressIndicator"),
@@ -26,7 +27,9 @@ export default async function Page({
   if (page == null) {
     notFound();
   }
-
+  const headersList = headers();
+  const xCurrentPath = headersList.get("x-current-path");
+  console.log("x-current-path:", xCurrentPath);
   const MDX = page.data.exports.default;
   return (
     <>

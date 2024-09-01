@@ -7,16 +7,19 @@ export interface Mode {
   description: string;
   icon: LucideIcon;
 }
+// {
+//   topic:"psle",
+// }
 
 export const modes: Mode[] = [
   {
-    param: "lectures",
+    param: "psle/math/lectures",
     name: "Lectures",
     description: "Lectures",
     icon: Presentation,
   },
   {
-    param: "questions",
+    param: "psle/math/questions",
     name: "Questions",
     description: "Practice Questions",
     icon: BookOpenText,

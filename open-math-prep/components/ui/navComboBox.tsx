@@ -30,12 +30,12 @@ const navItems: NavItem[] = [
   {
     value: "PSLE Math",
     label: "PSLE Math",
-    navigateTo: "/docs/psle/math/lectures",
+    navigateTo: "/topic/psle/math/lectures",
   },
   {
     value: "Introduction To Finance",
     label: "Introduction To Finance",
-    navigateTo: "/finance",
+    navigateTo: "/topic/finance",
   },
 ];
 

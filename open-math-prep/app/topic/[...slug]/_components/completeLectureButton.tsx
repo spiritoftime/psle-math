@@ -2,9 +2,9 @@
 import {
   markCompletedLectureNonLoggedIn,
   GetLecturesToUpdate,
-} from "@/app/docs/[...slug]/_usecases/completeLectureButtonUseCase";
+} from "@/app/topic/[...slug]/_usecases/completeLectureButtonUseCase";
 import { useGetUser } from "@/app/application/queries/useGetUser";
-import { markCompletedLectureLoggedIn } from "@/app/docs/[...slug]/actions";
+import { markCompletedLectureLoggedIn } from "@/app/topic/[...slug]/actions";
 import React from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
