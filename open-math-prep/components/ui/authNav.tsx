@@ -13,7 +13,12 @@ const AuthNavContent = () => {
   const pathname = usePathname();
 
   if (user) {
-    return <AuthButton styling={{ isButton: false }} title="Logout" />;
+    return (
+      <AuthButton
+        styling={pathname === "/" ? { isButton: false } : { isButton: true }}
+        title="Logout"
+      />
+    );
   } else if (pathname === "/") {
     return (
       <Link key={"Login"} href={`/login`} className={cn(itemVariants())}>
