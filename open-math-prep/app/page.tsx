@@ -35,14 +35,7 @@ export default function HomePage() {
       <main className="flex flex-col justify-center min-h-screen text-center">
         <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
         <p className="text-muted-foreground">
-          You can open{" "}
-          <Link
-            href="/docs/lectures"
-            className="font-semibold underline text-foreground"
-          >
-            /docs/lectures
-          </Link>{" "}
-          and see the documentation.
+          You can choose a topic you wish to navigate to from the topic combobox at the navigation bar.
         </p>
         <Test />
         <JourneyDiagram
