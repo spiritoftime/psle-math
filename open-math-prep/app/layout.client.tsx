@@ -1,12 +1,11 @@
 "use client";
 
 import { cva } from "class-variance-authority";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { type ReactNode } from "react";
 import { cn } from "@/utils/cn";
-import { modes } from "@/utils/modes";
 import dynamic from "next/dynamic";
+import { NavComboBox } from "@/components/ui/navComboBox";
 
 export const itemVariants = cva(
   "rounded-md px-2 py-1 transition-colors text-muted-foreground hover:text-foreground"
@@ -29,15 +28,7 @@ const DynamicAuthNav = dynamic(() => import("@/components/ui/authNav"), {
 export function NavChildren(): React.ReactElement {
   return (
     <div className="flex items-center p-1 text-sm bg-fd-muted/80 text-fd-muted-foreground max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2">
-      {modes.map((m) => (
-        <Link
-          key={m.param}
-          href={`/docs/${m.param}`}
-          className={cn(itemVariants())}
-        >
-          {m.name}
-        </Link>
-      ))}
+      <NavComboBox />
       <DynamicAuthNav />
     </div>
   );

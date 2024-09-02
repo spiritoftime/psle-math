@@ -6,14 +6,19 @@ import { cn } from "@/utils/cn";
 import { itemVariants } from "@/app/layout.client";
 import { useGetUser } from "@/app/application/queries/useGetUser";
 import { usePathname } from "next/navigation";
-import ButtonSkeleton from "@/app/docs/[...slug]/_components/buttonSkeleton";
+import ButtonSkeleton from "@/app/topic/[...slug]/_components/buttonSkeleton";
 
 const AuthNavContent = () => {
   const { data: user } = useGetUser();
   const pathname = usePathname();
 
   if (user) {
-    return <AuthButton title="Logout" />;
+    return (
+      <AuthButton
+        styling={pathname === "/" ? { isButton: false } : { isButton: true }}
+        title="Logout"
+      />
+    );
   } else if (pathname === "/") {
     return (
       <Link key={"Login"} href={`/login`} className={cn(itemVariants())}>
@@ -26,7 +31,6 @@ const AuthNavContent = () => {
 };
 
 const AuthNav = () => {
-
   return (
     <Suspense fallback={<ButtonSkeleton />}>
       <AuthNavContent />
