@@ -7,9 +7,9 @@ export interface Mode {
   description: string;
   icon: LucideIcon;
 }
-// {
-//   topic:"psle",
-// }
+interface HashMapNode {
+  modes: Mode[];
+}
 
 export const modes: Mode[] = [
   {
@@ -25,3 +25,25 @@ export const modes: Mode[] = [
     icon: BookOpenText,
   },
 ];
+
+export const hashMapNodes: Record<string, HashMapNode> = {
+  "topic/finance": {
+    modes: [],
+  },
+  "topic/psle/math": {
+    modes: [
+      {
+        param: "psle/math/lectures",
+        name: "Lectures",
+        description: "Lectures",
+        icon: Presentation,
+      },
+      {
+        param: "psle/math/questions",
+        name: "Questions",
+        description: "Practice Questions",
+        icon: BookOpenText,
+      },
+    ],
+  },
+};

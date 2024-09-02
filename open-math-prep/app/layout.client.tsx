@@ -1,11 +1,9 @@
 "use client";
 
 import { cva } from "class-variance-authority";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { type ReactNode } from "react";
 import { cn } from "@/utils/cn";
-import { modes } from "@/utils/modes";
 import dynamic from "next/dynamic";
 import { NavComboBox } from "@/components/ui/navComboBox";
 
