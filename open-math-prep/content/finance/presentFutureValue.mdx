@@ -1,0 +1,147 @@
+---
+title: Present/Future Value
+description: Welcome to the lecture on Present/Future Value!
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+<Callout title="Why Learn this?" type="info">
+  1. You will be able to plan your retirement; how much money you need <br />
+  2. If you want to take out a loan, buy investment plan, you can calculate if it
+  makes sense to do it.
+</Callout>
+
+### Types of interest
+
+1. Simple interest - it is a fixed sum of money you will get based on your initial investment.
+   eg: 4% simple interest yearly on your initial investment of $1000. How much interest is earned after 5 years?
+
+   $$
+   \begin{aligned}
+   I &= 1000 \times 0.04 \times 5 = 200 \text{ dollars}
+   \end{aligned}
+   $$
+
+   Formula:
+
+   $$
+   I = P \times r \times t
+   $$
+
+   1. I = Interest earned (the total amount of interest accrued)
+   2. P = Principal (the initial investment amount)
+   3. r = Annual interest rate (expressed as a decimal)
+   4. t = Time (the number of years the amount is invested)<br/>
+
+2. **_Compound Interest_** <br/>
+   The formula:
+
+   $$
+   \begin{aligned}
+   FV &= PV(1 + r)^t \\
+   \text{where:} \\
+   FV &= \text{future value} \\
+   PV &= \text{present value} \\
+   r &= \text{period interest rate (as decimal)} \\
+   t &= \text{number of periods}
+   \end{aligned}
+   $$
+
+   1. Present Value is the current value - eg. your bank account current sum.<br/>
+   2. Future Value is how much your bank account may have in the future, since bank gives you interest (though close to negligible) <br/>
+   3. Interest rate is basically how much you would profit. <br/>
+   4. Number of periods can be in months, years days, whatever
+
+Couple things to note before we proceed:
+
+<Steps>
+  <Step>
+    pv and fv have opposite signs - negative is an outflow (money leaves you)
+    and positive is inflow (you get money).
+  </Step>
+  <Step>
+    PV, FV whatever can be positive or negative - just make sure they have
+    opposite signs. pmt (payment per period) is same sign as FV.
+  </Step>
+  <Step>
+    Typically, we let PV be negative (you are spending money on an investment).
+  </Step>
+</Steps>
+
+<Callout title="Question Time!" type="info">
+  In a recent survey by SingLife, respondents opined that they expect to have
+  saved SGD 612000 for retirement at 65 years old. They also said they expect to
+  get SGD 2856 a month - the SGD 612000 will also be used finished. Suppose now
+  they plan to retire at 65 and they have to fund retirement till 85 years, what
+  is the implied annual rate of interest they would need?
+</Callout>
+
+We will be using Excel to solve it. If you dont have excel, please feel free to use Google Sheets. You can try using the following functions:
+
+- [RATE](https://support.microsoft.com/en-us/office/rate-function-9f665657-4a7e-4bb7-a030-83fc59e748ce) - Calculates the interest rate per period of an annuity
+- [NPER](https://support.microsoft.com/en-us/office/nper-function-240535b5-6653-4d2d-bfcf-b6a38151d815) - Calculates the number of periods for an investment
+- [PV](https://support.microsoft.com/en-us/office/pv-function-23879d31-0e02-4321-be01-da16e8168cbd) - Calculates the present value of an investment
+- [FV](https://support.microsoft.com/en-us/office/fv-function-2eef9f44-a084-4c61-bdd8-4fe4bb1b71b3) - Calculates the future value of an investment
+  <Callout title="Note" type="info">
+    Excel sheet at end of lecture
+  </Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+    1. Let PV be -612000.<br/> 
+    2. PMT (Payment per month) will be 2856.<br/>
+     3. Nper (Number of periods) is 240 months.<br/> 
+     4. Future Value is 0 - you used up all your retirement funds at 85 years
+
+     You can use the RATE Function To calculate. Because your Nper is in months, you end up with the monthly interest (0.0959%). Yearly interest is 1.151%
+
+  </Accordion>
+</Accordions>
+
+<Callout title="Note" type="warn">
+  You will get different interest rate if you use nper 20 and yearly PMT be 2856
+  x 12. This is because the earlier solution compounds monthly, and this one
+  compounds yearly.
+</Callout>
+
+<Callout title="Question Time!" type="info">
+  If you have yearly interest rate of 4%, how much can you get yearly?
+</Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+    1. Let PV be -612000.<br/>
+
+     2. Nper (Number of periods) is 240 months.<br/>
+     3. Future Value is 0 - you used up all your retirement funds at 85 years
+     4. Your monthly interest rate is 0.333% (4% / 12 months)
+
+You can use the PMT function to calculate the amount you can get monthly. ($3708.60)
+
+  </Accordion>
+</Accordions>
+
+<Callout title="Question Time!" type="info">
+  If you can earn 4% annualized return, how much money do you need to retire?
+</Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+
+     1. Nper (Number of periods) is 240 months.<br/>
+     2. Future Value is 0 - you used up all your retirement funds at 85 years
+     3. Your monthly interest rate is 0.333% (4% / 12 months)
+     4. Your pmt (monthly) is still $2856 from first question.
+     5. You can use the PV formula to calculate. You end up with -$471,302.43
+
+  </Accordion>
+</Accordions>
+
+<a href="/finance/Future Value of Money.xlsx" download>
+  Download PV/FV Excel File Walkthrough
+</a>

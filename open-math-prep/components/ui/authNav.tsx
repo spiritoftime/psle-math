@@ -21,7 +21,11 @@ const AuthNavContent = () => {
     );
   } else if (pathname === "/") {
     return (
-      <Link key={"Login"} href={`/login`} className={cn(itemVariants())}>
+      <Link
+        key={"Login"}
+        href={`/login`}
+        className={cn(itemVariants(), "text-sm", "w-full")}
+      >
         {"Login"}
       </Link>
     );

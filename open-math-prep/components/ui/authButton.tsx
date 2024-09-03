@@ -70,7 +70,7 @@ const AuthButton: React.FC<{
     return (
       <span
         onClick={handleClick}
-        className="rounded-md px-2 py-1 transition-colors text-muted-foreground hover:text-foreground cursor-pointer"
+        className="rounded-md text-sm px-2 py-1 transition-colors text-muted-foreground hover:text-foreground cursor-pointer"
       >
         {title}
       </span>

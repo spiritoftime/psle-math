@@ -1,0 +1,171 @@
+---
+title: DCF (Discounted Cash Flow)
+description: Welcome to the lecture on DCF (Discounted Cash Flow)!
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import Youtube from "@/components/ui/youtube";
+
+<Callout title="Why Learn this?" type="info">
+  1. You might buy some insurance investment plan where they give you payout for
+  X years. <br />
+  2. probably useful for stonk analysis? idk havent learn yet
+</Callout>
+
+### Discounted and Compounded Value
+
+As long as you understand discount (in supermarket/taobao whatever) you should be able to understand this. A future cash flow (in this case cash flow just means future money you receive) needs to be discounted to find the present value (how much this investment is currently worth). This is because over the years the investment will increase by simple/compound interest per last lecture.
+
+A present value of investment needs to be compounded to find the future value.
+
+Eg: \$1000 dollars investment, 5% yearly compound interest. Your present value of investment is \$1000. It needs to be compounded (1000 \* (1+0.05) = \$1050) to get the future value ($1050).
+
+<Callout title="Note" type="info">
+We will be using Excel to solve subsequent questions. If you dont have excel, please feel free to use Google Sheets.
+</Callout>
+<Callout title="Question Time!" type="info">
+  Suppose you are looking at the following possible cash flows:   <br />
+
+1.Year 1 CF =$100; <br />
+
+2.Years 2 and 3 CFs = $200; <br />
+
+3.Years 4 and 5 CFs = $300. <br />
+
+The required discount rate is 7%. What is the value of the cash flows at year
+5?
+
+</Callout>
+Hint: At year 1, your pmt (in years) is 4. Your interest rate is same as discount rate, 7%. How much is the future value of Year 1 CF?
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+  You can absolutely use the FV values to solve this question. 
+    1. Year 1 CF- \$100 * (1+0.07) ^ 4 = \$131.08 
+    2. Year 2 and 3 CF- \$200 * (1+0.07) ^ 3 = \$245.01 and \$200 * (1+0.07) ^ 2 = \$228.98
+    3. Year 4 and 5 - \$300 * (1+0.07) ^ 1 = \$245.01 and \$300 * (1+0.07) ^ 0 = \$300
+    4. Sum them up - \$1201.99
+    <Callout title="Why is PMT 4 in Year 1 for example?" type="info">
+
+You dont get compound interest in the first year. eg: your stonk only pays you dividend etc after a year of holding it for example
+
+</Callout>
+  </Accordion> 
+</Accordions>
+
+<Callout title="Question Time!" type="info">
+  1. What is the value of the cash flows today? <br />
+  2. What is the value of the cash flows at year 3?
+</Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+1. You calculated future value of cash flows at Year 5. Now calculate PV (present value). 
+$$
+\$1201.99 \div (1+0.07)^5 = \$874.121
+$$
+2. Sum of FV at year 3 = 107+245+228.98 = 580.98 (Whatever you have already received at Year 3 - Year 1,2,3 Cash Flow)
+$$
+\$580.98 \div (1+0.07)^3 = \$474.292
+$$
+  </Accordion> 
+</Accordions>
+Lets try a few more finance questions~
+
+<Callout title="Question Time!" type="info">
+  You want to receive 5,000 per month in retirement. If you can earn 0.75% per
+  month and you expect to need the income for 25 years, how much do you need to
+  have in your account at retirement?
+</Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+
+     1. PMT (payment received per month) is 5000<br/>
+     2. Future Value is 0 - you dont get a lump sum in the end of 25 years
+     3. Your monthly interest rate is 0.75% Yearly is 9% (0.75% x 12)
+     4. Your nper (amount of months) is 300 (25 years x 12 months per year)
+     5. You can use the PV formula to calculate. You end up with -$595,808.11
+
+  </Accordion>
+</Accordions>
+
+<Callout title="Question Time!" type="info">
+  You want to receive $5,000 per month for the next 5 years. How much would you
+  need to deposit today if you can earn 0.75% per month?
+</Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+
+     1. PMT (payment received per month) is 5000<br/>
+     2. Future Value is 0 - you dont get a lump sum in the end of 25 years
+     3. Your monthly interest rate is 0.75% Yearly is 9% (0.75% x 12)
+     4. Your nper (amount of months) is 60 (5 years x 12 months per year)
+     5. You can use the PV formula to calculate. You end up with -$240,866.87
+
+  </Accordion>
+</Accordions>
+
+<Callout title="Question Time!" type="info">
+  What monthly rate would you need to earn if you only have $200,000 to deposit?
+</Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+
+     1. PMT (payment received per month) is 5000<br/>
+     2. Future Value is 0 - you dont get a lump sum in the end of 25 years
+     3. Your PV is -\$200,000, you are depositing (money leaves you)
+     4. Your nper (amount of months) is 60 (5 years x 12 months per year)
+     5. You can use the RATE formula to calculate. You end up with 1.44% (this is monthly rate since nper was in months)
+
+  </Accordion>
+</Accordions>
+
+<Callout title="Question Time!" type="info">
+ Suppose you have \$200,000 to deposit and can earn 0.75% per month. How many months could you receive the \$5,000 payment?
+</Callout>
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+
+     1. PMT (payment received per month) is 5000<br/>
+     2. Future Value is 0 - you dont get a lump sum in the end of 25 years
+     3. Your monthly interest rate is 0.75% Yearly is 9% (0.75% x 12)
+     4. Your PV is -\$200,000, you are depositing (money leaves you)
+     5. You can use the NPER formula to calculate. You end up with 47.73 months (if you use monthly interest)
+
+  </Accordion>
+</Accordions>
+
+<Callout title="Question Time!" type="info">
+  How much could you receive every month for 5 years?
+</Callout>
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+
+     1. Your nper (amount of months) is 60 (5 years x 12 months per year)
+     2. Future Value is 0 - you dont get a lump sum in the end of 25 years
+     3. Your monthly interest rate is 0.75% Yearly is 9% (0.75% x 12)
+     4. Your PV is -\$200,000, you are depositing (money leaves you)
+     5. You can use the PMT formula to calculate. You end up with $4151.
+
+  </Accordion>
+</Accordions>
+
+You likely dont need this video, but here is an example DCF Cash Flow:
+
+<Youtube id={"CpFSc-Nrp1I"} />
+
+<a href="/finance/Discounted Cash Flows.xlsx" download>
+  Download DCF Excel File Walkthrough
+</a>
