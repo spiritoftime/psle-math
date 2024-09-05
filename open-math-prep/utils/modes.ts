@@ -30,6 +30,9 @@ export const hashMapNodes: Record<string, HashMapNode> = {
   "topic/finance": {
     modes: [],
   },
+  "topic/reflection": {
+    modes: [],
+  },
   "topic/psle/math": {
     modes: [
       {
