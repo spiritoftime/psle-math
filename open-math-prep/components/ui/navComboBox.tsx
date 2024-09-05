@@ -37,6 +37,11 @@ const navItems: NavItem[] = [
     label: "Introduction To Finance",
     navigateTo: "/topic/finance",
   },
+  {
+    value: "Reflections/ Advice",
+    label: "Reflections/ Advice",
+    navigateTo: "/topic/reflection",
+  },
 ];
 
 export function NavComboBox() {
