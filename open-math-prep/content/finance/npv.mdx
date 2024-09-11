@@ -1,0 +1,237 @@
+---
+title: Net Present Value, payback period and IRR
+description: Welcome to the lecture on Net Present Value, payback period and IRR
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import Youtube from "@/components/ui/youtube";
+
+<Callout title="Why Learn this?" type="info">
+  1. You will learn if an insurance plan is scamming you or do you actually
+  stand to earn from it <br />
+  2. Learn if you should actually invest in a company/investment
+</Callout>
+
+### Net Present Value (NPV)
+
+NPV is the difference between the market value of a project and its cost.
+
+<Callout title="Note" type="info">
+  This is different from present value! NPV represents the value created,
+  present value can be high but indicate a loss.
+</Callout>
+
+Investment Procedure:
+
+<Steps>
+  <Step>Estimate all your expected future cash flows</Step>
+  <Step>
+    Estimate the required return of projects at your risk level/ interest/
+    discount rate
+  </Step>
+  <Step>
+    Find the present value of the cash flow and subtract the initial investment,
+    which gives you NPV
+  </Step>
+</Steps>
+
+**_If NPV is positive, take the investment!_**
+
+<Callout title="What is Decision Rule?" type="info">
+  It's your criteria for the investment. For example, if you would like to
+  breakeven **_within 2 years_**, that is your decision rule.
+</Callout>
+
+<Callout title="Question Time!" type="info">
+  You are reviewing a new project and have estimated the following cash flows:
+  1. Year 0: Cash Flow(CF) = -\$165,000
+  2. Year 1: Cash Flow(CF) = -\$63,120. Net Income (NI) = \$13,620
+  3. Year 2: Cash Flow(CF) = -\$70,800. Net Income (NI) = \$3,300
+  4. Year 3: Cash Flow(CF) = -\$91,080. Net Income (NI) = \$29,100
+  5. Average Book Value = \$72,000
+  6. Required return for assets of this risk level is 12%.
+
+</Callout>
+<Callout title="Note" type="info">
+Go through the answer walkthrough, then do yourself. Use google sheets/ excel, if you have financial calculator try it.
+</Callout>
+
+Here are the links to some excel formulas for this lecture if you need it
+
+- [NPV](https://support.microsoft.com/en-us/office/npv-function-8672cb67-2576-4d07-b67b-ac28acf2a568) - Value creation from a series of cash flows
+- [IRR](https://support.microsoft.com/en-us/office/irr-function-64925eaa-9988-495b-b290-3ad0c163c1bc) - Calculates the return needed to break even from a bunch of cash flows
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+  After you have copied all the question information into excel, you can use the NPV formula to get NPV. NPV(12%, cash flows from Year 1 to 3) + Year 0 cash flow = \$12,627.41
+  <Callout title="Why can't I select all cash flows with NPV formula?" type="info">
+The excel formula is not built in to include the Y0 cash flow. If you select Year 0 to Year 3 with NPV formula, you get \$11,274 which is incorrect. You can verify this with a financial calculator or see my calculator walkthrough below.
+
+Decision Rule - You want to earn money from taking this project.
+
+**_Since NPV >0, there is value creation. You take the project!_**
+
+</Callout>
+  </Accordion> 
+</Accordions>
+
+It is important to understand the purpose of the financial ratio. Please go through these accordions.
+
+<Accordions>
+
+  <Accordion title="Does NPV account for time value of money?">
+  Yes, because you are discounting the cash flows.
+  </Accordion> 
+  <Accordion title="Does NPV account for the risk of the cash flows?">
+  Yes. If the interest/ discount rate is higher, then the risk is higher; vice versa.
+  </Accordion> 
+  <Accordion title="Does the NPV rule provide an indication about the increase in value??">
+  Yes. It shows how much value we add on top of the cost
+  </Accordion> 
+  <Accordion title="Should we consider the NPV rule for our primary decision rule?">
+  Yes. It accounts for the value creation of the investment/ company.
+  </Accordion> 
+</Accordions>
+
+### Payback period
+
+This represents how long it takes for you to get back your initial investment. In this question, your investment was \$165,000 at year 0 (remember negative sign = money leaves you). Now, lets try to find the payback period for this question.
+
+<Accordions>
+
+<Accordion title="Answer Walkthrough">
+Do take note of the sign when calculating the payback period. A negative sign indicates that you have already earned your money back, and a positive sign indicates how much money you have **_yet_** to get back.
+
+1.Year 1 Payback period = -(-\$165,000 + \$63,120) = \$101,880 <br/>
+2.Year 2 Payback period = \$101880 - \$70,800 = \$31,080<br/>
+3.Year 3 Payback period = \$31080 - \$91,080 = -\$60,000
+
+Now recall that payback period is how many years it takes for you to breakeven/ get all your money back. It occurs between year 2 and year 3.
+
+To get the exact amount of time needed, we need to use **_interpolation_**.
+
+Number of years to break even = 2 years + 31080/91080 = 2.341 years
+
+Since decision rule is breakeven in 2 years, reject this project.
+
+</Accordion>
+</Accordions>
+
+### Evaluation of payback period
+
+| Advantages                                  | Disadvantages                                                                         |
+| ------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Easy to understand                          | Ignores the time value of money                                                       |
+| Adjusts for uncertainty of later cash flows | Requires an arbitrary cutoff point                                                    |
+| Biased toward liquidity                     | Ignores cash flows beyond the cutoff date                                             |
+|                                             | Biased against long-term projects, such as research and development, and new projects |
+
+The most glaring problem with using payback period is that there is a time cost in waiting to get \$70,800 at year 2 (discount value). You could have invested that \$70,800 elsewhere at year 0 and end up with say \$72,000!
+
+### Introducing - discounted payback period (DPP)!
+
+<Accordions>
+
+<Accordion title="Answer Walkthrough">
+This one is pretty complicated, so you might need to read for awhile.
+
+1. Year 1 DPP = \$165,000 - \$63,120 / (1+0.12) = \$108,642.8<br/>
+
+<Callout title="What is going on?" type="info">
+  You are trying to get the **_present value_** of the cash flow you receive at
+  Year 1 (\$63,120). Hence, you discount it by the required return rate, which
+  is 12%.
+</Callout>
+2. Year 2 DPP = \$108,642 - \$70,800/(1+0.12)$^2$ = \$52,201.53 <br />
+3. Year 3 DPP = \$52,201.53 - \$91,080/(1+0.12)$^3$ = -\$12627.41436
+
+So, you can expect to break even using DPP between year 2 and year 3. To find the exact time needed, you apply interpolation once again:
+
+Number of years to break even = 2 years + \$52,201 / (\$91,080 / (1+0.12)$^3$) = 2.80 years
+
+<Callout title="What is going on?" type="info">
+  You have to discount the cashflow you are receiving when you are interpolating
+  too! 2 + \$31,080 / \$91,080 gives you 2.57 years, which is wrong.
+</Callout>
+
+Since decision rule is breakeven in 2 years, reject this project.
+
+</Accordion>
+</Accordions>
+
+<Callout title="More notes" type="info">
+  1. You may have noticed that DPP end value is same as NPV, just different
+  signs. They are the same, provided that you are taking into account all cash
+  flows and not limiting DPP to say year 2 due to your decision rule. <br />
+  2. Number of years needed to breakeven with DPP calculation will always be more
+  than that of payback period. This is because you are accounting for the discount
+  rate for the cash flows.
+</Callout>
+
+### Evaluating DPP
+
+| Advantages                                                                                 | Disadvantages                                                   |
+| ------------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
+| Includes time value of money                                                               | May reject positive NPV investments                             |
+| Easy to understand                                                                         | Requires an arbitrary cutoff point                              |
+| Does not accept negative estimated NPV investments when all future cash flows are positive | Ignores cash flows beyond the cutoff point                      |
+| Biased towards liquidity                                                                   | Biased against long-term projects, such as R&D and new products |
+
+It is important to understand the purpose of the financial ratio. Please go through these accordions.
+
+<Accordions>
+  <Accordion title="Does DPP account for time value of money?">
+    Discounted payback accounts for time value of money.
+  </Accordion>
+  <Accordion title="Does DPP account for the risk of the cash flows?">
+    Yes.
+  </Accordion>
+  <Accordion title="Does the (discounted) payback rule provide an indication about the increase in value?">
+    No, that is NPV. DPP only accounts for it when it is the last DPP, i.e. it
+    accounts for all cash flows.
+  </Accordion>
+  <Accordion title="Should we consider the DPP rule for our primary decision rule?">
+    Depends. NPV will account for all cash flows and guarantee you confirm earn.
+    Discounted payback is when you want to breakeven within 2 years. So an
+    investment may not allow you to breakeven in 2 years, but it can give you
+    very high profits over 30 years (high NPV).
+  </Accordion>
+</Accordions>
+
+### Internal Rate Of Return (IRR)
+
+IRR represents the required rate of return needed for you to break even, taking into account all the cash flows.
+
+If IRR is lower than required rate of return, you reject the project.
+
+<Accordions>
+
+<Accordion title="Answer Walkthrough">
+Just do IRR(all cash flows). You get 16%.
+Since 16% > 12%, you accept the project.
+
+<Callout title="Understanding the reason for accepting" type="info">
+We have established through NPV calculation that this project will generate profit. 16% discount rate is what's needed to cause this project to generate 0 profits. Hence the rule for IRR is reject project if IRR < the required return / discount rate.
+</Callout>
+
+</Accordion>
+</Accordions>
+
+<Callout title="Food For Thought" type="info">
+  Is there a formula to calculate the required rate of return, based on a
+  specific year? I will leave that up to you / some finance expert reading this
+  to figure it out!
+</Callout>
+
+### Average Accounting Return
+
+$\text{Average Accounting Return} = \frac{\text{Average Net Income}}{\text{Average Book Value}}$
+
+Honestly, this is a pretty useless ratio.If you are worried about the direction of the company **_without any cash flow data_**, then use this.
+
+<a href="/finance/npv.xls" download>
+  Download Excel File Walkthrough
+</a>
