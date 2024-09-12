@@ -1,0 +1,147 @@
+---
+title: Income Statement And Balance Sheet
+description: Welcome to the lecture on Income Statement And Balance Sheet!
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import Image from "next/image";
+import Bs from "@/public/finance/balance sheet.jpg";
+import qIncome from "@/public/finance/qIncome.jpg";
+import qBalance from "@/public/finance/qBalance.jpg";
+import QuestionWithImage from "@/components/question/questionWithImage";
+import StepByStep from "@/components/question/stepByStep";
+
+<Callout title="Why Learn this?" type="info">
+  1. You will be able to plan your retirement; how much money you need <br />
+  2. If you want to take out a loan, buy investment plan, you can calculate if it
+  makes sense to do it.
+</Callout>
+
+### Balance Sheet
+
+In simple terms, it is a full report card of a firm's financials.
+
+<Callout title="Usefulness of balance sheet" type="info">
+  The balance sheet is potentially useful to many different parties. A supplier
+  might look at the size of accounts payable to see how promptly the firm pays
+  its bills. A potential creditor would examine the liquidity and degree of
+  financial leverage. For financial managers, they are interested in value of
+  firm, and this is likely going to be market value.
+</Callout>
+
+There is one key formula you need to know:
+
+$$
+\begin{aligned}
+Asset &= Liabilities + Equity
+\end{aligned}
+$$
+
+Have a look through the summary mindmap below for its various components! You don't have to memorise everything, it should get clearer as you progress through and you can always refer back here if needed.
+
+<Image src={Bs} />
+
+### Formulas for this lecture
+
+1. Net Working Capital - The difference between current assets and current liabilities. It is an indicator of **_liquidity_**.
+
+<Callout title="Importance of liquidity" type="info">
+You can be set to earn 300million dollars in 30years, but you might owe ah long 1million dollars and you need to pay within a week. Liquidity is how much money you can source in a short period of time (you can sell all your assets like stocks, etc).
+</Callout>
+```math
+\text{Net Working Capital} = \text{Current Assets} - \text{Current Liabilities}
+```
+Just bear with me - this is an introductory lecture and there will be a example walkthrough at the bottom.
+
+### Income Statement
+
+Like your personal income statement, it is mainly used to track where the firm spent their money on and how much money they have at the end (retained earnings - retained means you keep, earnings means profit). Let's have a walkthrough of the typical components of a basic income statement. **_Don't memorise_**, understand the logic:
+
+1. Revenue
+2. Minus Cost Of Goods Sold (eg. Coffeeshop sell kopi, cost of goods sold or COGS can be coffee beans)
+3. Gross profit - Like gross salary it means there's more things to deduct from your profit to come
+4. Minus Depreciation - Decline in value for fixed assets (eg. equipment or even your IPhone. For example, IPhone 6 was worth \$600 at 2017. Now its probably worthless.)
+   <Callout title="Depreciation is not money you have to pay" type="info">
+     You don't actually cough up money every year, but it is a real cost. Keep
+     this in mind when we walkthrough operating cash flow next time. An income
+     statement may also deduct other stuff, called operating expenses.
+   </Callout>
+5. EBIT - Earnings before interest (I) and taxes (T). With such a name it should be obvious to you what's the next two components:
+6. Minus Interest
+7. Minus Tax
+8. Net Profit/ Income
+9. Minus Dividend - As a company you typically can't keep all the profits!
+10. Retained Earnings - Profit the company can actually keep; to use to invest next time, whatever.
+
+<Accordions>
+  <Accordion title="Accounting Rule - GAAP and the Matching Principle: Explained">
+    In finance, companies follow rules to ensure their financial statements are consistent and accurate. One such framework is GAAP (Generally Accepted Accounting Principles), and an important concept within GAAP is the matching principle. <br/>
+
+    <strong>The Matching Principle</strong> <br/>
+    The matching principle is the idea that expenses should be recorded in the same period as the revenues they help generate, not necessarily when cash changes hands. This ensures that the company’s income statement accurately reflects the profitability of specific activities. <br/>
+
+    Example:
+    <ol>
+      <li>In January, you buy \$100 worth of lemonade supplies.</li>
+      <li>In February, you sell \$150 worth of lemonade.</li>
+      <li>In March, the customer pays you.</li>
+    </ol>
+
+    Under GAAP and the matching principle:
+    <ul>
+      <li>In February (when you make the sale), you'd record \$150 revenue and \$100 expenses.</li>
+      <li>The actual cash movements in January and March don't affect when you record the revenue and expenses.</li>
+      <li>The matching principle is a part of GAAP, and it's specific to the income statement. However, it can lead to manipulation (e.g., shifting costs to future quarters).</li>
+    </ul>
+
+  </Accordion>
+   <Accordion title="What are some things to keep in mind when looking at an income
+statement?">
+    A financial statement may be manipluated to make the reader infer false information. Here are some things to keep in mind (update if there are practical examples):
+    - non cash items
+    - cash flow
+    - gaap and matching principle
+    - the date the numbers were obtained
+  </Accordion>
+   <Accordion title="Book value and market value">
+ Financial statements contain book value (what the firm paid for when they bought it). Book value may be similar to actual value because of high liquidity/ coincidence (long terms asset likely not same book and market value). 
+  </Accordion>
+
+</Accordions>
+Alright, time to go through an example! You can just read through, then ideally try doing it on pen paper yourself:
+
+<Accordions>
+  <Accordion title="Question">
+Construct a balance sheet and income statement for 2008 and 2009, given the information below and a tax rate of 35%. Try calculating the net working capital too.
+| Item                | 2008   | 2009   |
+| ------------------- | ------ | ------ |
+| Sales               | \$4,203 | \$4,507 |
+| Cost of goods sold  | \$2,422  | \$2,633  |
+| Depreciation        | \$785    | \$952    |
+| Interest            | \$180    | \$198    |
+| Dividends           | \$225    | \$250    |
+| Current assets      | \$2,205  | \$2,429  |
+| Net fixed assets    | \$7,344  | \$7,650  |
+| Current liabilities | \$1,003  | \$1,255  |
+| Long-term debt      | \$3,106  | \$2,085  |
+  </Accordion>
+  <Accordion title="Answer Walkthrough">
+Bonus: NWC = Current asset - Current Liability <br/>
+2008: \$2205 - \$1003 = \$1202
+2009: \$2429 - \$1255 = \$1174
+<StepByStep
+  images={[qBalance, qIncome]}
+  annotations={[
+    {
+      prefixText: "Balance Sheet",
+    },
+    {
+      prefixText: "Income Statement",
+    },
+  ]}
+/>
+
+  </Accordion>
+</Accordions>
