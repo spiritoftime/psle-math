@@ -2,6 +2,7 @@
 import {
   markCompletedLectureNonLoggedIn,
   GetLecturesToUpdate,
+  getLectureTitles,
 } from "@/app/topic/[...slug]/_usecases/completeLectureButtonUseCase";
 import { useGetUser } from "@/app/application/queries/useGetUser";
 import { markCompletedLectureLoggedIn } from "@/app/topic/[...slug]/actions";
@@ -9,6 +10,8 @@ import React from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import { LECTURE_QUERY_KEY } from "@/app/application/queries/useGetLecture";
+import { createClient } from "@/utils/supabase/client";
+const supabaseClient = createClient();
 
 const CompleteLectureButton: React.FC<{
   title: string;
@@ -21,8 +24,18 @@ const CompleteLectureButton: React.FC<{
   return (
     <button
       onClick={async () => {
-        // recurse through lectureStructure to calculate progress & get lectures to mutate
-        const lecturesToUpdate = GetLecturesToUpdate(pageTitle);
+        let lecturesToUpdate;
+        if (user) {
+          const lectureProgressesToQuery = getLectureTitles(pageTitle);
+          const { data: lectureData, error } = await supabaseClient
+            .from("lectureprogress")
+            .select("progress, title")
+            .in("title", lectureProgressesToQuery);
+          // recurse through lectureStructure to calculate progress & get lectures to mutate
+          lecturesToUpdate = GetLecturesToUpdate(pageTitle, lectureData || []);
+        } else {
+          lecturesToUpdate = GetLecturesToUpdate(pageTitle,[]);
+        }
         // if logged in use below
         if (user) {
           const result = await markCompletedLectureLoggedIn(lecturesToUpdate);
