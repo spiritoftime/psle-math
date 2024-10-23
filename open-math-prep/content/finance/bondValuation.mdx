@@ -1,0 +1,164 @@
+---
+title: Bond Valuation (Part 1)
+description: Welcome to the lecture on Bond Valuation
+---
+
+import Image from "next/image";
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import Youtube from "@/components/ui/youtube";
+import SgBond from "@/public/finance/exampleBond.jpg";
+import Link from "next/link";
+
+<Callout title="Why Learn this?" type="info">
+  1. Learn about another type of investment <br />
+  2. If you have a company and want to borrow money, you can consider issuing bonds
+  instead of giving people equity/ ownership of your company
+</Callout>
+
+### What is a bond?
+
+<Image
+  width={32}
+  height={32}
+  alt="Singapore Bond Example"
+  src={SgBond}
+  sizes="1000px"
+  className=" w-full "
+  aria-label="Singapore Bond"
+/>
+
+In simple terms, you pay money to purchase what is called a bond. In exchange, you get paid a sum of money every 6/ 12/ a number of months (based on the bond type), and you earn an interest from your initial sum of investment. When the bond fully expires, you get a sum of money back (that may or may not be the amount you purchased). Similar to stocks, the bond price will keep fluctuating (reason explained below)
+
+There are many types of bonds, depending on risk level. For example, Singapore bonds are issued by the Singaporean government, and they are of the highest grade.
+
+This means that they are the least riskiest in terms of running away with your money, and will deliver you the interest on time. Often, the interest rate will be higher the more risky the bond issuer is.
+
+<Callout title="Why are you not using the correct jargon??" type="info">
+  Some of you might have already learnt words like coupon rate, YTM etc. Be
+  patient, I will try my best to explain below based on my own understanding
+  haha
+</Callout>
+
+### Bond Jargon:
+
+<Steps>
+  <Step>
+    Par value/ face value/ lump sum - the amount of money you will get when the bond expires.<u> It need not be the same as the purchase price of the bond!!!</u>
+  </Step>
+
+  <Step>
+Coupon Rate - the % of money you get every time period, based on the bond type and the par value. For example, if coupon rate is 10% per annum/ year, and par value is \$1000, you will get \$100 (PMT) every year. Typically expressed in terms % of per annum
+  </Step>
+    <Step>
+PMT - payment. It is how much money you get, based on the coupon rate.
+  </Step>
+  <Step>
+Interest Rate/ Yield To Maturity (YTM) - interest you earn if you hold the bond all the way from now to the bond's expiry date. YTM is also your discount rate (mentioned in earlier lectures)/ the average interest rate you can get on average from other bonds.
+
+  </Step>
+</Steps>
+
+### Relationship between YTM (yield to maturity), coupon rate and bond price
+
+<u><font color="red"> Try to understand the logic, don't memorise.</font></u>
+<Steps>
+  <Step>
+If coupon rate = YTM, par value = bond price. Recall that YTM is the average interest you can get elsewhere from other bonds. Hence, if you can get the same amount of money as the average interest elsewhere, there is no incentive to pay more for the bond than necessary.
+  </Step>
+
+  <Step>
+If YTM > coupon rate, the bond price is lower than the par value (discounted bond). This is because you can get a better bond elsewhere, so most investors wont buy it. Because of this, there is lower demand, so it makes sense the bond price will be lower than the par value (recall time value of money)
+  </Step>
+    <Step>
+If YTM < coupon rate, the bond price is higher than the par value (premium bond). This is because this bond gives higher interest than the average bond in the market. Because of this, there would be high demand for this one bond, causing bond price to be higher than par value.
+  </Step>
+
+</Steps>
+
+### More Jargon - Current Yield, YTM, Capital Gains Yield
+
+#### Current Yield
+
+Current Yield is like looking at how much pocket money you get right now compared to what you paid:
+
+- Imagine you bought a special piggy bank (the bond) for \$90
+- Every year, it gives you \$5 in coins (the coupon payment)
+- Your Current Yield is \$5/\$90 = 5.56%
+- It's just like saying "right now, I'm getting \$5.56 for every \$100 I spent"
+- Hence, Current Yield is basically the interest (in %) that you are getting as of this moment.
+
+$$
+\begin{aligned}
+\text{Current Yield} \,&=\, \frac{\text{PMT}}{\text{Price}}
+\end{aligned}
+$$
+
+<Callout title="Jargon Recap Time!" type="info">
+If par value or amount of money you get at the end of the bond is \$1000, given a coupon rate of 10% per annum, your PMT is \$100. If you managed to buy the bond at \$900, it implies the YTM > coupon rate (since the bond price is below par value). We say that you got the bond at a **_discount_**, because the bond price is below par value. The current yield, given the current price, is 11%. (\$100 PMT divided by \$900 bond price)
+
+</Callout>
+
+#### YTM
+
+In simple terms, Yield to Maturity (YTM) is like looking at ALL the money you'll get, including:
+
+- The pocket money you get each year (\$5)
+  The promise that when the piggy bank "grows up" (matures), you'll get \$100 back
+  The fact that you only paid \$90 for it
+
+YTM is higher than Current Yield in this case because:
+
+1. You're not just getting the \$5 yearly payments
+2. You're also going to get \$10 extra when it matures (\$100 - \$90)
+3. It's like getting your pocket money PLUS saving up for something bigger
+
+$$
+\begin{aligned}
+\text{YTM} \,&=\, \text{Current Yield} + \text{Capital Gains Yield}
+\end{aligned}
+$$
+
+#### Capital Gains yield
+
+How much profit you make by selling the bond. This changes every year as the bond changes (as the number of years to maturity changes, capital gains yield changes, because there is less time to bond expiry and hence less PMT)
+
+- From this formula, there are hence 2 ways to earn money, current yield and capital gains yield.
+  <Callout title="Long term and short term bond" type="info">
+    For long term bonds, the YTM is mainly composed of how much money you earn
+    from PMT. For short term bonds, the money you earn is typically from the
+    difference between bond price and par value/ capital gains yield. (try to
+    understand the logic, don't memorise)
+  </Callout>
+
+<Callout title="Question Time!" type="info">
+Suppose a bond with a 10% coupon rate and semiannual coupons, has a face value of \$1,000, 20 years to maturity and is selling for \$1,197.93.
+
+- Is the YTM more or less than 10%?
+- What is the semiannual coupon payment?
+- How many periods are there?
+
+</Callout>
+<Callout title="Note" type="info">
+Go through the answer walkthrough, then do yourself. Use google sheets/ excel, if you have financial calculator try it. Excel walkthrough file at bottom of the page.
+</Callout>
+
+Here are the links to some excel formulas for this lecture if you need it
+
+- [RATE](https://support.microsoft.com/en-us/office/rate-function-9f665657-4a7e-4bb7-a030-83fc59e748ce) - Calculates the interest rate/ yield to maturity
+
+<Accordions>
+
+  <Accordion title="Answer Walkthrough">
+1. YTM is less than 10%, because bond price is above par value (more demand for the bond because it has higher return than the coupon rate - 10% per annum, pushing prices up)
+2. coupon rate of 5\% per annum (10% / 2), PMT/ semiannual coupon payment = 5% * \$1000 = \$50
+3. 20 years * 2 semiannums per year = 40 Nper/ number of periods
+4. YTM per semiannum calculation =RATE(B34,B33,-B30,B28,0), 4%
+5. Because YTM is typically expressed as per annum, YTM is 8%.
+  </Accordion> 
+</Accordions>
+
+<a href="/finance/Bond Valuation.xlsx" download>
+  Download Excel File Walkthrough
+</a>
