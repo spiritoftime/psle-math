@@ -42,6 +42,11 @@ const navItems: NavItem[] = [
     label: "Reflections/ Advice",
     navigateTo: "/topic/reflection",
   },
+  {
+    value: "Fitness",
+    label: "Fitness",
+    navigateTo: "/topic/fitness",
+  },
 ];
 
 export function NavComboBox() {

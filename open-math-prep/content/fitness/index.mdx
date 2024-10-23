@@ -1,0 +1,126 @@
+---
+title: Reconciling tech and non tech, making the case for holistic education in an AI world
+description: Ramblings of how we can work on tech and non tech knowledge and navigate the AI world
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { usingLetterQuestion1Data } from "@/question/algebra/basic";
+import { remainderMethodQuestion1BranchData } from "@/question/fractions/remainderMethod";
+import eg from "@/public/reflection/geometry_eg.jpg";
+import Image from "next/image";
+
+import { BranchDiagram } from "@/components/question/remainderBranch";
+
+import { MultipleChoiceQuestion } from "@/components/question/multipleChoice";
+
+### Introduction
+
+Ever since chatgpt was introduced, tech people are probably reconsidering why they are in a tech career, and everyone and their mother is trying to learn more about tech and ai in the other spectrum. In this article, I would like to offer my perspective, as a final year biz undergrad with programming knowledge.
+
+<Accordions>
+
+  <Accordion title="Techies - why should you consider non tech skills?">
+Before you continue reading further, I hope you would set aside any opinions you have on non-STEM being inferior or whatever. Most people absolutely don't have to open the next accordion, but for the few please do.
+
+### Evaluate the tradeoff between having reusable code and business requirement
+
+Pretend you are the owner of this site. You set out to make content on PSLE math. The first thing you encounter are multiple choice questions. Easy Peasy - just make a react component, store correct answer as state.
+Example:
+
+<MultipleChoiceQuestion questionData={usingLetterQuestion1Data} />
+
+And you are right! It's a great solution and makes the site better for learning.
+You then encounter Remainder Method, where you need to draw the branch method. Do you still want to make a reusable component? Example:
+
+<BranchDiagram data={remainderMethodQuestion1BranchData} />
+Sure, why not! It took a while, but you made it. Its a decent solution and makes
+the site better for learning. Any remainder question from now on can just use the
+component to output branch method. <br />\
+
+Now, you encounter geometry questions. PSLE math has too many retarded shapes -
+here are some examples. Now, **_What would you choose to do?_**
+
+<Image src={eg} />
+
+I hope you arrived at the conclusion that a screenshot would probably suffice. Else you just spent a week tinkering with Canva Api like an idiot and didnt even come close to making a component for these shapes, let alone a reusable one😅😭 <br/><br/>
+Some CS Whiz can probably do it. But ask yourself, for what? Geometry is just one question type. The business requirement is to make content documenting PSLE math based on the learning syllabus and external research on question types. Sometimes ur non tech side needs to act as a balance to tell you to stop over-engineering.
+
+### Real world problems are not definable by Big O
+
+Consider the fact that the first AI classroom just recently came out. Whether it achieves O(n) for academic learning productivity is up for debate, but I will tell you with certainty: <br/><br/>
+Its getting an O(n!) for learning social skills. Its getting an O(n) for nurturing future adults who add zero value compared to an AI. Its getting an O(n) for nurturing future adults who will yap "As an AI language model, I cannot..." <br/> <br/>
+Big O is by definition an efficiency metric on X. Real world problems are not definable by a single Big O, like how economics posits the theory of externality and "true cost". I believe it is impossible to know every single problem (and hence come up with a metric) out there, and hence impossible for us to calculate the big O of real world issues.
+
+<Callout type="info" title="Note">
+  I'm not saying AI has no place in education. My PSLE math section was compiled
+  thru man hours. Honestly to scale it to include more questions, a fine tuned
+  LLM on question types and concepts may be a better solution. Hence, I believe
+  it has a place in academics (see my later definition). BUT AI HAS NO PLACE IN
+  REPLACING THE WHOLE EDUCATION
+</Callout>
+
+  </Accordion> 
+    <Accordion title="My programming experience">
+I'm not saying all this to flex or whatever. I'm trying to demonstrate that I have put a fair amount of effort in trying to learn about the field of programming. Inexperienced as I might be, I hope you will concede that much and let me yap on. <br/>
+1. [CommonDocs](https://github.com/spiritoftime/commondocs) - PERN stack google docs clone, featuring a custom auth system and drag and drop nested folder system (Deployments broken because render free db expires every 3 months, and I used up AWS free tier) <br/>
+2. [Abstainify](https://github.com/spiritoftime/check-app-plugin) - Android app-blocking application. Block YT shorts, websites, apps by location, wifi and timing. <br/>
+3. This website
+  </Accordion>
+      <Accordion title="So... how the hell do you solve education?">
+Again, this is the opinion of a failure getting destroyed by the job market. Hear me out, and form your own thoughts<br/><br/>
+Education is such a complex issue that I cannot hope to comprehend it. With that said, here are two of my personal definitions I would like to introduce:
+
+<div className="steps">
+  <div className="step">
+    Academics - a narrow set of education you pursue as a function of
+    meritocracy (ie. psle, your major specialization in order to get a job)
+  </div>
+  <div className="step">
+    Education - everything. Mental health, being a role model, learning whatever
+    there is in this world and forming your own perspective.
+  </div>
+</div>
+Educators/ teachers are damn shag. They are expected to outperform tuition centers
+in imparting academics. Yet at the same time they are called upon to fulfill the
+role of an educator - to be a part of cca, cce, csp. If a student is rebellious/
+has high absenteeism, may even need to be a social worker
+
+There's really no perfect solution. My thoughts:
+
+<div className="steps">
+  <div className="step">
+Pay educators more. If ministers are paid top money to get top talent then invest in the ones nuturing future adults.
+
+  </div>
+  <div className="step">
+Lower the student teacher ratio. Academics have a place in the world since it is a chance to break out the poverty chain. But it is virtually impossible to outperform tuition in academic teaching.
+  </div>
+  <div className="step">
+Better educators. I'm now taking strat under this one prof who's the best prof I've ever had. He's a madlad with 30+ yoe and went to do a phd just so he can teach. His lessons make me think more about what I wanna try to do in this world other than bitch about how shitty the world is. Educators need to stop limiting their world view to academics (thinking they only need to specialize in psle or something).
+</div>
+</div>
+  </Accordion>
+
+   <Accordion title="Wth is 'soft skills' and how can I try to learn it ??">
+Techies are probably considering to change careers with how brutal the job market is. People from a non tech background are trying to find their place in a world where everything is getting automated. They may be told to improve on "soft skill". And no, I'm not talking about generic fluff advice or go touch grass.
+
+(I will share the initial research I did for my strategy assignment at Wk 7 after I submit it as a concrete example)
+
+Imagine you are trying to make the case for whether to invest in an industry. A blind application of SWOT is imo a trash analysis, you need to evaluate the info sources you are reading, formulate and question assumptions, think from the POV of other stakeholders (finance, sustainability etc), succintly communicate information and come up with a solid plan. <br/><br/>
+A biz undergrad who puts in the effort to go through such critical thinking would IMO take his soft skills to a decent level, and probably be great as a PM etc. This is what I think people are referring to when they say a technical person needs what we call "soft skills", and I just got started in trying to hone this as my way of standing out in this brutal job market.
+
+<Callout type="info" title="Note">
+I'm sorry for not covering other non tech areas like music, philosophy etc. As a mugger I have zero knowledge and hence zero personal opinion & experience in it. Read whatever I yap and form your own unique perspective, shaped by your own experience.<br/><br/> Also why the hell is strategy a senior level module? what even is the strategy behind that decision?
+</Callout>
+</Accordion>
+
+  <Accordion title="I'm a non techie. Why/ how can I learn tech?">
+This deserves a separate yap article. But in short I love programming because I feel like it gives me superpowers. <br/><br/> Spending too much time on YT shorts and am continously sucked in by Caseoh's gravitational pull? Just make your own appblocker!
+
+Pick one programming language and get started. Ideally Javascript or Python. For me I got started with HTML (blueprint for websites) and worked my way from there. There's a million things to learn, ask AI what practical applications of programming are there and pick one that interests you.
+
+  </Accordion>
+</Accordions>
+Thanks for reading such a lengthy article. Hope it would leave you with some takeaways 😀

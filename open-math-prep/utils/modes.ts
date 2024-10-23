@@ -10,8 +10,9 @@ export interface Mode {
 interface HashMapNode {
   modes: Mode[];
 }
+// modes for psle math - create new modes for new academic content if needed
 
-export const modes: Mode[] = [
+const psleMathModes: Mode[] = [
   {
     param: "psle/math/lectures",
     name: "Lectures",
@@ -33,20 +34,11 @@ export const hashMapNodes: Record<string, HashMapNode> = {
   "topic/reflection": {
     modes: [],
   },
+  "topic/fitness": {
+    modes: [],
+  },
   "topic/psle/math": {
-    modes: [
-      {
-        param: "psle/math/lectures",
-        name: "Lectures",
-        description: "Lectures",
-        icon: Presentation,
-      },
-      {
-        param: "psle/math/questions",
-        name: "Questions",
-        description: "Practice Questions",
-        icon: BookOpenText,
-      },
-    ],
+    // add the modes here
+    modes: psleMathModes,
   },
 };
