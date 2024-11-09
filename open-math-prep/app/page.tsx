@@ -11,6 +11,11 @@ import {
 } from "../components/question/remainderBranch";
 import { JourneyDiagram } from "@/components/question/speedJourney";
 import { journeyByPartQuestion1Data } from "@/question/speed/journeyByParts";
+import GrowthTable from "./finance/msft/GrowthTable";
+import IncomeGrowthTable from "./finance/msft/IncomeStatement";
+import CashFlowGrowthTable from "./finance/msft/CashFlow";
+import FinancialMetrics from "./finance/msft/FinancialMetrics";
+import FinancialMetricsAMZN from "./finance/amzn/FinancialMetrics";
 // const customStyles = {
 //   border: "2px dashed #ff0000",
 //   padding: 20,
@@ -29,18 +34,21 @@ import { journeyByPartQuestion1Data } from "@/question/speed/journeyByParts";
 //   style: customStyles,
 // };
 export default function HomePage() {
-
   return (
     <HomeLayout {...baseOptions}>
       <main className="flex flex-col justify-center min-h-screen text-center">
         <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
         <p className="text-muted-foreground">
-          You can choose a topic you wish to navigate to from the topic combobox at the navigation bar.
+          You can choose a topic you wish to navigate to from the topic combobox
+          at the navigation bar.
         </p>
         <Test />
-        <JourneyDiagram
+        {/* <JourneyDiagram
           scenarios={journeyByPartQuestion1Data.journeyDiagram.scenarios}
-        />
+        /> */}
+
+        <FinancialMetrics />
+        <FinancialMetricsAMZN />
         {/* <MarblesProblem /> */}
         {/* <BranchDiagram data={exampleData2} /> */}
       </main>
