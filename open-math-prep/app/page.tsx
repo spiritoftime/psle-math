@@ -46,9 +46,6 @@ export default function HomePage() {
         {/* <JourneyDiagram
           scenarios={journeyByPartQuestion1Data.journeyDiagram.scenarios}
         /> */}
-
-        <FinancialMetrics />
-        <FinancialMetricsAMZN />
         {/* <MarblesProblem /> */}
         {/* <BranchDiagram data={exampleData2} /> */}
       </main>
