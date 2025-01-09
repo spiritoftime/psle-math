@@ -1,21 +1,7 @@
-import { HomeLayout } from "fumadocs-ui/home-layout";
-import Link from "next/link";
-import { baseOptions } from "./layout.config";
 import Test from "@/components/ui/test";
+import { HomeLayout } from "fumadocs-ui/home-layout";
+import { baseOptions } from "./layout.config";
 // import MarblesProblem from "@/components/ui/model";
-import dynamic from "next/dynamic";
-import {
-  BranchDiagram,
-  exampleData2,
-  exampleData,
-} from "../components/question/remainderBranch";
-import { JourneyDiagram } from "@/components/question/speedJourney";
-import { journeyByPartQuestion1Data } from "@/question/speed/journeyByParts";
-import GrowthTable from "./finance/msft/GrowthTable";
-import IncomeGrowthTable from "./finance/msft/IncomeStatement";
-import CashFlowGrowthTable from "./finance/msft/CashFlow";
-import FinancialMetrics from "./finance/msft/FinancialMetrics";
-import FinancialMetricsAMZN from "./finance/amzn/FinancialMetrics";
 // const customStyles = {
 //   border: "2px dashed #ff0000",
 //   padding: 20,
